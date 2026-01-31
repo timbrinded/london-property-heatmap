@@ -18,8 +18,18 @@ for (const area of areas) {
       if (data.features) {
         data.features.forEach(f => {
           // Normalize the name property
-          const name = f.properties?.name || f.properties?.Name || area;
-          f.properties = { ...f.properties, name };
+          const rawName = f.properties?.name || f.properties?.Name || area;
+          
+          // Extract parent district from sector (EC1A -> EC1, SW1P -> SW1, W1B -> W1)
+          // Pattern: letters + numbers + optional letters
+          const match = rawName.match(/^([A-Z]+\d+)/);
+          const district = match ? match[1] : rawName;
+          
+          f.properties = { 
+            ...f.properties, 
+            name: district,  // Use parent district for matching
+            sector: rawName  // Keep original sector name
+          };
           mergedFeatures.push(f);
         });
       }
@@ -51,9 +61,9 @@ const realPrices = {
   'E1': 520000, 'E2': 580000, 'E3': 490000, 'E4': 450000, 'E5': 520000,
   'E6': 380000, 'E7': 420000, 'E8': 620000, 'E9': 590000, 'E10': 440000,
   'E11': 480000, 'E12': 400000, 'E13': 370000, 'E14': 500000, 'E15': 420000,
-  'E16': 400000, 'E17': 520000, 'E18': 550000,
+  'E16': 400000, 'E17': 520000, 'E18': 550000, 'E20': 480000,
   
-  // Central East
+  // Central East (City of London)
   'EC1': 850000, 'EC2': 920000, 'EC3': 880000, 'EC4': 900000,
   
   // North London  
@@ -109,3 +119,15 @@ fs.writeFileSync(
 
 console.log(`Created price data for ${priceData.length} districts`);
 console.log(`Baseline (E14): £${baselinePrice.toLocaleString()}`);
+
+// Verify the mapping will work
+const uniqueDistricts = [...new Set(mergedFeatures.map(f => f.properties.name))];
+const priceSet = new Set(priceData.map(p => p.district));
+const unmatchedGeo = uniqueDistricts.filter(d => !priceSet.has(d));
+const unmatchedPrice = [...priceSet].filter(d => !uniqueDistricts.includes(d));
+
+console.log(`\nUnique districts in GeoJSON: ${uniqueDistricts.length}`);
+console.log(`GeoJSON districts without price data: ${unmatchedGeo.length}`);
+if (unmatchedGeo.length > 0) console.log('  ->', unmatchedGeo.join(', '));
+console.log(`Price data without GeoJSON: ${unmatchedPrice.length}`);
+if (unmatchedPrice.length > 0) console.log('  ->', unmatchedPrice.join(', '));
