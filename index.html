@@ -101,6 +101,135 @@
         color: #64b5f6;
       }
       
+      /* Overlay Controls */
+      .overlay-controls {
+        margin-top: 16px;
+        padding-top: 16px;
+        border-top: 1px solid rgba(255,255,255,0.1);
+      }
+      
+      .overlay-controls h4 {
+        font-size: 12px;
+        font-weight: 600;
+        color: #888;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-bottom: 12px;
+      }
+      
+      .toggle-group {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      
+      .toggle-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      
+      .toggle-item label {
+        font-size: 13px;
+        color: #ccc;
+        cursor: pointer;
+        user-select: none;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      
+      .toggle-item .icon {
+        font-size: 16px;
+      }
+      
+      /* Custom Toggle Switch */
+      .toggle-switch {
+        position: relative;
+        width: 36px;
+        height: 20px;
+        flex-shrink: 0;
+      }
+      
+      .toggle-switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+      }
+      
+      .toggle-slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #444;
+        transition: 0.3s;
+        border-radius: 20px;
+      }
+      
+      .toggle-slider:before {
+        position: absolute;
+        content: "";
+        height: 14px;
+        width: 14px;
+        left: 3px;
+        bottom: 3px;
+        background-color: #fff;
+        transition: 0.3s;
+        border-radius: 50%;
+      }
+      
+      .toggle-switch input:checked + .toggle-slider {
+        background-color: #64b5f6;
+      }
+      
+      .toggle-switch input:checked + .toggle-slider:before {
+        transform: translateX(16px);
+      }
+      
+      /* School legend */
+      .schools-legend {
+        margin-top: 16px;
+        padding-top: 12px;
+        border-top: 1px solid rgba(255,255,255,0.1);
+        display: none;
+      }
+      
+      .schools-legend.visible {
+        display: block;
+      }
+      
+      .schools-legend h4 {
+        font-size: 11px;
+        font-weight: 600;
+        color: #888;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-bottom: 8px;
+      }
+      
+      .school-type {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 12px;
+        color: #aaa;
+        margin-bottom: 4px;
+      }
+      
+      .school-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        border: 1.5px solid #fff;
+      }
+      
+      .school-dot.boys { background: #4FC3F7; }
+      .school-dot.girls { background: #F48FB1; }
+      .school-dot.coed { background: #AED581; }
+      
       .hover-popup {
         position: absolute;
         display: none;
@@ -132,6 +261,21 @@
       .hover-popup .diff.cheaper { color: #4caf50; }
       .hover-popup .diff.expensive { color: #f44336; }
       .hover-popup .diff.baseline { color: #64b5f6; }
+      
+      /* School popup styling */
+      .mapboxgl-popup.school-popup .mapboxgl-popup-content {
+        background: rgba(26, 26, 46, 0.98);
+        color: #fff;
+        padding: 10px 14px;
+        border-radius: 8px;
+        font-size: 12px;
+        border: 1px solid rgba(255,255,255,0.1);
+        box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+      }
+      
+      .mapboxgl-popup.school-popup .mapboxgl-popup-tip {
+        border-top-color: rgba(26, 26, 46, 0.98);
+      }
     </style>
   </head>
   <body>
@@ -143,6 +287,37 @@
       <div class="baseline">
         <strong>Baseline: E14 (Millwall)</strong><br>
         <span id="baseline-price">Loading...</span>
+      </div>
+      
+      <div class="overlay-controls">
+        <h4>Overlays</h4>
+        <div class="toggle-group">
+          <div class="toggle-item">
+            <label class="toggle-switch">
+              <input type="checkbox" id="toggle-transport">
+              <span class="toggle-slider"></span>
+            </label>
+            <label for="toggle-transport">
+              <span class="icon">🚇</span> Transport Links
+            </label>
+          </div>
+          <div class="toggle-item">
+            <label class="toggle-switch">
+              <input type="checkbox" id="toggle-schools">
+              <span class="toggle-slider"></span>
+            </label>
+            <label for="toggle-schools">
+              <span class="icon">🎓</span> Top Schools
+            </label>
+          </div>
+        </div>
+      </div>
+      
+      <div class="schools-legend" id="schools-legend">
+        <h4>School Types</h4>
+        <div class="school-type"><span class="school-dot boys"></span> Boys</div>
+        <div class="school-type"><span class="school-dot girls"></span> Girls</div>
+        <div class="school-type"><span class="school-dot coed"></span> Co-educational</div>
       </div>
     </div>
     
@@ -170,6 +345,12 @@
       <div class="diff" id="popup-diff"></div>
     </div>
     
+    <script>
+      // Toggle schools legend visibility
+      document.getElementById('toggle-schools').addEventListener('change', function() {
+        document.getElementById('schools-legend').classList.toggle('visible', this.checked);
+      });
+    </script>
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>

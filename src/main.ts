@@ -10,6 +10,13 @@ interface PostcodeData {
   sampleSize: number;
 }
 
+interface School {
+  name: string;
+  type: 'boys' | 'girls' | 'co-ed';
+  founded: number;
+  ranking: number;
+}
+
 // E14 (Millwall/Isle of Dogs) baseline - will be calculated from data
 const BASELINE_DISTRICT = 'E14';
 let baselinePrice = 0;
@@ -24,6 +31,13 @@ function getColor(percentDiff: number): string {
   if (percentDiff <= 70) return '#f44336';
   return '#b71c1c';
 }
+
+// School marker colors by type  
+const SCHOOL_COLORS: Record<string, string> = {
+  boys: '#4FC3F7',
+  girls: '#F48FB1',
+  'co-ed': '#AED581'
+};
 
 function formatPrice(price: number): string {
   if (price >= 1000000) {
@@ -47,6 +61,23 @@ async function loadGeoJSON(): Promise<GeoJSON.FeatureCollection> {
   return response.json();
 }
 
+async function loadTransport(): Promise<GeoJSON.FeatureCollection> {
+  const response = await fetch('/data/transport-lines.json');
+  return response.json();
+}
+
+async function loadSchools(): Promise<GeoJSON.FeatureCollection> {
+  const response = await fetch('/data/schools.json');
+  return response.json();
+}
+
+function setupToggle(id: string, callback: (checked: boolean) => void) {
+  const toggle = document.getElementById(id) as HTMLInputElement;
+  if (toggle) {
+    toggle.addEventListener('change', () => callback(toggle.checked));
+  }
+}
+
 async function init() {
   const map = new mapboxgl.Map({
     container: 'map',
@@ -59,10 +90,12 @@ async function init() {
 
   map.addControl(new mapboxgl.NavigationControl(), 'top-right');
 
-  // Load data
-  const [priceData, geoData] = await Promise.all([
+  // Load all data
+  const [priceData, geoData, transportData, schoolsData] = await Promise.all([
     loadData(),
-    loadGeoJSON()
+    loadGeoJSON(),
+    loadTransport(),
+    loadSchools()
   ]);
 
   // Create price lookup
@@ -95,13 +128,12 @@ async function init() {
   }).filter(f => f.properties.medianPrice > 0);
 
   map.on('load', () => {
-    // Add source
+    // === POSTCODE HEATMAP LAYERS ===
     map.addSource('postcodes', {
       type: 'geojson',
       data: geoData
     });
 
-    // Add fill layer
     map.addLayer({
       id: 'postcodes-fill',
       type: 'fill',
@@ -112,7 +144,6 @@ async function init() {
       }
     });
 
-    // Add outline layer
     map.addLayer({
       id: 'postcodes-outline',
       type: 'line',
@@ -137,12 +168,119 @@ async function init() {
       }
     });
 
-    // Hover effects
+    // === TRANSPORT LAYERS ===
+    map.addSource('transport', {
+      type: 'geojson',
+      data: transportData
+    });
+
+    // Transport lines - wider glow
+    map.addLayer({
+      id: 'transport-glow',
+      type: 'line',
+      source: 'transport',
+      layout: {
+        'visibility': 'none',
+        'line-join': 'round',
+        'line-cap': 'round'
+      },
+      paint: {
+        'line-color': ['get', 'color'],
+        'line-width': 8,
+        'line-opacity': 0.3,
+        'line-blur': 4
+      }
+    });
+
+    // Transport lines - core
+    map.addLayer({
+      id: 'transport-lines',
+      type: 'line',
+      source: 'transport',
+      layout: {
+        'visibility': 'none',
+        'line-join': 'round',
+        'line-cap': 'round'
+      },
+      paint: {
+        'line-color': ['get', 'color'],
+        'line-width': 3,
+        'line-opacity': 0.9
+      }
+    });
+
+    // === SCHOOLS LAYERS ===
+    map.addSource('schools', {
+      type: 'geojson',
+      data: schoolsData
+    });
+
+    // School markers - glow
+    map.addLayer({
+      id: 'schools-glow',
+      type: 'circle',
+      source: 'schools',
+      layout: { 'visibility': 'none' },
+      paint: {
+        'circle-radius': 18,
+        'circle-color': [
+          'match', ['get', 'type'],
+          'boys', SCHOOL_COLORS.boys,
+          'girls', SCHOOL_COLORS.girls,
+          SCHOOL_COLORS['co-ed']
+        ],
+        'circle-opacity': 0.25,
+        'circle-blur': 1
+      }
+    });
+
+    // School markers - main
+    map.addLayer({
+      id: 'schools-markers',
+      type: 'circle',
+      source: 'schools',
+      layout: { 'visibility': 'none' },
+      paint: {
+        'circle-radius': 10,
+        'circle-color': [
+          'match', ['get', 'type'],
+          'boys', SCHOOL_COLORS.boys,
+          'girls', SCHOOL_COLORS.girls,
+          SCHOOL_COLORS['co-ed']
+        ],
+        'circle-stroke-width': 2,
+        'circle-stroke-color': '#ffffff'
+      }
+    });
+
+    // School labels
+    map.addLayer({
+      id: 'schools-labels',
+      type: 'symbol',
+      source: 'schools',
+      layout: {
+        'visibility': 'none',
+        'text-field': ['get', 'name'],
+        'text-font': ['DIN Pro Medium', 'Arial Unicode MS Regular'],
+        'text-size': 11,
+        'text-offset': [0, 1.8],
+        'text-anchor': 'top',
+        'text-max-width': 10
+      },
+      paint: {
+        'text-color': '#ffffff',
+        'text-halo-color': 'rgba(0, 0, 0, 0.8)',
+        'text-halo-width': 1.5
+      }
+    });
+
+    // === HOVER EFFECTS ===
     const popup = document.getElementById('popup')!;
     const popupDistrict = document.getElementById('popup-district')!;
     const popupPrice = document.getElementById('popup-price')!;
     const popupDiff = document.getElementById('popup-diff')!;
 
+    // Postcode hover
     map.on('mousemove', 'postcodes-fill', (e) => {
       if (e.features && e.features.length > 0) {
         const feature = e.features[0];
@@ -171,6 +309,63 @@ async function init() {
     map.on('mouseleave', 'postcodes-fill', () => {
       map.getCanvas().style.cursor = '';
       popup.style.display = 'none';
+    });
+
+    // Transport hover
+    map.on('mouseenter', 'transport-lines', () => {
+      map.getCanvas().style.cursor = 'pointer';
+    });
+
+    map.on('mouseleave', 'transport-lines', () => {
+      map.getCanvas().style.cursor = '';
+    });
+
+    // School hover - show tooltip with details
+    const schoolTooltip = new mapboxgl.Popup({
+      closeButton: false,
+      closeOnClick: false,
+      className: 'school-popup'
+    });
+
+    map.on('mouseenter', 'schools-markers', (e) => {
+      map.getCanvas().style.cursor = 'pointer';
+      
+      if (e.features && e.features.length > 0) {
+        const feature = e.features[0];
+        const props = feature.properties as School;
+        const coords = (feature.geometry as GeoJSON.Point).coordinates;
+        
+        const typeLabel = props.type === 'co-ed' ? 'Co-educational' : 
+                         props.type === 'boys' ? "Boys' school" : "Girls' school";
+        
+        schoolTooltip
+          .setLngLat(coords as [number, number])
+          .setHTML(`
+            <strong>${props.name}</strong><br>
+            <span style="color: ${SCHOOL_COLORS[props.type]}">${typeLabel}</span><br>
+            <span style="opacity: 0.7">Founded ${props.founded}</span>
+          `)
+          .addTo(map);
+      }
+    });
+
+    map.on('mouseleave', 'schools-markers', () => {
+      map.getCanvas().style.cursor = '';
+      schoolTooltip.remove();
+    });
+
+    // === TOGGLE HANDLERS ===
+    setupToggle('toggle-transport', (checked) => {
+      const visibility = checked ? 'visible' : 'none';
+      map.setLayoutProperty('transport-glow', 'visibility', visibility);
+      map.setLayoutProperty('transport-lines', 'visibility', visibility);
+    });
+
+    setupToggle('toggle-schools', (checked) => {
+      const visibility = checked ? 'visible' : 'none';
+      map.setLayoutProperty('schools-glow', 'visibility', visibility);
+      map.setLayoutProperty('schools-markers', 'visibility', visibility);
+      map.setLayoutProperty('schools-labels', 'visibility', visibility);
     });
   });
 }
