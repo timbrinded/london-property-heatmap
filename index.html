@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>London Property Heatmap - Prices Relative to Millwall</title>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.css" rel="stylesheet" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        background: #1a1a2e;
+        color: #eee;
+      }
+      
+      #map {
+        width: 100vw;
+        height: 100vh;
+      }
+      
+      .legend {
+        position: absolute;
+        bottom: 30px;
+        left: 20px;
+        background: rgba(26, 26, 46, 0.95);
+        padding: 16px 20px;
+        border-radius: 12px;
+        font-size: 13px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255,255,255,0.1);
+        z-index: 1000;
+      }
+      
+      .legend h3 {
+        margin-bottom: 12px;
+        font-size: 14px;
+        font-weight: 600;
+        color: #fff;
+      }
+      
+      .legend-scale {
+        display: flex;
+        align-items: center;
+        gap: 2px;
+        margin-bottom: 8px;
+      }
+      
+      .legend-scale span {
+        width: 28px;
+        height: 16px;
+        border-radius: 2px;
+      }
+      
+      .legend-labels {
+        display: flex;
+        justify-content: space-between;
+        font-size: 11px;
+        color: #aaa;
+      }
+      
+      .info-panel {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        background: rgba(26, 26, 46, 0.95);
+        padding: 16px 20px;
+        border-radius: 12px;
+        max-width: 300px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255,255,255,0.1);
+        z-index: 1000;
+      }
+      
+      .info-panel h1 {
+        font-size: 18px;
+        margin-bottom: 8px;
+        color: #fff;
+      }
+      
+      .info-panel p {
+        font-size: 13px;
+        color: #aaa;
+        line-height: 1.5;
+      }
+      
+      .info-panel .baseline {
+        margin-top: 12px;
+        padding-top: 12px;
+        border-top: 1px solid rgba(255,255,255,0.1);
+      }
+      
+      .info-panel .baseline strong {
+        color: #64b5f6;
+      }
+      
+      .hover-popup {
+        position: absolute;
+        display: none;
+        background: rgba(26, 26, 46, 0.98);
+        padding: 12px 16px;
+        border-radius: 8px;
+        pointer-events: none;
+        z-index: 1001;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+        border: 1px solid rgba(255,255,255,0.1);
+      }
+      
+      .hover-popup h4 {
+        font-size: 14px;
+        margin-bottom: 4px;
+        color: #fff;
+      }
+      
+      .hover-popup .price {
+        font-size: 18px;
+        font-weight: 700;
+        margin-bottom: 4px;
+      }
+      
+      .hover-popup .diff {
+        font-size: 13px;
+      }
+      
+      .hover-popup .diff.cheaper { color: #4caf50; }
+      .hover-popup .diff.expensive { color: #f44336; }
+      .hover-popup .diff.baseline { color: #64b5f6; }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    
+    <div class="info-panel">
+      <h1>🏠 London Property Prices</h1>
+      <p>Median property prices by postcode district, shown relative to your baseline location.</p>
+      <div class="baseline">
+        <strong>Baseline: E14 (Millwall)</strong><br>
+        <span id="baseline-price">Loading...</span>
+      </div>
+    </div>
+    
+    <div class="legend">
+      <h3>Price vs E14 (Millwall)</h3>
+      <div class="legend-scale">
+        <span style="background: #1b5e20"></span>
+        <span style="background: #388e3c"></span>
+        <span style="background: #66bb6a"></span>
+        <span style="background: #64b5f6"></span>
+        <span style="background: #ff9800"></span>
+        <span style="background: #f44336"></span>
+        <span style="background: #b71c1c"></span>
+      </div>
+      <div class="legend-labels">
+        <span>-50%</span>
+        <span>0%</span>
+        <span>+100%</span>
+      </div>
+    </div>
+    
+    <div class="hover-popup" id="popup">
+      <h4 id="popup-district"></h4>
+      <div class="price" id="popup-price"></div>
+      <div class="diff" id="popup-diff"></div>
+    </div>
+    
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

@@ -1,0 +1,716 @@
+[
+  {
+    "district": "E1",
+    "medianPrice": 520000,
+    "percentDiff": 4,
+    "sampleSize": 429
+  },
+  {
+    "district": "E2",
+    "medianPrice": 580000,
+    "percentDiff": 16,
+    "sampleSize": 116
+  },
+  {
+    "district": "E3",
+    "medianPrice": 490000,
+    "percentDiff": -2,
+    "sampleSize": 470
+  },
+  {
+    "district": "E4",
+    "medianPrice": 450000,
+    "percentDiff": -10,
+    "sampleSize": 364
+  },
+  {
+    "district": "E5",
+    "medianPrice": 520000,
+    "percentDiff": 4,
+    "sampleSize": 174
+  },
+  {
+    "district": "E6",
+    "medianPrice": 380000,
+    "percentDiff": -24,
+    "sampleSize": 546
+  },
+  {
+    "district": "E7",
+    "medianPrice": 420000,
+    "percentDiff": -16,
+    "sampleSize": 137
+  },
+  {
+    "district": "E8",
+    "medianPrice": 620000,
+    "percentDiff": 24,
+    "sampleSize": 525
+  },
+  {
+    "district": "E9",
+    "medianPrice": 590000,
+    "percentDiff": 18,
+    "sampleSize": 333
+  },
+  {
+    "district": "E10",
+    "medianPrice": 440000,
+    "percentDiff": -12,
+    "sampleSize": 164
+  },
+  {
+    "district": "E11",
+    "medianPrice": 480000,
+    "percentDiff": -4,
+    "sampleSize": 539
+  },
+  {
+    "district": "E12",
+    "medianPrice": 400000,
+    "percentDiff": -20,
+    "sampleSize": 466
+  },
+  {
+    "district": "E13",
+    "medianPrice": 370000,
+    "percentDiff": -26,
+    "sampleSize": 269
+  },
+  {
+    "district": "E14",
+    "medianPrice": 500000,
+    "percentDiff": 0,
+    "sampleSize": 310
+  },
+  {
+    "district": "E15",
+    "medianPrice": 420000,
+    "percentDiff": -16,
+    "sampleSize": 277
+  },
+  {
+    "district": "E16",
+    "medianPrice": 400000,
+    "percentDiff": -20,
+    "sampleSize": 516
+  },
+  {
+    "district": "E17",
+    "medianPrice": 520000,
+    "percentDiff": 4,
+    "sampleSize": 548
+  },
+  {
+    "district": "E18",
+    "medianPrice": 550000,
+    "percentDiff": 10,
+    "sampleSize": 113
+  },
+  {
+    "district": "EC1",
+    "medianPrice": 850000,
+    "percentDiff": 70,
+    "sampleSize": 335
+  },
+  {
+    "district": "EC2",
+    "medianPrice": 920000,
+    "percentDiff": 84,
+    "sampleSize": 526
+  },
+  {
+    "district": "EC3",
+    "medianPrice": 880000,
+    "percentDiff": 76,
+    "sampleSize": 509
+  },
+  {
+    "district": "EC4",
+    "medianPrice": 900000,
+    "percentDiff": 80,
+    "sampleSize": 318
+  },
+  {
+    "district": "N1",
+    "medianPrice": 750000,
+    "percentDiff": 50,
+    "sampleSize": 122
+  },
+  {
+    "district": "N2",
+    "medianPrice": 680000,
+    "percentDiff": 36,
+    "sampleSize": 248
+  },
+  {
+    "district": "N3",
+    "medianPrice": 620000,
+    "percentDiff": 24,
+    "sampleSize": 401
+  },
+  {
+    "district": "N4",
+    "medianPrice": 600000,
+    "percentDiff": 20,
+    "sampleSize": 348
+  },
+  {
+    "district": "N5",
+    "medianPrice": 680000,
+    "percentDiff": 36,
+    "sampleSize": 180
+  },
+  {
+    "district": "N6",
+    "medianPrice": 950000,
+    "percentDiff": 90,
+    "sampleSize": 162
+  },
+  {
+    "district": "N7",
+    "medianPrice": 680000,
+    "percentDiff": 36,
+    "sampleSize": 318
+  },
+  {
+    "district": "N8",
+    "medianPrice": 650000,
+    "percentDiff": 30,
+    "sampleSize": 182
+  },
+  {
+    "district": "N9",
+    "medianPrice": 400000,
+    "percentDiff": -20,
+    "sampleSize": 489
+  },
+  {
+    "district": "N10",
+    "medianPrice": 720000,
+    "percentDiff": 44,
+    "sampleSize": 215
+  },
+  {
+    "district": "N11",
+    "medianPrice": 520000,
+    "percentDiff": 4,
+    "sampleSize": 234
+  },
+  {
+    "district": "N12",
+    "medianPrice": 550000,
+    "percentDiff": 10,
+    "sampleSize": 154
+  },
+  {
+    "district": "N13",
+    "medianPrice": 480000,
+    "percentDiff": -4,
+    "sampleSize": 336
+  },
+  {
+    "district": "N14",
+    "medianPrice": 520000,
+    "percentDiff": 4,
+    "sampleSize": 135
+  },
+  {
+    "district": "N15",
+    "medianPrice": 480000,
+    "percentDiff": -4,
+    "sampleSize": 454
+  },
+  {
+    "district": "N16",
+    "medianPrice": 650000,
+    "percentDiff": 30,
+    "sampleSize": 340
+  },
+  {
+    "district": "N17",
+    "medianPrice": 420000,
+    "percentDiff": -16,
+    "sampleSize": 389
+  },
+  {
+    "district": "N18",
+    "medianPrice": 400000,
+    "percentDiff": -20,
+    "sampleSize": 218
+  },
+  {
+    "district": "N19",
+    "medianPrice": 650000,
+    "percentDiff": 30,
+    "sampleSize": 586
+  },
+  {
+    "district": "N20",
+    "medianPrice": 580000,
+    "percentDiff": 16,
+    "sampleSize": 529
+  },
+  {
+    "district": "N21",
+    "medianPrice": 550000,
+    "percentDiff": 10,
+    "sampleSize": 188
+  },
+  {
+    "district": "N22",
+    "medianPrice": 480000,
+    "percentDiff": -4,
+    "sampleSize": 289
+  },
+  {
+    "district": "NW1",
+    "medianPrice": 950000,
+    "percentDiff": 90,
+    "sampleSize": 474
+  },
+  {
+    "district": "NW2",
+    "medianPrice": 600000,
+    "percentDiff": 20,
+    "sampleSize": 331
+  },
+  {
+    "district": "NW3",
+    "medianPrice": 1400000,
+    "percentDiff": 180,
+    "sampleSize": 118
+  },
+  {
+    "district": "NW4",
+    "medianPrice": 580000,
+    "percentDiff": 16,
+    "sampleSize": 219
+  },
+  {
+    "district": "NW5",
+    "medianPrice": 780000,
+    "percentDiff": 56,
+    "sampleSize": 482
+  },
+  {
+    "district": "NW6",
+    "medianPrice": 720000,
+    "percentDiff": 44,
+    "sampleSize": 377
+  },
+  {
+    "district": "NW7",
+    "medianPrice": 600000,
+    "percentDiff": 20,
+    "sampleSize": 231
+  },
+  {
+    "district": "NW8",
+    "medianPrice": 1200000,
+    "percentDiff": 140,
+    "sampleSize": 275
+  },
+  {
+    "district": "NW9",
+    "medianPrice": 480000,
+    "percentDiff": -4,
+    "sampleSize": 397
+  },
+  {
+    "district": "NW10",
+    "medianPrice": 520000,
+    "percentDiff": 4,
+    "sampleSize": 590
+  },
+  {
+    "district": "NW11",
+    "medianPrice": 850000,
+    "percentDiff": 70,
+    "sampleSize": 465
+  },
+  {
+    "district": "SE1",
+    "medianPrice": 620000,
+    "percentDiff": 24,
+    "sampleSize": 557
+  },
+  {
+    "district": "SE2",
+    "medianPrice": 380000,
+    "percentDiff": -24,
+    "sampleSize": 198
+  },
+  {
+    "district": "SE3",
+    "medianPrice": 550000,
+    "percentDiff": 10,
+    "sampleSize": 210
+  },
+  {
+    "district": "SE4",
+    "medianPrice": 520000,
+    "percentDiff": 4,
+    "sampleSize": 555
+  },
+  {
+    "district": "SE5",
+    "medianPrice": 500000,
+    "percentDiff": 0,
+    "sampleSize": 482
+  },
+  {
+    "district": "SE6",
+    "medianPrice": 420000,
+    "percentDiff": -16,
+    "sampleSize": 345
+  },
+  {
+    "district": "SE7",
+    "medianPrice": 400000,
+    "percentDiff": -20,
+    "sampleSize": 102
+  },
+  {
+    "district": "SE8",
+    "medianPrice": 480000,
+    "percentDiff": -4,
+    "sampleSize": 497
+  },
+  {
+    "district": "SE9",
+    "medianPrice": 420000,
+    "percentDiff": -16,
+    "sampleSize": 147
+  },
+  {
+    "district": "SE10",
+    "medianPrice": 550000,
+    "percentDiff": 10,
+    "sampleSize": 376
+  },
+  {
+    "district": "SE11",
+    "medianPrice": 560000,
+    "percentDiff": 12,
+    "sampleSize": 573
+  },
+  {
+    "district": "SE12",
+    "medianPrice": 450000,
+    "percentDiff": -10,
+    "sampleSize": 126
+  },
+  {
+    "district": "SE13",
+    "medianPrice": 450000,
+    "percentDiff": -10,
+    "sampleSize": 274
+  },
+  {
+    "district": "SE14",
+    "medianPrice": 480000,
+    "percentDiff": -4,
+    "sampleSize": 149
+  },
+  {
+    "district": "SE15",
+    "medianPrice": 500000,
+    "percentDiff": 0,
+    "sampleSize": 154
+  },
+  {
+    "district": "SE16",
+    "medianPrice": 520000,
+    "percentDiff": 4,
+    "sampleSize": 123
+  },
+  {
+    "district": "SE17",
+    "medianPrice": 480000,
+    "percentDiff": -4,
+    "sampleSize": 405
+  },
+  {
+    "district": "SE18",
+    "medianPrice": 350000,
+    "percentDiff": -30,
+    "sampleSize": 384
+  },
+  {
+    "district": "SE19",
+    "medianPrice": 500000,
+    "percentDiff": 0,
+    "sampleSize": 322
+  },
+  {
+    "district": "SE20",
+    "medianPrice": 440000,
+    "percentDiff": -12,
+    "sampleSize": 459
+  },
+  {
+    "district": "SE21",
+    "medianPrice": 750000,
+    "percentDiff": 50,
+    "sampleSize": 514
+  },
+  {
+    "district": "SE22",
+    "medianPrice": 680000,
+    "percentDiff": 36,
+    "sampleSize": 394
+  },
+  {
+    "district": "SE23",
+    "medianPrice": 550000,
+    "percentDiff": 10,
+    "sampleSize": 169
+  },
+  {
+    "district": "SE24",
+    "medianPrice": 700000,
+    "percentDiff": 40,
+    "sampleSize": 362
+  },
+  {
+    "district": "SE25",
+    "medianPrice": 400000,
+    "percentDiff": -20,
+    "sampleSize": 443
+  },
+  {
+    "district": "SE26",
+    "medianPrice": 480000,
+    "percentDiff": -4,
+    "sampleSize": 377
+  },
+  {
+    "district": "SE27",
+    "medianPrice": 520000,
+    "percentDiff": 4,
+    "sampleSize": 439
+  },
+  {
+    "district": "SE28",
+    "medianPrice": 320000,
+    "percentDiff": -36,
+    "sampleSize": 405
+  },
+  {
+    "district": "SW1",
+    "medianPrice": 1500000,
+    "percentDiff": 200,
+    "sampleSize": 167
+  },
+  {
+    "district": "SW2",
+    "medianPrice": 580000,
+    "percentDiff": 16,
+    "sampleSize": 134
+  },
+  {
+    "district": "SW3",
+    "medianPrice": 1800000,
+    "percentDiff": 260,
+    "sampleSize": 227
+  },
+  {
+    "district": "SW4",
+    "medianPrice": 700000,
+    "percentDiff": 40,
+    "sampleSize": 120
+  },
+  {
+    "district": "SW5",
+    "medianPrice": 950000,
+    "percentDiff": 90,
+    "sampleSize": 371
+  },
+  {
+    "district": "SW6",
+    "medianPrice": 850000,
+    "percentDiff": 70,
+    "sampleSize": 271
+  },
+  {
+    "district": "SW7",
+    "medianPrice": 1600000,
+    "percentDiff": 220,
+    "sampleSize": 169
+  },
+  {
+    "district": "SW8",
+    "medianPrice": 600000,
+    "percentDiff": 20,
+    "sampleSize": 226
+  },
+  {
+    "district": "SW9",
+    "medianPrice": 550000,
+    "percentDiff": 10,
+    "sampleSize": 157
+  },
+  {
+    "district": "SW10",
+    "medianPrice": 1200000,
+    "percentDiff": 140,
+    "sampleSize": 107
+  },
+  {
+    "district": "SW11",
+    "medianPrice": 750000,
+    "percentDiff": 50,
+    "sampleSize": 573
+  },
+  {
+    "district": "SW12",
+    "medianPrice": 650000,
+    "percentDiff": 30,
+    "sampleSize": 498
+  },
+  {
+    "district": "SW13",
+    "medianPrice": 800000,
+    "percentDiff": 60,
+    "sampleSize": 416
+  },
+  {
+    "district": "SW14",
+    "medianPrice": 780000,
+    "percentDiff": 56,
+    "sampleSize": 559
+  },
+  {
+    "district": "SW15",
+    "medianPrice": 720000,
+    "percentDiff": 44,
+    "sampleSize": 258
+  },
+  {
+    "district": "SW16",
+    "medianPrice": 500000,
+    "percentDiff": 0,
+    "sampleSize": 366
+  },
+  {
+    "district": "SW17",
+    "medianPrice": 580000,
+    "percentDiff": 16,
+    "sampleSize": 387
+  },
+  {
+    "district": "SW18",
+    "medianPrice": 650000,
+    "percentDiff": 30,
+    "sampleSize": 346
+  },
+  {
+    "district": "SW19",
+    "medianPrice": 750000,
+    "percentDiff": 50,
+    "sampleSize": 198
+  },
+  {
+    "district": "SW20",
+    "medianPrice": 600000,
+    "percentDiff": 20,
+    "sampleSize": 526
+  },
+  {
+    "district": "W1",
+    "medianPrice": 1800000,
+    "percentDiff": 260,
+    "sampleSize": 434
+  },
+  {
+    "district": "W2",
+    "medianPrice": 1100000,
+    "percentDiff": 120,
+    "sampleSize": 466
+  },
+  {
+    "district": "W3",
+    "medianPrice": 600000,
+    "percentDiff": 20,
+    "sampleSize": 298
+  },
+  {
+    "district": "W4",
+    "medianPrice": 850000,
+    "percentDiff": 70,
+    "sampleSize": 465
+  },
+  {
+    "district": "W5",
+    "medianPrice": 580000,
+    "percentDiff": 16,
+    "sampleSize": 425
+  },
+  {
+    "district": "W6",
+    "medianPrice": 750000,
+    "percentDiff": 50,
+    "sampleSize": 304
+  },
+  {
+    "district": "W7",
+    "medianPrice": 520000,
+    "percentDiff": 4,
+    "sampleSize": 232
+  },
+  {
+    "district": "W8",
+    "medianPrice": 1500000,
+    "percentDiff": 200,
+    "sampleSize": 221
+  },
+  {
+    "district": "W9",
+    "medianPrice": 800000,
+    "percentDiff": 60,
+    "sampleSize": 348
+  },
+  {
+    "district": "W10",
+    "medianPrice": 700000,
+    "percentDiff": 40,
+    "sampleSize": 115
+  },
+  {
+    "district": "W11",
+    "medianPrice": 1300000,
+    "percentDiff": 160,
+    "sampleSize": 546
+  },
+  {
+    "district": "W12",
+    "medianPrice": 700000,
+    "percentDiff": 40,
+    "sampleSize": 270
+  },
+  {
+    "district": "W13",
+    "medianPrice": 550000,
+    "percentDiff": 10,
+    "sampleSize": 112
+  },
+  {
+    "district": "W14",
+    "medianPrice": 850000,
+    "percentDiff": 70,
+    "sampleSize": 518
+  },
+  {
+    "district": "WC1",
+    "medianPrice": 950000,
+    "percentDiff": 90,
+    "sampleSize": 430
+  },
+  {
+    "district": "WC2",
+    "medianPrice": 1100000,
+    "percentDiff": 120,
+    "sampleSize": 543
+  }
+]
