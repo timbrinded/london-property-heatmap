@@ -1,7 +1,7 @@
 import mapboxgl from 'mapbox-gl';
 
-// You'll need to add your own Mapbox token
-mapboxgl.accessToken = 'pk.eyJ1IjoidGltYnJpbmRlZCIsImEiOiJjbTFpcnoyeXUwNDlnMmpvb3g1Ynp0dWFxIn0.THaQaolzVZvhxs3tpKCEmA';
+// Mapbox access token
+mapboxgl.accessToken = 'pk.eyJ1IjoidGltLXNiIiwiYSI6ImNta3lnbTI1czA3ZXAzZ3Iwa3IzZmhqZTYifQ.DQh_zL9rtf4xhfkAYa3xzQ';
 
 interface PostcodeData {
   district: string;
