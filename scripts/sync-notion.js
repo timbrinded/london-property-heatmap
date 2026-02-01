@@ -1,10 +1,22 @@
 const fs = require('fs');
 const https = require('https');
 const os = require('os');
+const path = require('path');
 
-const NOTION_API_KEY = process.env.NOTION_API_KEY || fs.readFileSync(
-  os.homedir() + '/.config/notion/api_key', 'utf8'
-).trim();
+// Try to get API key from env or local file
+let NOTION_API_KEY = process.env.NOTION_API_KEY;
+if (!NOTION_API_KEY) {
+  const keyPath = path.join(os.homedir(), '.config/notion/api_key');
+  if (fs.existsSync(keyPath)) {
+    NOTION_API_KEY = fs.readFileSync(keyPath, 'utf8').trim();
+  }
+}
+
+// If no API key, skip sync (use existing data)
+if (!NOTION_API_KEY) {
+  console.log('⚠️  No Notion API key found - skipping sync (using existing data)');
+  process.exit(0);
+}
 
 // Schools database
 const DATABASE_ID = '2fa8cb56-61db-81d3-89bb-dd8a3cbddbe9';
