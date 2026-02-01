@@ -93,7 +93,7 @@
       "type": "Feature",
       "properties": {
         "name": "Notting Hill & Ealing High",
-        "type": "co-ed",
+        "type": "girls",
         "ranking": 50,
         "feesPerYear": 23895,
         "website": "https://www.nhehs.gdst.net/",
@@ -269,7 +269,7 @@
       "type": "Feature",
       "properties": {
         "name": "The Cavendish School",
-        "type": "co-ed",
+        "type": "girls",
         "ranking": 150,
         "feesPerYear": 22000,
         "website": "https://cavendishschool.co.uk/",
@@ -291,7 +291,7 @@
       "type": "Feature",
       "properties": {
         "name": "Harrow School",
-        "type": "co-ed",
+        "type": "boys",
         "ranking": 50,
         "feesPerYear": 63735,
         "website": "https://www.harrowschool.org.uk/",
@@ -357,7 +357,7 @@
       "type": "Feature",
       "properties": {
         "name": "Sussex House School",
-        "type": "co-ed",
+        "type": "boys",
         "ranking": 150,
         "feesPerYear": 33300,
         "website": "https://www.sussexhouseschool.co.uk/",
@@ -401,7 +401,7 @@
       "type": "Feature",
       "properties": {
         "name": "City of London School",
-        "type": "co-ed",
+        "type": "boys",
         "ranking": 50,
         "feesPerYear": 28458,
         "website": "https://www.cityoflondonschool.org.uk/",
@@ -445,7 +445,7 @@
       "type": "Feature",
       "properties": {
         "name": "Bromley High School",
-        "type": "co-ed",
+        "type": "girls",
         "ranking": 150,
         "feesPerYear": 25491,
         "website": "https://www.bromleyhigh.gdst.net/",
@@ -467,7 +467,7 @@
       "type": "Feature",
       "properties": {
         "name": "Hampton School",
-        "type": "co-ed",
+        "type": "boys",
         "ranking": 50,
         "feesPerYear": 29916,
         "website": "https://hamptonschool.org.uk/",
@@ -643,7 +643,7 @@
       "type": "Feature",
       "properties": {
         "name": "St Helen's Northwood",
-        "type": "co-ed",
+        "type": "girls",
         "ranking": 50,
         "feesPerYear": 26616,
         "website": "https://www.sthelens.london/",
@@ -709,7 +709,7 @@
       "type": "Feature",
       "properties": {
         "name": "Croydon High School",
-        "type": "co-ed",
+        "type": "girls",
         "ranking": 50,
         "feesPerYear": 24564,
         "website": "https://www.croydonhigh.gdst.net/",
@@ -731,7 +731,7 @@
       "type": "Feature",
       "properties": {
         "name": "Surbiton High School",
-        "type": "co-ed",
+        "type": "girls",
         "ranking": 50,
         "feesPerYear": 25850,
         "website": "https://www.surbitonhigh.com/",
@@ -797,7 +797,7 @@
       "type": "Feature",
       "properties": {
         "name": "Francis Holland Regent's Pk",
-        "type": "co-ed",
+        "type": "girls",
         "ranking": 50,
         "feesPerYear": 30834,
         "website": "https://www.fhs-nw1.org.uk/",
@@ -841,7 +841,7 @@
       "type": "Feature",
       "properties": {
         "name": "Channing School",
-        "type": "co-ed",
+        "type": "girls",
         "ranking": 50,
         "feesPerYear": 31662,
         "website": "https://www.channing.co.uk/",
@@ -863,7 +863,7 @@
       "type": "Feature",
       "properties": {
         "name": "Dulwich College",
-        "type": "co-ed",
+        "type": "boys",
         "ranking": 50,
         "feesPerYear": 28000,
         "website": "https://www.dulwich.org.uk/",
@@ -951,7 +951,7 @@
       "type": "Feature",
       "properties": {
         "name": "Wimbledon High School",
-        "type": "co-ed",
+        "type": "girls",
         "ranking": 50,
         "feesPerYear": 28857,
         "website": "https://www.wimbledonhigh.gdst.net/",
@@ -973,7 +973,7 @@
       "type": "Feature",
       "properties": {
         "name": "Pembridge Hall",
-        "type": "co-ed",
+        "type": "girls",
         "ranking": 150,
         "feesPerYear": 28000,
         "website": "https://www.pembridgehall.co.uk/",
@@ -1017,7 +1017,7 @@
       "type": "Feature",
       "properties": {
         "name": "South Hampstead High",
-        "type": "co-ed",
+        "type": "girls",
         "ranking": 50,
         "feesPerYear": 28371,
         "website": "https://www.shhs.gdst.net/",
@@ -1039,7 +1039,7 @@
       "type": "Feature",
       "properties": {
         "name": "St Paul's School",
-        "type": "co-ed",
+        "type": "boys",
         "ranking": 50,
         "feesPerYear": 35847,
         "website": "https://www.stpaulsschool.org.uk/",
@@ -1105,7 +1105,7 @@
       "type": "Feature",
       "properties": {
         "name": "Wetherby School",
-        "type": "co-ed",
+        "type": "boys",
         "ranking": 150,
         "feesPerYear": 32970,
         "website": "https://www.wetherbyschool.co.uk/",
@@ -1127,7 +1127,7 @@
       "type": "Feature",
       "properties": {
         "name": "Putney High School",
-        "type": "co-ed",
+        "type": "girls",
         "ranking": 50,
         "feesPerYear": 24000,
         "website": "https://www.putneyhigh.gdst.net/",
@@ -1215,7 +1215,7 @@
       "type": "Feature",
       "properties": {
         "name": "Glendower Prep",
-        "type": "co-ed",
+        "type": "girls",
         "ranking": 150,
         "feesPerYear": 26000,
         "website": "https://www.glendowerprep.org/",
@@ -1259,7 +1259,7 @@
       "type": "Feature",
       "properties": {
         "name": "Sydenham High School",
-        "type": "co-ed",
+        "type": "girls",
         "ranking": 150,
         "feesPerYear": 23910,
         "website": "https://www.sydenhamhighschool.gdst.net/",
@@ -1281,7 +1281,7 @@
       "type": "Feature",
       "properties": {
         "name": "Lady Eleanor Holles",
-        "type": "co-ed",
+        "type": "girls",
         "ranking": 50,
         "feesPerYear": 30756,
         "website": "https://lehs.org.uk/",
@@ -1391,7 +1391,7 @@
       "type": "Feature",
       "properties": {
         "name": "St Augustine's Priory",
-        "type": "co-ed",
+        "type": "girls",
         "ranking": 50,
         "feesPerYear": 24500,
         "website": "https://www.sapriory.com/",
@@ -1413,7 +1413,7 @@
       "type": "Feature",
       "properties": {
         "name": "Godolphin & Latymer",
-        "type": "co-ed",
+        "type": "girls",
         "ranking": 50,
         "feesPerYear": 34622,
         "website": "https://www.godolphinandlatymer.com/",
@@ -1435,7 +1435,7 @@
       "type": "Feature",
       "properties": {
         "name": "Streatham & Clapham High",
-        "type": "co-ed",
+        "type": "girls",
         "ranking": 150,
         "feesPerYear": 26040,
         "website": "https://schs.gdst.net/",
@@ -1457,7 +1457,7 @@
       "type": "Feature",
       "properties": {
         "name": "Queen's College London",
-        "type": "co-ed",
+        "type": "girls",
         "ranking": 50,
         "feesPerYear": 31806,
         "website": "https://www.qcl.org.uk/",
@@ -1479,7 +1479,7 @@
       "type": "Feature",
       "properties": {
         "name": "Merchant Taylors' School",
-        "type": "co-ed",
+        "type": "boys",
         "ranking": 50,
         "feesPerYear": 31947,
         "website": "https://www.mtsn.org.uk/",
@@ -1501,7 +1501,7 @@
       "type": "Feature",
       "properties": {
         "name": "Northwood College",
-        "type": "co-ed",
+        "type": "girls",
         "ranking": 150,
         "feesPerYear": 24825,
         "website": "https://www.northwoodcollege.gdst.net/",
@@ -1567,7 +1567,7 @@
       "type": "Feature",
       "properties": {
         "name": "Eaton House Schools",
-        "type": "co-ed",
+        "type": "boys",
         "ranking": 150,
         "feesPerYear": 28000,
         "website": "https://www.eatonhouseschools.com/",
@@ -1589,7 +1589,7 @@
       "type": "Feature",
       "properties": {
         "name": "Eton College",
-        "type": "co-ed",
+        "type": "boys",
         "ranking": 50,
         "feesPerYear": 63299,
         "website": "https://www.etoncollege.com/",
@@ -1611,7 +1611,7 @@
       "type": "Feature",
       "properties": {
         "name": "Blackheath High School",
-        "type": "co-ed",
+        "type": "girls",
         "ranking": 150,
         "feesPerYear": 24468,
         "website": "https://www.blackheathhighschool.gdst.net/",
@@ -1743,7 +1743,7 @@
       "type": "Feature",
       "properties": {
         "name": "Whitgift School",
-        "type": "co-ed",
+        "type": "boys",
         "ranking": 50,
         "feesPerYear": 30240,
         "website": "https://www.whitgift.co.uk/",
@@ -1787,7 +1787,7 @@
       "type": "Feature",
       "properties": {
         "name": "More House School",
-        "type": "co-ed",
+        "type": "girls",
         "ranking": 150,
         "feesPerYear": 24825,
         "website": "https://www.morehouse.org.uk/",
@@ -1809,7 +1809,7 @@
       "type": "Feature",
       "properties": {
         "name": "Francis Holland Sloane Sq",
-        "type": "co-ed",
+        "type": "girls",
         "ranking": 50,
         "feesPerYear": 30834,
         "website": "https://www.fhs-sw1.org.uk/",
@@ -1963,7 +1963,7 @@
       "type": "Feature",
       "properties": {
         "name": "North London Collegiate",
-        "type": "co-ed",
+        "type": "girls",
         "ranking": 50,
         "feesPerYear": 29751,
         "website": "https://www.nlcs.org.uk/",
@@ -2007,7 +2007,7 @@
       "type": "Feature",
       "properties": {
         "name": "Falkner House",
-        "type": "co-ed",
+        "type": "girls",
         "ranking": 150,
         "feesPerYear": 27000,
         "website": "https://www.falknerhouse.co.uk/",
@@ -2117,7 +2117,7 @@
   "_meta": {
     "source": "notion",
     "database": "2fa8cb56-61db-81d3-89bb-dd8a3cbddbe9",
-    "syncedAt": "2026-02-01T20:57:33.406Z",
+    "syncedAt": "2026-02-01T22:48:07.857Z",
     "publicUrl": "https://www.notion.so/2fa8cb5661db81d389bbdd8a3cbddbe9"
   }
 }

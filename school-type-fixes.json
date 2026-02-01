@@ -1,0 +1,121 @@
+[
+  {
+    "name": "Kingston Grammar School",
+    "currentType": "co-ed",
+    "detectedType": "boys",
+    "wikiUrl": "https://en.wikipedia.org/wiki/Kingston_Grammar_School",
+    "description": "Private day school in Kingston upon Thames, England"
+  },
+  {
+    "name": "City of London School",
+    "currentType": "co-ed",
+    "detectedType": "girls",
+    "wikiUrl": "https://en.wikipedia.org/wiki/City_of_London_School",
+    "description": "Private day school in London, England"
+  },
+  {
+    "name": "Croydon High School",
+    "currentType": "co-ed",
+    "detectedType": "girls",
+    "wikiUrl": "https://en.wikipedia.org/wiki/Croydon_High_School",
+    "description": "Private day school in South Croydon, Greater London, England"
+  },
+  {
+    "name": "Channing School",
+    "currentType": "co-ed",
+    "detectedType": "girls",
+    "wikiUrl": "https://en.wikipedia.org/wiki/Channing_School",
+    "description": "Private day school in London, England"
+  },
+  {
+    "name": "Dulwich College",
+    "currentType": "co-ed",
+    "detectedType": "boys",
+    "wikiUrl": "https://en.wikipedia.org/wiki/Dulwich_College",
+    "description": "Public school in London, England"
+  },
+  {
+    "name": "Wimbledon High School",
+    "currentType": "co-ed",
+    "detectedType": "girls",
+    "wikiUrl": "https://en.wikipedia.org/wiki/Wimbledon_High_School",
+    "description": "Private day school in London, England"
+  },
+  {
+    "name": "Wetherby School",
+    "currentType": "co-ed",
+    "detectedType": "boys",
+    "wikiUrl": "https://en.wikipedia.org/wiki/Wetherby_School",
+    "description": "Boys' school in Notting Hill, London"
+  },
+  {
+    "name": "Putney High School",
+    "currentType": "co-ed",
+    "detectedType": "girls",
+    "wikiUrl": "https://en.wikipedia.org/wiki/Putney_High_School",
+    "description": "All girls school in London"
+  },
+  {
+    "name": "Alleyn's School",
+    "currentType": "co-ed",
+    "detectedType": "girls",
+    "wikiUrl": "https://en.wikipedia.org/wiki/Alleyn's_School",
+    "description": "Public school in Dulwich, London"
+  },
+  {
+    "name": "Hill House School",
+    "currentType": "co-ed",
+    "detectedType": "boys",
+    "wikiUrl": "https://en.wikipedia.org/wiki/Hill_House_School",
+    "description": "Private preparatory school in Knightsbridge, London, England"
+  },
+  {
+    "name": "St Augustine's Priory",
+    "currentType": "co-ed",
+    "detectedType": "girls",
+    "wikiUrl": "https://en.wikipedia.org/wiki/St_Augustine's_Priory",
+    "description": "School in Ealing, London, England"
+  },
+  {
+    "name": "Merchant Taylors' School",
+    "currentType": "co-ed",
+    "detectedType": "girls",
+    "wikiUrl": "https://en.wikipedia.org/wiki/Merchant_Taylors'_School",
+    "description": "Topics referred to by the same term"
+  },
+  {
+    "name": "Northwood College",
+    "currentType": "co-ed",
+    "detectedType": "girls",
+    "wikiUrl": "https://en.wikipedia.org/wiki/Northwood_College",
+    "description": "Private school in Greater London, England"
+  },
+  {
+    "name": "Eton College",
+    "currentType": "co-ed",
+    "detectedType": "boys",
+    "wikiUrl": "https://en.wikipedia.org/wiki/Eton_College",
+    "description": "Public school in Berkshire, England"
+  },
+  {
+    "name": "Blackheath High School",
+    "currentType": "co-ed",
+    "detectedType": "girls",
+    "wikiUrl": "https://en.wikipedia.org/wiki/Blackheath_High_School",
+    "description": "Private day school in Blackheath, London, England"
+  },
+  {
+    "name": "Knightsbridge School",
+    "currentType": "co-ed",
+    "detectedType": "girls",
+    "wikiUrl": "https://en.wikipedia.org/wiki/Knightsbridge_School",
+    "description": "(no description)"
+  },
+  {
+    "name": "North London Collegiate",
+    "currentType": "co-ed",
+    "detectedType": "girls",
+    "wikiUrl": "https://en.wikipedia.org/wiki/North_London_Collegiate",
+    "description": "Independent day school for girls in London"
+  }
+]
