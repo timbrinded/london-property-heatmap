@@ -104,7 +104,7 @@ async function syncSchools() {
     const lat = getNumber(props.Lat);
     const lng = getNumber(props.Lng);
     const website = getUrl(props.Website);
-    const image = getUrl(props.Image);
+    const wikiUrl = getUrl(props.Wikipedia) || getUrl(props.Wiki) || getUrl(props['Wiki URL']);
     const founded = getNumber(props.Founded);
     const highlights = getText(props.Highlights);
     const aLevelPercent = getNumber(props['A Level %A*-A']);
@@ -131,7 +131,7 @@ async function syncSchools() {
         ranking: getRankingNumber(rankingTier),
         feesPerYear: fee,
         website,
-        image,
+        wikiUrl,
         founded,
         highlights,
         aLevelPercent,

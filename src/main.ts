@@ -17,6 +17,7 @@ interface SchoolProperties {
   ranking: number;
   feesPerYear?: number;
   website?: string;
+  wikiUrl?: string;
   image?: string;
   highlights?: string;
   aLevelPercent?: number;
@@ -77,15 +78,7 @@ async function loadTransport(): Promise<GeoJSON.FeatureCollection> {
 }
 
 async function loadSchools(): Promise<GeoJSON.FeatureCollection> {
-  // Try to load schools with fees first, fall back to regular schools
-  try {
-    const response = await fetch('/data/schools-with-fees.json');
-    if (response.ok) {
-      return response.json();
-    }
-  } catch (e) {
-    // Fall back to original schools.json
-  }
+  // Load from Notion-synced schools.json (has rich metadata: images, highlights, website, stats)
   const response = await fetch('/data/schools.json');
   return response.json();
 }
@@ -103,10 +96,7 @@ interface SchoolFilters {
   top25: boolean;
   top100: boolean;
   top250: boolean;
-  fees15k: boolean;
-  fees25k: boolean;
-  fees35k: boolean;
-  fees50k: boolean;
+  feeBand: 'all' | 'under25k' | '25k-35k' | '35k-50k' | 'over50k';
 }
 
 async function init() {
@@ -170,10 +160,7 @@ async function init() {
     top25: true,
     top100: true,
     top250: true,
-    fees15k: false,
-    fees25k: false,
-    fees35k: false,
-    fees50k: false
+    feeBand: 'all'
   };
 
   // Helper to update transport layer visibility
@@ -217,10 +204,9 @@ async function init() {
     if (!map.getLayer('schools-markers')) return;
     
     const anyRankingSelected = schoolFilters.top25 || schoolFilters.top100 || schoolFilters.top250;
-    const anyFeesSelected = schoolFilters.fees15k || schoolFilters.fees25k || schoolFilters.fees35k || schoolFilters.fees50k;
     
-    // If no filters selected, hide all
-    if (!anyRankingSelected && !anyFeesSelected) {
+    // If no ranking filters selected, hide all
+    if (!anyRankingSelected) {
       map.setLayoutProperty('schools-glow', 'visibility', 'none');
       map.setLayoutProperty('schools-markers', 'visibility', 'none');
       map.setLayoutProperty('schools-labels', 'visibility', 'none');
@@ -245,31 +231,42 @@ async function init() {
       ]);
     }
     
-    // Build fee conditions - find the LOWEST enabled threshold
-    // (if >50k is on, we only want >50k; if >15k is on, we want >15k)
-    let minFeeThreshold = 0;
-    if (schoolFilters.fees50k) minFeeThreshold = 50000;
-    else if (schoolFilters.fees35k) minFeeThreshold = 35000;
-    else if (schoolFilters.fees25k) minFeeThreshold = 25000;
-    else if (schoolFilters.fees15k) minFeeThreshold = 15000;
+    // Build fee band condition (single-select)
+    let feeCondition: any = ['literal', true]; // 'all' means no fee filter
     
-    const feeCondition: any = minFeeThreshold > 0 
-      ? ['all', ['has', 'feesPerYear'], ['>=', ['get', 'feesPerYear'], minFeeThreshold]]
-      : ['literal', true];
-    
-    // Build final filter based on which types are active
-    let finalFilter: any;
-    
-    if (anyRankingSelected && anyFeesSelected) {
-      // BOTH active: must match ranking AND fees
-      finalFilter = ['all', rankingConditions, feeCondition];
-    } else if (anyRankingSelected) {
-      // Only ranking: use ranking conditions
-      finalFilter = rankingConditions;
-    } else {
-      // Only fees: use fee condition
-      finalFilter = feeCondition;
+    switch (schoolFilters.feeBand) {
+      case 'under25k':
+        feeCondition = ['all', 
+          ['has', 'feesPerYear'],
+          ['>', ['get', 'feesPerYear'], 0],
+          ['<', ['get', 'feesPerYear'], 25000]
+        ];
+        break;
+      case '25k-35k':
+        feeCondition = ['all', 
+          ['has', 'feesPerYear'],
+          ['>=', ['get', 'feesPerYear'], 25000],
+          ['<', ['get', 'feesPerYear'], 35000]
+        ];
+        break;
+      case '35k-50k':
+        feeCondition = ['all', 
+          ['has', 'feesPerYear'],
+          ['>=', ['get', 'feesPerYear'], 35000],
+          ['<', ['get', 'feesPerYear'], 50000]
+        ];
+        break;
+      case 'over50k':
+        feeCondition = ['all', 
+          ['has', 'feesPerYear'],
+          ['>=', ['get', 'feesPerYear'], 50000]
+        ];
+        break;
+      // 'all' uses the default ['literal', true]
     }
+    
+    // Combine ranking and fee conditions
+    const finalFilter: any = ['all', rankingConditions, feeCondition];
     
     map.setLayoutProperty('schools-glow', 'visibility', 'visible');
     map.setLayoutProperty('schools-markers', 'visibility', 'visible');
@@ -524,7 +521,7 @@ async function init() {
       maxWidth: '320px'
     });
 
-    map.on('click', 'schools-markers', (e) => {
+    map.on('click', 'schools-markers', async (e) => {
       if (e.features && e.features.length > 0) {
         const feature = e.features[0];
         const props = feature.properties as SchoolProperties;
@@ -534,10 +531,15 @@ async function init() {
                          props.type === 'boys' ? "Boys' school" : "Girls' school";
         const typeColor = SCHOOL_COLORS[props.type] || SCHOOL_COLORS['co-ed'];
         
-        // Build HTML sections
+        // Generate unique ID for this popup's image
+        const popupId = `school-img-${Date.now()}`;
+        
+        // Show loading placeholder if we have a wiki URL to fetch
         let imageHtml = '';
-        if (props.image) {
-          imageHtml = `<img src="${props.image}" alt="${props.name}" style="width:100%;height:120px;object-fit:cover;border-radius:8px 8px 0 0;margin:-12px -14px 12px -14px;width:calc(100% + 28px);">`;
+        if (props.wikiUrl) {
+          imageHtml = `<div id="${popupId}" class="school-popup-image-container">
+            <div class="school-popup-image-loading">Loading image...</div>
+          </div>`;
         }
         
         let statsHtml = '';
@@ -583,18 +585,41 @@ async function init() {
           .setLngLat(coords as [number, number])
           .setHTML(`
             ${imageHtml}
-            <div style="font-size:16px;font-weight:bold;margin-bottom:4px;">${props.name}</div>
-            <div style="color:${typeColor};font-size:13px;">${typeLabel}${foundedText}</div>
-            <div style="font-size:12px;opacity:0.7;margin-top:4px;">📊 Ranking: #${props.ranking}</div>
-            ${statsHtml}
-            ${feesHtml}
-            ${highlightsHtml}
-            ${websiteHtml}
+            <div class="school-popup-content">
+              <div style="font-size:16px;font-weight:bold;margin-bottom:4px;">${props.name}</div>
+              <div style="color:${typeColor};font-size:13px;">${typeLabel}${foundedText}</div>
+              <div style="font-size:12px;opacity:0.7;margin-top:4px;">📊 Ranking: #${props.ranking}</div>
+              ${statsHtml}
+              ${feesHtml}
+              ${highlightsHtml}
+              ${websiteHtml}
+            </div>
           `)
           .addTo(map);
         
         // Remove hover tooltip when detail popup opens
         schoolTooltip.remove();
+        
+        // Lazy-load Wikipedia image if we have a wiki URL
+        if (props.wikiUrl) {
+          try {
+            const apiUrl = `/api/wiki-image?url=${encodeURIComponent(props.wikiUrl)}`;
+            const response = await fetch(apiUrl);
+            if (response.ok) {
+              const data = await response.json();
+              const container = document.getElementById(popupId);
+              if (container && data.thumbnail) {
+                container.innerHTML = `<img src="${data.thumbnail}" alt="${props.name}" class="school-popup-image" onerror="this.parentElement.style.display='none'">`;
+              } else if (container) {
+                container.style.display = 'none';
+              }
+            }
+          } catch (err) {
+            // Silently fail - image is optional
+            const container = document.getElementById(popupId);
+            if (container) container.style.display = 'none';
+          }
+        }
       }
     });
 
@@ -618,18 +643,14 @@ async function init() {
       }
     });
     
-    // School toggles
-    const schoolToggleIds: Array<{id: string; key: keyof SchoolFilters}> = [
+    // School ranking toggles (checkboxes)
+    const rankingToggleIds: Array<{id: string; key: 'top25' | 'top100' | 'top250'}> = [
       { id: 'toggle-schools-top25', key: 'top25' },
       { id: 'toggle-schools-top100', key: 'top100' },
-      { id: 'toggle-schools-top250', key: 'top250' },
-      { id: 'toggle-fees-15k', key: 'fees15k' },
-      { id: 'toggle-fees-25k', key: 'fees25k' },
-      { id: 'toggle-fees-35k', key: 'fees35k' },
-      { id: 'toggle-fees-50k', key: 'fees50k' }
+      { id: 'toggle-schools-top250', key: 'top250' }
     ];
     
-    schoolToggleIds.forEach(({ id, key }) => {
+    rankingToggleIds.forEach(({ id, key }) => {
       const toggle = document.getElementById(id) as HTMLInputElement;
       if (toggle) {
         toggle.addEventListener('change', () => {
@@ -637,6 +658,16 @@ async function init() {
           updateSchoolLayers();
         });
       }
+    });
+    
+    // Fee band radio buttons (single-select)
+    const feeBandRadios = document.querySelectorAll('input[name="fee-band"]');
+    feeBandRadios.forEach(radio => {
+      radio.addEventListener('change', (e) => {
+        const target = e.target as HTMLInputElement;
+        schoolFilters.feeBand = target.value as SchoolFilters['feeBand'];
+        updateSchoolLayers();
+      });
     });
   });
 }

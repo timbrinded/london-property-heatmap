@@ -354,6 +354,72 @@
         transform: translateX(16px);
       }
       
+      /* Radio button group for single-select filters */
+      .radio-group {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+      
+      .radio-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        cursor: pointer;
+        padding: 6px 8px;
+        border-radius: 6px;
+        transition: background 0.2s;
+      }
+      
+      .radio-item:hover {
+        background: rgba(255,255,255,0.05);
+      }
+      
+      .radio-item input {
+        display: none;
+      }
+      
+      .radio-dot {
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        border: 2px solid #555;
+        background: transparent;
+        transition: all 0.2s;
+        flex-shrink: 0;
+        position: relative;
+      }
+      
+      .radio-dot::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #64b5f6;
+        transform: translate(-50%, -50%) scale(0);
+        transition: transform 0.2s;
+      }
+      
+      .radio-item input:checked + .radio-dot {
+        border-color: #64b5f6;
+      }
+      
+      .radio-item input:checked + .radio-dot::after {
+        transform: translate(-50%, -50%) scale(1);
+      }
+      
+      .radio-label {
+        font-size: 12px;
+        color: #ccc;
+      }
+      
+      .radio-item input:checked ~ .radio-label {
+        color: #fff;
+      }
+      
       /* School legend */
       .schools-legend {
         margin-top: 12px;
@@ -446,12 +512,39 @@
       .mapboxgl-popup.school-detail-popup .mapboxgl-popup-content {
         background: rgba(26, 26, 46, 0.98);
         color: #fff;
-        padding: 12px 14px;
+        padding: 0;
         border-radius: 12px;
         font-size: 13px;
         border: 1px solid rgba(255,255,255,0.15);
         box-shadow: 0 8px 32px rgba(0,0,0,0.5);
-        min-width: 260px;
+        min-width: 280px;
+        overflow: hidden;
+      }
+      
+      .mapboxgl-popup.school-detail-popup .school-popup-content {
+        padding: 14px 16px;
+      }
+      
+      .mapboxgl-popup.school-detail-popup .school-popup-image {
+        width: 100%;
+        height: 140px;
+        object-fit: cover;
+        display: block;
+      }
+      
+      .mapboxgl-popup.school-detail-popup .school-popup-image-container {
+        width: 100%;
+        min-height: 140px;
+        background: rgba(255,255,255,0.05);
+      }
+      
+      .mapboxgl-popup.school-detail-popup .school-popup-image-loading {
+        height: 140px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #666;
+        font-size: 12px;
       }
       
       .mapboxgl-popup.school-detail-popup .mapboxgl-popup-tip {
@@ -581,36 +674,33 @@
             </div>
             
             <div class="filter-subgroup">
-              <div class="filter-subgroup-label">Min. Annual Fees</div>
-              <div class="toggle-group">
-                <div class="toggle-item">
-                  <label class="toggle-switch">
-                    <input type="checkbox" id="toggle-fees-15k">
-                    <span class="toggle-slider"></span>
-                  </label>
-                  <label for="toggle-fees-15k">> £15,000</label>
-                </div>
-                <div class="toggle-item">
-                  <label class="toggle-switch">
-                    <input type="checkbox" id="toggle-fees-25k">
-                    <span class="toggle-slider"></span>
-                  </label>
-                  <label for="toggle-fees-25k">> £25,000</label>
-                </div>
-                <div class="toggle-item">
-                  <label class="toggle-switch">
-                    <input type="checkbox" id="toggle-fees-35k">
-                    <span class="toggle-slider"></span>
-                  </label>
-                  <label for="toggle-fees-35k">> £35,000</label>
-                </div>
-                <div class="toggle-item">
-                  <label class="toggle-switch">
-                    <input type="checkbox" id="toggle-fees-50k">
-                    <span class="toggle-slider"></span>
-                  </label>
-                  <label for="toggle-fees-50k">> £50,000</label>
-                </div>
+              <div class="filter-subgroup-label">Fee Range</div>
+              <div class="radio-group">
+                <label class="radio-item">
+                  <input type="radio" name="fee-band" value="all" checked>
+                  <span class="radio-dot"></span>
+                  <span class="radio-label">All fees</span>
+                </label>
+                <label class="radio-item">
+                  <input type="radio" name="fee-band" value="under25k">
+                  <span class="radio-dot"></span>
+                  <span class="radio-label">Under £25k</span>
+                </label>
+                <label class="radio-item">
+                  <input type="radio" name="fee-band" value="25k-35k">
+                  <span class="radio-dot"></span>
+                  <span class="radio-label">£25k – £35k</span>
+                </label>
+                <label class="radio-item">
+                  <input type="radio" name="fee-band" value="35k-50k">
+                  <span class="radio-dot"></span>
+                  <span class="radio-label">£35k – £50k</span>
+                </label>
+                <label class="radio-item">
+                  <input type="radio" name="fee-band" value="over50k">
+                  <span class="radio-dot"></span>
+                  <span class="radio-label">£50k+</span>
+                </label>
               </div>
             </div>
             
