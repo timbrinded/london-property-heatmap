@@ -212,68 +212,67 @@ async function init() {
   function updateSchoolLayers() {
     if (!map.getLayer('schools-markers')) return;
     
-    // Build filter: show school if it matches ANY enabled ranking OR fee filter
-    const conditions: any[] = ['any'];
+    const anyRankingSelected = schoolFilters.top25 || schoolFilters.top100 || schoolFilters.top250;
+    const anyFeesSelected = schoolFilters.fees15k || schoolFilters.fees25k || schoolFilters.fees35k || schoolFilters.fees50k;
     
-    // Ranking filters (cumulative tiers)
+    // If no filters selected, hide all
+    if (!anyRankingSelected && !anyFeesSelected) {
+      map.setLayoutProperty('schools-glow', 'visibility', 'none');
+      map.setLayoutProperty('schools-markers', 'visibility', 'none');
+      map.setLayoutProperty('schools-labels', 'visibility', 'none');
+      return;
+    }
+    
+    // Build ranking conditions
+    const rankingConditions: any[] = ['any'];
     if (schoolFilters.top25) {
-      conditions.push(['<=', ['get', 'ranking'], 25]);
+      rankingConditions.push(['<=', ['get', 'ranking'], 25]);
     }
     if (schoolFilters.top100) {
-      conditions.push(['all', 
+      rankingConditions.push(['all', 
         ['>', ['get', 'ranking'], 25],
         ['<=', ['get', 'ranking'], 100]
       ]);
     }
     if (schoolFilters.top250) {
-      conditions.push(['all', 
+      rankingConditions.push(['all', 
         ['>', ['get', 'ranking'], 100],
         ['<=', ['get', 'ranking'], 250]
       ]);
     }
     
-    // Fee filters (only if feesPerYear exists)
-    if (schoolFilters.fees15k) {
-      conditions.push(['all',
-        ['has', 'feesPerYear'],
-        ['>=', ['get', 'feesPerYear'], 15000]
-      ]);
-    }
-    if (schoolFilters.fees25k) {
-      conditions.push(['all',
-        ['has', 'feesPerYear'],
-        ['>=', ['get', 'feesPerYear'], 25000]
-      ]);
-    }
-    if (schoolFilters.fees35k) {
-      conditions.push(['all',
-        ['has', 'feesPerYear'],
-        ['>=', ['get', 'feesPerYear'], 35000]
-      ]);
-    }
-    if (schoolFilters.fees50k) {
-      conditions.push(['all',
-        ['has', 'feesPerYear'],
-        ['>=', ['get', 'feesPerYear'], 50000]
-      ]);
-    }
+    // Build fee conditions - find the LOWEST enabled threshold
+    // (if >50k is on, we only want >50k; if >15k is on, we want >15k)
+    let minFeeThreshold = 0;
+    if (schoolFilters.fees50k) minFeeThreshold = 50000;
+    else if (schoolFilters.fees35k) minFeeThreshold = 35000;
+    else if (schoolFilters.fees25k) minFeeThreshold = 25000;
+    else if (schoolFilters.fees15k) minFeeThreshold = 15000;
     
-    // If no filters selected, hide all
-    const anyRankingSelected = schoolFilters.top25 || schoolFilters.top100 || schoolFilters.top250;
-    const anyFeesSelected = schoolFilters.fees15k || schoolFilters.fees25k || schoolFilters.fees35k || schoolFilters.fees50k;
+    const feeCondition: any = minFeeThreshold > 0 
+      ? ['all', ['has', 'feesPerYear'], ['>=', ['get', 'feesPerYear'], minFeeThreshold]]
+      : ['literal', true];
     
-    if (!anyRankingSelected && !anyFeesSelected) {
-      map.setLayoutProperty('schools-glow', 'visibility', 'none');
-      map.setLayoutProperty('schools-markers', 'visibility', 'none');
-      map.setLayoutProperty('schools-labels', 'visibility', 'none');
+    // Build final filter based on which types are active
+    let finalFilter: any;
+    
+    if (anyRankingSelected && anyFeesSelected) {
+      // BOTH active: must match ranking AND fees
+      finalFilter = ['all', rankingConditions, feeCondition];
+    } else if (anyRankingSelected) {
+      // Only ranking: use ranking conditions
+      finalFilter = rankingConditions;
     } else {
-      map.setLayoutProperty('schools-glow', 'visibility', 'visible');
-      map.setLayoutProperty('schools-markers', 'visibility', 'visible');
-      map.setLayoutProperty('schools-labels', 'visibility', 'visible');
-      map.setFilter('schools-glow', conditions);
-      map.setFilter('schools-markers', conditions);
-      map.setFilter('schools-labels', conditions);
+      // Only fees: use fee condition
+      finalFilter = feeCondition;
     }
+    
+    map.setLayoutProperty('schools-glow', 'visibility', 'visible');
+    map.setLayoutProperty('schools-markers', 'visibility', 'visible');
+    map.setLayoutProperty('schools-labels', 'visibility', 'visible');
+    map.setFilter('schools-glow', finalFilter);
+    map.setFilter('schools-markers', finalFilter);
+    map.setFilter('schools-labels', finalFilter);
   }
 
   map.on('load', () => {
