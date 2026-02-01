@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "sync": "bun run scripts/sync-notion.js",
+    "build": "bun run sync && tsc && vite build",
     "preview": "vite preview"
   },
   "devDependencies": {
