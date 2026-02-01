@@ -13,10 +13,14 @@ interface PostcodeData {
 interface SchoolProperties {
   name: string;
   type: 'boys' | 'girls' | 'co-ed';
-  founded: number;
+  founded?: number;
   ranking: number;
   feesPerYear?: number;
-  feesEstimated?: boolean;
+  website?: string;
+  image?: string;
+  highlights?: string;
+  aLevelPercent?: number;
+  gcsePercent?: number;
 }
 
 // E14 (Millwall/Isle of Dogs) baseline - will be calculated from data
@@ -166,10 +170,10 @@ async function init() {
     top25: true,
     top100: true,
     top250: true,
-    fees15k: true,
-    fees25k: true,
-    fees35k: true,
-    fees50k: true
+    fees15k: false,
+    fees25k: false,
+    fees35k: false,
+    fees50k: false
   };
 
   // Helper to update transport layer visibility
@@ -492,8 +496,7 @@ async function init() {
         
         let feesHtml = '';
         if (props.feesPerYear) {
-          const estimated = props.feesEstimated ? ' (est.)' : '';
-          feesHtml = `<br><span style="color: #4caf50">💰 ${formatFees(props.feesPerYear)}${estimated}</span>`;
+          feesHtml = `<br><span style="color: #4caf50">💰 ${formatFees(props.feesPerYear)}</span>`;
         }
         
         schoolTooltip
@@ -511,6 +514,88 @@ async function init() {
     map.on('mouseleave', 'schools-markers', () => {
       map.getCanvas().style.cursor = '';
       schoolTooltip.remove();
+    });
+
+    // School click - show detailed popup
+    const schoolDetailPopup = new mapboxgl.Popup({
+      closeButton: true,
+      closeOnClick: true,
+      className: 'school-detail-popup',
+      maxWidth: '320px'
+    });
+
+    map.on('click', 'schools-markers', (e) => {
+      if (e.features && e.features.length > 0) {
+        const feature = e.features[0];
+        const props = feature.properties as SchoolProperties;
+        const coords = (feature.geometry as GeoJSON.Point).coordinates;
+        
+        const typeLabel = props.type === 'co-ed' ? 'Co-educational' : 
+                         props.type === 'boys' ? "Boys' school" : "Girls' school";
+        const typeColor = SCHOOL_COLORS[props.type] || SCHOOL_COLORS['co-ed'];
+        
+        // Build HTML sections
+        let imageHtml = '';
+        if (props.image) {
+          imageHtml = `<img src="${props.image}" alt="${props.name}" style="width:100%;height:120px;object-fit:cover;border-radius:8px 8px 0 0;margin:-12px -14px 12px -14px;width:calc(100% + 28px);">`;
+        }
+        
+        let statsHtml = '';
+        if (props.aLevelPercent || props.gcsePercent) {
+          statsHtml = '<div style="display:flex;gap:12px;margin:8px 0;">';
+          if (props.aLevelPercent) {
+            statsHtml += `<div style="flex:1;background:rgba(255,255,255,0.1);padding:8px;border-radius:6px;text-align:center;">
+              <div style="font-size:18px;font-weight:bold;color:#4caf50">${props.aLevelPercent}%</div>
+              <div style="font-size:10px;opacity:0.7">A Level A*-A</div>
+            </div>`;
+          }
+          if (props.gcsePercent) {
+            statsHtml += `<div style="flex:1;background:rgba(255,255,255,0.1);padding:8px;border-radius:6px;text-align:center;">
+              <div style="font-size:18px;font-weight:bold;color:#64b5f6">${props.gcsePercent}%</div>
+              <div style="font-size:10px;opacity:0.7">GCSE 9-7</div>
+            </div>`;
+          }
+          statsHtml += '</div>';
+        }
+        
+        let feesHtml = '';
+        if (props.feesPerYear) {
+          feesHtml = `<div style="margin:8px 0;"><span style="opacity:0.7">💰 Fees:</span> <strong>£${(props.feesPerYear / 1000).toFixed(0)}k/year</strong></div>`;
+        }
+        
+        let highlightsHtml = '';
+        if (props.highlights) {
+          highlightsHtml = `<div style="margin:10px 0;padding:10px;background:rgba(255,255,255,0.05);border-radius:6px;font-size:12px;line-height:1.5;">
+            ✨ ${props.highlights}
+          </div>`;
+        }
+        
+        let websiteHtml = '';
+        if (props.website) {
+          websiteHtml = `<a href="${props.website}" target="_blank" rel="noopener" style="display:block;margin-top:12px;padding:10px;background:${typeColor};color:#000;text-decoration:none;border-radius:6px;text-align:center;font-weight:600;">
+            🌐 Visit Website
+          </a>`;
+        }
+        
+        const foundedText = props.founded ? ` • Est. ${props.founded}` : '';
+        
+        schoolDetailPopup
+          .setLngLat(coords as [number, number])
+          .setHTML(`
+            ${imageHtml}
+            <div style="font-size:16px;font-weight:bold;margin-bottom:4px;">${props.name}</div>
+            <div style="color:${typeColor};font-size:13px;">${typeLabel}${foundedText}</div>
+            <div style="font-size:12px;opacity:0.7;margin-top:4px;">📊 Ranking: #${props.ranking}</div>
+            ${statsHtml}
+            ${feesHtml}
+            ${highlightsHtml}
+            ${websiteHtml}
+          `)
+          .addTo(map);
+        
+        // Remove hover tooltip when detail popup opens
+        schoolTooltip.remove();
+      }
     });
 
     // === TOGGLE HANDLERS ===

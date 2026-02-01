@@ -441,6 +441,35 @@
       .mapboxgl-popup.school-popup .mapboxgl-popup-tip {
         border-top-color: rgba(26, 26, 46, 0.98);
       }
+      
+      /* School detail popup (on click) */
+      .mapboxgl-popup.school-detail-popup .mapboxgl-popup-content {
+        background: rgba(26, 26, 46, 0.98);
+        color: #fff;
+        padding: 12px 14px;
+        border-radius: 12px;
+        font-size: 13px;
+        border: 1px solid rgba(255,255,255,0.15);
+        box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+        min-width: 260px;
+      }
+      
+      .mapboxgl-popup.school-detail-popup .mapboxgl-popup-tip {
+        border-top-color: rgba(26, 26, 46, 0.98);
+      }
+      
+      .mapboxgl-popup.school-detail-popup .mapboxgl-popup-close-button {
+        color: #fff;
+        font-size: 20px;
+        padding: 4px 8px;
+        right: 4px;
+        top: 4px;
+      }
+      
+      .mapboxgl-popup.school-detail-popup .mapboxgl-popup-close-button:hover {
+        background: rgba(255,255,255,0.1);
+        border-radius: 4px;
+      }
 
       /* Active filter count badge */
       .filter-count {
@@ -590,6 +619,11 @@
               <div class="school-type"><span class="school-dot boys"></span> Boys</div>
               <div class="school-type"><span class="school-dot girls"></span> Girls</div>
               <div class="school-type"><span class="school-dot coed"></span> Co-educational</div>
+            </div>
+            <div class="notion-link" style="margin-top: 12px; padding-top: 10px; border-top: 1px solid rgba(255,255,255,0.08);">
+              <a href="https://www.notion.so/2fa8cb5661db81d389bbdd8a3cbddbe9" target="_blank" rel="noopener" style="font-size: 11px; color: #64b5f6; text-decoration: none; display: flex; align-items: center; gap: 6px;">
+                📋 View schools data
+              </a>
             </div>
           </div>
         </div>

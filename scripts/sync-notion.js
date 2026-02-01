@@ -95,23 +95,47 @@ async function syncSchools() {
     
     const getSelect = (prop) => prop?.select?.name || '';
     const getNumber = (prop) => prop?.number ?? null;
+    const getUrl = (prop) => prop?.url || null;
     
     const name = getText(props.Name);
-    const type = getSelect(props.Type);
+    const gender = getSelect(props.Gender);
     const rankingTier = getSelect(props.Ranking);
     const fee = getNumber(props['Annual Fee']);
     const lat = getNumber(props.Lat);
     const lng = getNumber(props.Lng);
+    const website = getUrl(props.Website);
+    const image = getUrl(props.Image);
+    const founded = getNumber(props.Founded);
+    const highlights = getText(props.Highlights);
+    const aLevelPercent = getNumber(props['A Level %A*-A']);
+    const gcsePercent = getNumber(props['GCSE %9-7']);
     
     if (!name || lat === null || lng === null) return null;
+    
+    // Infer gender from name if not set
+    let schoolType = gender || 'co-ed';
+    if (!gender) {
+      const nameLower = name.toLowerCase();
+      if (nameLower.includes("girls'") || nameLower.includes("girls'") || nameLower.includes(' girls')) {
+        schoolType = 'girls';
+      } else if (nameLower.includes("boys'") || nameLower.includes("boys'") || nameLower.includes(' boys')) {
+        schoolType = 'boys';
+      }
+    }
     
     return {
       type: 'Feature',
       properties: {
         name,
-        type: type || 'senior',
+        type: schoolType,
         ranking: getRankingNumber(rankingTier),
-        feesPerYear: fee
+        feesPerYear: fee,
+        website,
+        image,
+        founded,
+        highlights,
+        aLevelPercent,
+        gcsePercent
       },
       geometry: {
         type: 'Point',
