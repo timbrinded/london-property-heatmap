@@ -29,20 +29,53 @@
         bottom: 30px;
         left: 20px;
         background: rgba(26, 26, 46, 0.95);
-        padding: 16px 20px;
         border-radius: 12px;
         font-size: 13px;
         box-shadow: 0 4px 20px rgba(0,0,0,0.3);
         backdrop-filter: blur(10px);
         border: 1px solid rgba(255,255,255,0.1);
         z-index: 1000;
+        overflow: hidden;
+        transition: all 0.3s ease;
+      }
+      
+      .legend-header {
+        padding: 12px 16px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        cursor: pointer;
+        user-select: none;
+      }
+      
+      .legend-header:hover {
+        background: rgba(255,255,255,0.05);
       }
       
       .legend h3 {
-        margin-bottom: 12px;
         font-size: 14px;
         font-weight: 600;
         color: #fff;
+        margin: 0;
+      }
+      
+      .legend-toggle {
+        font-size: 12px;
+        color: #888;
+        transition: transform 0.3s ease;
+      }
+      
+      .legend.collapsed .legend-toggle {
+        transform: rotate(180deg);
+      }
+      
+      .legend-content {
+        padding: 0 16px 12px;
+        transition: all 0.3s ease;
+      }
+      
+      .legend.collapsed .legend-content {
+        display: none;
       }
       
       .legend-scale {
@@ -65,24 +98,89 @@
         color: #aaa;
       }
       
+      /* Mobile: smaller panels */
+      @media (max-width: 600px) {
+        .info-panel {
+          top: 10px;
+          left: 10px;
+          right: 10px;
+          max-width: none;
+          padding: 12px 14px;
+        }
+        
+        .info-panel h1 {
+          font-size: 16px;
+        }
+        
+        .info-panel p {
+          font-size: 12px;
+        }
+        
+        .legend {
+          bottom: 10px;
+          left: 10px;
+          right: 10px;
+        }
+        
+        .legend-scale span {
+          flex: 1;
+          width: auto;
+        }
+      }
+      
       .info-panel {
         position: absolute;
         top: 20px;
         left: 20px;
         background: rgba(26, 26, 46, 0.95);
-        padding: 16px 20px;
         border-radius: 12px;
-        max-width: 300px;
+        max-width: 320px;
         box-shadow: 0 4px 20px rgba(0,0,0,0.3);
         backdrop-filter: blur(10px);
         border: 1px solid rgba(255,255,255,0.1);
         z-index: 1000;
+        overflow: hidden;
+        transition: all 0.3s ease;
+        max-height: calc(100vh - 40px);
+        overflow-y: auto;
+      }
+      
+      .info-header {
+        padding: 14px 16px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        cursor: pointer;
+        user-select: none;
+      }
+      
+      .info-header:hover {
+        background: rgba(255,255,255,0.05);
       }
       
       .info-panel h1 {
         font-size: 18px;
-        margin-bottom: 8px;
+        margin: 0;
         color: #fff;
+      }
+      
+      .info-toggle {
+        font-size: 12px;
+        color: #888;
+        transition: transform 0.3s ease;
+      }
+      
+      .info-panel.collapsed .info-toggle {
+        transform: rotate(180deg);
+      }
+      
+      .info-content {
+        padding: 0 16px 14px;
+        transition: all 0.3s ease;
+      }
+      
+      .info-panel.collapsed .info-content {
+        display: none;
       }
       
       .info-panel p {
@@ -101,26 +199,80 @@
         color: #64b5f6;
       }
       
-      /* Overlay Controls */
-      .overlay-controls {
+      /* Filter Groups */
+      .filter-group {
         margin-top: 16px;
         padding-top: 16px;
         border-top: 1px solid rgba(255,255,255,0.1);
       }
       
-      .overlay-controls h4 {
+      .filter-group-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        cursor: pointer;
+        user-select: none;
+        padding: 4px 0;
+        margin-bottom: 8px;
+      }
+      
+      .filter-group-header:hover h4 {
+        color: #fff;
+      }
+      
+      .filter-group h4 {
         font-size: 12px;
         font-weight: 600;
         color: #888;
         text-transform: uppercase;
         letter-spacing: 0.5px;
-        margin-bottom: 12px;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        transition: color 0.2s;
+      }
+      
+      .filter-group h4 .icon {
+        font-size: 14px;
+      }
+      
+      .filter-group-toggle {
+        font-size: 10px;
+        color: #666;
+        transition: transform 0.3s ease;
+      }
+      
+      .filter-group.collapsed .filter-group-toggle {
+        transform: rotate(180deg);
+      }
+      
+      .filter-group.collapsed .filter-group-content {
+        display: none;
+      }
+      
+      .filter-group-content {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+      
+      .filter-subgroup {
+        margin-top: 8px;
+      }
+      
+      .filter-subgroup-label {
+        font-size: 10px;
+        color: #666;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-bottom: 6px;
       }
       
       .toggle-group {
         display: flex;
         flex-direction: column;
-        gap: 10px;
+        gap: 8px;
       }
       
       .toggle-item {
@@ -141,6 +293,13 @@
       
       .toggle-item .icon {
         font-size: 16px;
+      }
+      
+      .toggle-item .line-color {
+        width: 12px;
+        height: 12px;
+        border-radius: 2px;
+        display: inline-block;
       }
       
       /* Custom Toggle Switch */
@@ -191,9 +350,9 @@
       
       /* School legend */
       .schools-legend {
-        margin-top: 16px;
-        padding-top: 12px;
-        border-top: 1px solid rgba(255,255,255,0.1);
+        margin-top: 12px;
+        padding-top: 10px;
+        border-top: 1px solid rgba(255,255,255,0.08);
         display: none;
       }
       
@@ -201,22 +360,22 @@
         display: block;
       }
       
-      .schools-legend h4 {
-        font-size: 11px;
+      .schools-legend h5 {
+        font-size: 10px;
         font-weight: 600;
-        color: #888;
+        color: #666;
         text-transform: uppercase;
         letter-spacing: 0.5px;
-        margin-bottom: 8px;
+        margin-bottom: 6px;
       }
       
       .school-type {
         display: flex;
         align-items: center;
         gap: 8px;
-        font-size: 12px;
-        color: #aaa;
-        margin-bottom: 4px;
+        font-size: 11px;
+        color: #888;
+        margin-bottom: 3px;
       }
       
       .school-dot {
@@ -276,66 +435,181 @@
       .mapboxgl-popup.school-popup .mapboxgl-popup-tip {
         border-top-color: rgba(26, 26, 46, 0.98);
       }
+
+      /* Active filter count badge */
+      .filter-count {
+        background: #64b5f6;
+        color: #1a1a2e;
+        font-size: 10px;
+        font-weight: 700;
+        padding: 2px 6px;
+        border-radius: 10px;
+        margin-left: 6px;
+      }
     </style>
   </head>
   <body>
     <div id="map"></div>
     
-    <div class="info-panel">
-      <h1>🏠 London Property Prices</h1>
-      <p>Median property prices by postcode district, shown relative to your baseline location.</p>
-      <div class="baseline">
-        <strong>Baseline: E14 (Millwall)</strong><br>
-        <span id="baseline-price">Loading...</span>
+    <div class="info-panel" id="info-panel">
+      <div class="info-header" onclick="document.getElementById('info-panel').classList.toggle('collapsed')">
+        <h1>🏠 London Property Prices</h1>
+        <span class="info-toggle">▲</span>
       </div>
-      
-      <div class="overlay-controls">
-        <h4>Overlays</h4>
-        <div class="toggle-group">
-          <div class="toggle-item">
-            <label class="toggle-switch">
-              <input type="checkbox" id="toggle-transport">
-              <span class="toggle-slider"></span>
-            </label>
-            <label for="toggle-transport">
-              <span class="icon">🚇</span> Transport Links
-            </label>
+      <div class="info-content">
+        <p>Median property prices by postcode district, shown relative to your baseline location.</p>
+        <div class="baseline">
+          <strong>Baseline: E14 (Millwall)</strong><br>
+          <span id="baseline-price">Loading...</span>
+        </div>
+        
+        <!-- TRAVEL FILTER GROUP -->
+        <div class="filter-group" id="travel-group">
+          <div class="filter-group-header" onclick="document.getElementById('travel-group').classList.toggle('collapsed')">
+            <h4><span class="icon">🚇</span> Travel</h4>
+            <span class="filter-group-toggle">▲</span>
           </div>
-          <div class="toggle-item">
-            <label class="toggle-switch">
-              <input type="checkbox" id="toggle-schools">
-              <span class="toggle-slider"></span>
-            </label>
-            <label for="toggle-schools">
-              <span class="icon">🎓</span> Top Schools
-            </label>
+          <div class="filter-group-content">
+            <div class="toggle-group">
+              <div class="toggle-item">
+                <label class="toggle-switch">
+                  <input type="checkbox" id="toggle-underground" checked>
+                  <span class="toggle-slider"></span>
+                </label>
+                <label for="toggle-underground">
+                  <span class="line-color" style="background: #DC241F; border-radius: 50%;"></span> Underground
+                </label>
+              </div>
+              <div class="toggle-item">
+                <label class="toggle-switch">
+                  <input type="checkbox" id="toggle-elizabeth" checked>
+                  <span class="toggle-slider"></span>
+                </label>
+                <label for="toggle-elizabeth">
+                  <span class="line-color" style="background: #6950A1;"></span> Elizabeth Line
+                </label>
+              </div>
+              <div class="toggle-item">
+                <label class="toggle-switch">
+                  <input type="checkbox" id="toggle-dlr" checked>
+                  <span class="toggle-slider"></span>
+                </label>
+                <label for="toggle-dlr">
+                  <span class="line-color" style="background: #00AFAD;"></span> DLR
+                </label>
+              </div>
+              <div class="toggle-item">
+                <label class="toggle-switch">
+                  <input type="checkbox" id="toggle-overground" checked>
+                  <span class="toggle-slider"></span>
+                </label>
+                <label for="toggle-overground">
+                  <span class="line-color" style="background: #EF7B10;"></span> Overground
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- SCHOOLS FILTER GROUP -->
+        <div class="filter-group" id="schools-group">
+          <div class="filter-group-header" onclick="document.getElementById('schools-group').classList.toggle('collapsed')">
+            <h4><span class="icon">🎓</span> Schools</h4>
+            <span class="filter-group-toggle">▲</span>
+          </div>
+          <div class="filter-group-content">
+            <div class="filter-subgroup">
+              <div class="filter-subgroup-label">By Ranking</div>
+              <div class="toggle-group">
+                <div class="toggle-item">
+                  <label class="toggle-switch">
+                    <input type="checkbox" id="toggle-schools-top25" checked>
+                    <span class="toggle-slider"></span>
+                  </label>
+                  <label for="toggle-schools-top25">Top 25</label>
+                </div>
+                <div class="toggle-item">
+                  <label class="toggle-switch">
+                    <input type="checkbox" id="toggle-schools-top100" checked>
+                    <span class="toggle-slider"></span>
+                  </label>
+                  <label for="toggle-schools-top100">Top 100</label>
+                </div>
+                <div class="toggle-item">
+                  <label class="toggle-switch">
+                    <input type="checkbox" id="toggle-schools-top250" checked>
+                    <span class="toggle-slider"></span>
+                  </label>
+                  <label for="toggle-schools-top250">Top 250</label>
+                </div>
+              </div>
+            </div>
+            
+            <div class="filter-subgroup">
+              <div class="filter-subgroup-label">Min. Annual Fees</div>
+              <div class="toggle-group">
+                <div class="toggle-item">
+                  <label class="toggle-switch">
+                    <input type="checkbox" id="toggle-fees-15k" checked>
+                    <span class="toggle-slider"></span>
+                  </label>
+                  <label for="toggle-fees-15k">> £15,000</label>
+                </div>
+                <div class="toggle-item">
+                  <label class="toggle-switch">
+                    <input type="checkbox" id="toggle-fees-25k" checked>
+                    <span class="toggle-slider"></span>
+                  </label>
+                  <label for="toggle-fees-25k">> £25,000</label>
+                </div>
+                <div class="toggle-item">
+                  <label class="toggle-switch">
+                    <input type="checkbox" id="toggle-fees-35k" checked>
+                    <span class="toggle-slider"></span>
+                  </label>
+                  <label for="toggle-fees-35k">> £35,000</label>
+                </div>
+                <div class="toggle-item">
+                  <label class="toggle-switch">
+                    <input type="checkbox" id="toggle-fees-50k" checked>
+                    <span class="toggle-slider"></span>
+                  </label>
+                  <label for="toggle-fees-50k">> £50,000</label>
+                </div>
+              </div>
+            </div>
+            
+            <div class="schools-legend visible" id="schools-legend">
+              <h5>School Types</h5>
+              <div class="school-type"><span class="school-dot boys"></span> Boys</div>
+              <div class="school-type"><span class="school-dot girls"></span> Girls</div>
+              <div class="school-type"><span class="school-dot coed"></span> Co-educational</div>
+            </div>
           </div>
         </div>
       </div>
-      
-      <div class="schools-legend" id="schools-legend">
-        <h4>School Types</h4>
-        <div class="school-type"><span class="school-dot boys"></span> Boys</div>
-        <div class="school-type"><span class="school-dot girls"></span> Girls</div>
-        <div class="school-type"><span class="school-dot coed"></span> Co-educational</div>
-      </div>
     </div>
     
-    <div class="legend">
-      <h3>Price vs E14 (Millwall)</h3>
-      <div class="legend-scale">
-        <span style="background: #1b5e20"></span>
-        <span style="background: #388e3c"></span>
-        <span style="background: #66bb6a"></span>
-        <span style="background: #64b5f6"></span>
-        <span style="background: #ff9800"></span>
-        <span style="background: #f44336"></span>
-        <span style="background: #b71c1c"></span>
+    <div class="legend" id="legend">
+      <div class="legend-header" onclick="document.getElementById('legend').classList.toggle('collapsed')">
+        <h3>Price vs E14</h3>
+        <span class="legend-toggle">▲</span>
       </div>
-      <div class="legend-labels">
-        <span>-50%</span>
-        <span>0%</span>
-        <span>+100%</span>
+      <div class="legend-content">
+        <div class="legend-scale">
+          <span style="background: #1b5e20"></span>
+          <span style="background: #388e3c"></span>
+          <span style="background: #66bb6a"></span>
+          <span style="background: #64b5f6"></span>
+          <span style="background: #ff9800"></span>
+          <span style="background: #f44336"></span>
+          <span style="background: #b71c1c"></span>
+        </div>
+        <div class="legend-labels">
+          <span>-50%</span>
+          <span>0%</span>
+          <span>+100%</span>
+        </div>
       </div>
     </div>
     
@@ -345,12 +619,6 @@
       <div class="diff" id="popup-diff"></div>
     </div>
     
-    <script>
-      // Toggle schools legend visibility
-      document.getElementById('toggle-schools').addEventListener('change', function() {
-        document.getElementById('schools-legend').classList.toggle('visible', this.checked);
-      });
-    </script>
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>

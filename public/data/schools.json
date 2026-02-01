@@ -1,130 +1,101 @@
 {
   "type": "FeatureCollection",
   "features": [
-    {
-      "type": "Feature",
-      "properties": { "name": "Eton College", "type": "boys", "founded": 1440, "ranking": 1 },
-      "geometry": { "type": "Point", "coordinates": [-0.6092, 51.4907] }
-    },
-    {
-      "type": "Feature",
-      "properties": { "name": "Westminster School", "type": "co-ed", "founded": 1179, "ranking": 2 },
-      "geometry": { "type": "Point", "coordinates": [-0.1274, 51.4994] }
-    },
-    {
-      "type": "Feature",
-      "properties": { "name": "St Paul's School", "type": "boys", "founded": 1509, "ranking": 3 },
-      "geometry": { "type": "Point", "coordinates": [-0.2318, 51.4851] }
-    },
-    {
-      "type": "Feature",
-      "properties": { "name": "St Paul's Girls' School", "type": "girls", "founded": 1904, "ranking": 4 },
-      "geometry": { "type": "Point", "coordinates": [-0.2283, 51.4912] }
-    },
-    {
-      "type": "Feature",
-      "properties": { "name": "King's College School", "type": "co-ed", "founded": 1829, "ranking": 5 },
-      "geometry": { "type": "Point", "coordinates": [-0.2196, 51.4313] }
-    },
-    {
-      "type": "Feature",
-      "properties": { "name": "Godolphin & Latymer", "type": "girls", "founded": 1905, "ranking": 6 },
-      "geometry": { "type": "Point", "coordinates": [-0.2324, 51.4929] }
-    },
-    {
-      "type": "Feature",
-      "properties": { "name": "City of London School", "type": "boys", "founded": 1442, "ranking": 7 },
-      "geometry": { "type": "Point", "coordinates": [-0.0991, 51.5108] }
-    },
-    {
-      "type": "Feature",
-      "properties": { "name": "City of London School for Girls", "type": "girls", "founded": 1894, "ranking": 8 },
-      "geometry": { "type": "Point", "coordinates": [-0.0948, 51.5197] }
-    },
-    {
-      "type": "Feature",
-      "properties": { "name": "Dulwich College", "type": "boys", "founded": 1619, "ranking": 9 },
-      "geometry": { "type": "Point", "coordinates": [-0.0871, 51.4412] }
-    },
-    {
-      "type": "Feature",
-      "properties": { "name": "Highgate School", "type": "co-ed", "founded": 1565, "ranking": 10 },
-      "geometry": { "type": "Point", "coordinates": [-0.1463, 51.5736] }
-    },
-    {
-      "type": "Feature",
-      "properties": { "name": "Hampton School", "type": "boys", "founded": 1557, "ranking": 11 },
-      "geometry": { "type": "Point", "coordinates": [-0.3629, 51.4229] }
-    },
-    {
-      "type": "Feature",
-      "properties": { "name": "Lady Eleanor Holles", "type": "girls", "founded": 1710, "ranking": 12 },
-      "geometry": { "type": "Point", "coordinates": [-0.3584, 51.4213] }
-    },
-    {
-      "type": "Feature",
-      "properties": { "name": "North London Collegiate", "type": "girls", "founded": 1850, "ranking": 13 },
-      "geometry": { "type": "Point", "coordinates": [-0.2854, 51.6084] }
-    },
-    {
-      "type": "Feature",
-      "properties": { "name": "Haberdashers' Boys", "type": "boys", "founded": 1690, "ranking": 14 },
-      "geometry": { "type": "Point", "coordinates": [-0.2788, 51.6356] }
-    },
-    {
-      "type": "Feature",
-      "properties": { "name": "Haberdashers' Girls", "type": "girls", "founded": 1875, "ranking": 15 },
-      "geometry": { "type": "Point", "coordinates": [-0.2801, 51.6345] }
-    },
-    {
-      "type": "Feature",
-      "properties": { "name": "University College School", "type": "co-ed", "founded": 1830, "ranking": 16 },
-      "geometry": { "type": "Point", "coordinates": [-0.1756, 51.5544] }
-    },
-    {
-      "type": "Feature",
-      "properties": { "name": "Latymer Upper School", "type": "co-ed", "founded": 1624, "ranking": 17 },
-      "geometry": { "type": "Point", "coordinates": [-0.2349, 51.4894] }
-    },
-    {
-      "type": "Feature",
-      "properties": { "name": "Emanuel School", "type": "co-ed", "founded": 1594, "ranking": 18 },
-      "geometry": { "type": "Point", "coordinates": [-0.1737, 51.4620] }
-    },
-    {
-      "type": "Feature",
-      "properties": { "name": "Alleyn's School", "type": "co-ed", "founded": 1619, "ranking": 19 },
-      "geometry": { "type": "Point", "coordinates": [-0.0781, 51.4479] }
-    },
-    {
-      "type": "Feature",
-      "properties": { "name": "James Allen's Girls", "type": "girls", "founded": 1741, "ranking": 20 },
-      "geometry": { "type": "Point", "coordinates": [-0.0831, 51.4438] }
-    },
-    {
-      "type": "Feature",
-      "properties": { "name": "Merchant Taylors'", "type": "boys", "founded": 1561, "ranking": 21 },
-      "geometry": { "type": "Point", "coordinates": [-0.3985, 51.5978] }
-    },
-    {
-      "type": "Feature",
-      "properties": { "name": "South Hampstead High", "type": "girls", "founded": 1876, "ranking": 22 },
-      "geometry": { "type": "Point", "coordinates": [-0.1818, 51.5470] }
-    },
-    {
-      "type": "Feature",
-      "properties": { "name": "Putney High School", "type": "girls", "founded": 1893, "ranking": 23 },
-      "geometry": { "type": "Point", "coordinates": [-0.2147, 51.4620] }
-    },
-    {
-      "type": "Feature",
-      "properties": { "name": "Whitgift School", "type": "boys", "founded": 1596, "ranking": 24 },
-      "geometry": { "type": "Point", "coordinates": [-0.0823, 51.3691] }
-    },
-    {
-      "type": "Feature",
-      "properties": { "name": "Forest School", "type": "co-ed", "founded": 1834, "ranking": 25 },
-      "geometry": { "type": "Point", "coordinates": [-0.0044, 51.5962] }
-    }
+    { "type": "Feature", "properties": { "name": "St Paul's School", "type": "boys", "founded": 1509, "ranking": 1 }, "geometry": { "type": "Point", "coordinates": [-0.2318, 51.4851] } },
+    { "type": "Feature", "properties": { "name": "North London Collegiate", "type": "girls", "founded": 1850, "ranking": 3 }, "geometry": { "type": "Point", "coordinates": [-0.2854, 51.6084] } },
+    { "type": "Feature", "properties": { "name": "Godolphin & Latymer", "type": "girls", "founded": 1905, "ranking": 4 }, "geometry": { "type": "Point", "coordinates": [-0.2324, 51.4929] } },
+    { "type": "Feature", "properties": { "name": "St Paul's Girls' School", "type": "girls", "founded": 1904, "ranking": 6 }, "geometry": { "type": "Point", "coordinates": [-0.2283, 51.4912] } },
+    { "type": "Feature", "properties": { "name": "King's College School", "type": "co-ed", "founded": 1829, "ranking": 7 }, "geometry": { "type": "Point", "coordinates": [-0.2196, 51.4313] } },
+    { "type": "Feature", "properties": { "name": "Westminster School", "type": "co-ed", "founded": 1179, "ranking": 8 }, "geometry": { "type": "Point", "coordinates": [-0.1274, 51.4994] } },
+    { "type": "Feature", "properties": { "name": "City of London School for Girls", "type": "girls", "founded": 1894, "ranking": 9 }, "geometry": { "type": "Point", "coordinates": [-0.0948, 51.5197] } },
+    { "type": "Feature", "properties": { "name": "Latymer Upper School", "type": "co-ed", "founded": 1624, "ranking": 10 }, "geometry": { "type": "Point", "coordinates": [-0.2349, 51.4894] } },
+    { "type": "Feature", "properties": { "name": "Lady Eleanor Holles", "type": "girls", "founded": 1710, "ranking": 12 }, "geometry": { "type": "Point", "coordinates": [-0.3584, 51.4213] } },
+    { "type": "Feature", "properties": { "name": "Alleyn's School", "type": "co-ed", "founded": 1619, "ranking": 13 }, "geometry": { "type": "Point", "coordinates": [-0.0781, 51.4479] } },
+    { "type": "Feature", "properties": { "name": "Eton College", "type": "boys", "founded": 1440, "ranking": 14 }, "geometry": { "type": "Point", "coordinates": [-0.6092, 51.4907] } },
+    { "type": "Feature", "properties": { "name": "South Hampstead High", "type": "girls", "founded": 1876, "ranking": 16 }, "geometry": { "type": "Point", "coordinates": [-0.1818, 51.5470] } },
+    { "type": "Feature", "properties": { "name": "City of London School", "type": "boys", "founded": 1442, "ranking": 17 }, "geometry": { "type": "Point", "coordinates": [-0.0991, 51.5108] } },
+    { "type": "Feature", "properties": { "name": "Highgate School", "type": "co-ed", "founded": 1565, "ranking": 19 }, "geometry": { "type": "Point", "coordinates": [-0.1463, 51.5736] } },
+    { "type": "Feature", "properties": { "name": "Hampton School", "type": "boys", "founded": 1557, "ranking": 23 }, "geometry": { "type": "Point", "coordinates": [-0.3629, 51.4229] } },
+    { "type": "Feature", "properties": { "name": "Putney High School", "type": "girls", "founded": 1893, "ranking": 24 }, "geometry": { "type": "Point", "coordinates": [-0.2147, 51.4620] } },
+    { "type": "Feature", "properties": { "name": "University College School", "type": "co-ed", "founded": 1830, "ranking": 25 }, "geometry": { "type": "Point", "coordinates": [-0.1756, 51.5544] } },
+    { "type": "Feature", "properties": { "name": "Kingston Grammar School", "type": "co-ed", "founded": 1561, "ranking": 30 }, "geometry": { "type": "Point", "coordinates": [-0.3039, 51.4109] } },
+    { "type": "Feature", "properties": { "name": "Trinity School Croydon", "type": "co-ed", "founded": 1596, "ranking": 32 }, "geometry": { "type": "Point", "coordinates": [-0.0889, 51.3743] } },
+    { "type": "Feature", "properties": { "name": "James Allen's Girls'", "type": "girls", "founded": 1741, "ranking": 33 }, "geometry": { "type": "Point", "coordinates": [-0.0831, 51.4438] } },
+    { "type": "Feature", "properties": { "name": "Notting Hill & Ealing High", "type": "girls", "founded": 1873, "ranking": 34 }, "geometry": { "type": "Point", "coordinates": [-0.2882, 51.5143] } },
+    { "type": "Feature", "properties": { "name": "Wimbledon High School", "type": "girls", "founded": 1880, "ranking": 36 }, "geometry": { "type": "Point", "coordinates": [-0.2058, 51.4229] } },
+    { "type": "Feature", "properties": { "name": "Bancroft's School", "type": "co-ed", "founded": 1737, "ranking": 37 }, "geometry": { "type": "Point", "coordinates": [0.0179, 51.5961] } },
+    { "type": "Feature", "properties": { "name": "Emanuel School", "type": "co-ed", "founded": 1594, "ranking": 42 }, "geometry": { "type": "Point", "coordinates": [-0.1737, 51.4620] } },
+    { "type": "Feature", "properties": { "name": "Eltham College", "type": "co-ed", "founded": 1842, "ranking": 43 }, "geometry": { "type": "Point", "coordinates": [0.0492, 51.4374] } },
+    { "type": "Feature", "properties": { "name": "Channing School", "type": "girls", "founded": 1885, "ranking": 45 }, "geometry": { "type": "Point", "coordinates": [-0.1452, 51.5673] } },
+    { "type": "Feature", "properties": { "name": "Dulwich College", "type": "boys", "founded": 1619, "ranking": 46 }, "geometry": { "type": "Point", "coordinates": [-0.0871, 51.4412] } },
+    { "type": "Feature", "properties": { "name": "Colfe's School", "type": "co-ed", "founded": 1652, "ranking": 47 }, "geometry": { "type": "Point", "coordinates": [-0.0148, 51.4521] } },
+    { "type": "Feature", "properties": { "name": "Surbiton High School", "type": "girls", "founded": 1884, "ranking": 50 }, "geometry": { "type": "Point", "coordinates": [-0.3029, 51.3938] } },
+    { "type": "Feature", "properties": { "name": "Whitgift School", "type": "boys", "founded": 1596, "ranking": 53 }, "geometry": { "type": "Point", "coordinates": [-0.0823, 51.3691] } },
+    { "type": "Feature", "properties": { "name": "Merchant Taylors' School", "type": "boys", "founded": 1561, "ranking": 55 }, "geometry": { "type": "Point", "coordinates": [-0.3985, 51.5978] } },
+    { "type": "Feature", "properties": { "name": "Francis Holland Sloane Sq", "type": "girls", "founded": 1881, "ranking": 59 }, "geometry": { "type": "Point", "coordinates": [-0.1573, 51.4929] } },
+    { "type": "Feature", "properties": { "name": "Harrow School", "type": "boys", "founded": 1572, "ranking": 63 }, "geometry": { "type": "Point", "coordinates": [-0.3361, 51.5731] } },
+    { "type": "Feature", "properties": { "name": "St Dunstan's College", "type": "co-ed", "founded": 1888, "ranking": 71 }, "geometry": { "type": "Point", "coordinates": [-0.0530, 51.4448] } },
+    { "type": "Feature", "properties": { "name": "Ibstock Place School", "type": "co-ed", "founded": 1894, "ranking": 72 }, "geometry": { "type": "Point", "coordinates": [-0.2367, 51.4503] } },
+    { "type": "Feature", "properties": { "name": "Harrodian School", "type": "co-ed", "founded": 1993, "ranking": 78 }, "geometry": { "type": "Point", "coordinates": [-0.2431, 51.4718] } },
+    { "type": "Feature", "properties": { "name": "Queen's College London", "type": "girls", "founded": 1848, "ranking": 80 }, "geometry": { "type": "Point", "coordinates": [-0.1448, 51.5180] } },
+    { "type": "Feature", "properties": { "name": "Francis Holland Regent's Pk", "type": "girls", "founded": 1878, "ranking": 81 }, "geometry": { "type": "Point", "coordinates": [-0.1495, 51.5259] } },
+    { "type": "Feature", "properties": { "name": "St Helen's Northwood", "type": "girls", "founded": 1899, "ranking": 84 }, "geometry": { "type": "Point", "coordinates": [-0.4183, 51.6051] } },
+    { "type": "Feature", "properties": { "name": "St Augustine's Priory", "type": "girls", "founded": 1634, "ranking": 85 }, "geometry": { "type": "Point", "coordinates": [-0.3111, 51.5158] } },
+    { "type": "Feature", "properties": { "name": "Croydon High School", "type": "girls", "founded": 1874, "ranking": 99 }, "geometry": { "type": "Point", "coordinates": [-0.0777, 51.3553] } },
+    { "type": "Feature", "properties": { "name": "Haberdashers' Boys", "type": "boys", "founded": 1690, "ranking": 101 }, "geometry": { "type": "Point", "coordinates": [-0.2788, 51.6356] } },
+    { "type": "Feature", "properties": { "name": "Haberdashers' Girls", "type": "girls", "founded": 1875, "ranking": 102 }, "geometry": { "type": "Point", "coordinates": [-0.2801, 51.6345] } },
+    { "type": "Feature", "properties": { "name": "Forest School", "type": "co-ed", "founded": 1834, "ranking": 103 }, "geometry": { "type": "Point", "coordinates": [-0.0044, 51.5962] } },
+    { "type": "Feature", "properties": { "name": "Mill Hill School", "type": "co-ed", "founded": 1807, "ranking": 104 }, "geometry": { "type": "Point", "coordinates": [-0.2390, 51.6176] } },
+    { "type": "Feature", "properties": { "name": "Streatham & Clapham High", "type": "girls", "founded": 1887, "ranking": 105 }, "geometry": { "type": "Point", "coordinates": [-0.1259, 51.4384] } },
+    { "type": "Feature", "properties": { "name": "Sydenham High School", "type": "girls", "founded": 1887, "ranking": 106 }, "geometry": { "type": "Point", "coordinates": [-0.0561, 51.4285] } },
+    { "type": "Feature", "properties": { "name": "Bromley High School", "type": "girls", "founded": 1883, "ranking": 107 }, "geometry": { "type": "Point", "coordinates": [0.0094, 51.4044] } },
+    { "type": "Feature", "properties": { "name": "Blackheath High School", "type": "girls", "founded": 1880, "ranking": 108 }, "geometry": { "type": "Point", "coordinates": [-0.0068, 51.4669] } },
+    { "type": "Feature", "properties": { "name": "More House School", "type": "girls", "founded": 1953, "ranking": 109 }, "geometry": { "type": "Point", "coordinates": [-0.1605, 51.4884] } },
+    { "type": "Feature", "properties": { "name": "Northwood College", "type": "girls", "founded": 1878, "ranking": 110 }, "geometry": { "type": "Point", "coordinates": [-0.4208, 51.6101] } },
+    { "type": "Feature", "properties": { "name": "Kew House School", "type": "co-ed", "founded": 2012, "ranking": 111 }, "geometry": { "type": "Point", "coordinates": [-0.2886, 51.4810] } },
+    { "type": "Feature", "properties": { "name": "Portland Place School", "type": "co-ed", "founded": 1996, "ranking": 112 }, "geometry": { "type": "Point", "coordinates": [-0.1455, 51.5213] } },
+    { "type": "Feature", "properties": { "name": "The Lyceum", "type": "co-ed", "founded": 1997, "ranking": 113 }, "geometry": { "type": "Point", "coordinates": [-0.0887, 51.5178] } },
+    { "type": "Feature", "properties": { "name": "Fulham Prep School", "type": "co-ed", "founded": 1996, "ranking": 114 }, "geometry": { "type": "Point", "coordinates": [-0.2119, 51.4813] } },
+    { "type": "Feature", "properties": { "name": "Eaton House Schools", "type": "boys", "founded": 1897, "ranking": 115 }, "geometry": { "type": "Point", "coordinates": [-0.1585, 51.4889] } },
+    { "type": "Feature", "properties": { "name": "Wetherby School", "type": "boys", "founded": 1951, "ranking": 116 }, "geometry": { "type": "Point", "coordinates": [-0.1892, 51.5127] } },
+    { "type": "Feature", "properties": { "name": "Thomas's Battersea", "type": "co-ed", "founded": 1971, "ranking": 117 }, "geometry": { "type": "Point", "coordinates": [-0.1700, 51.4743] } },
+    { "type": "Feature", "properties": { "name": "Thomas's Kensington", "type": "co-ed", "founded": 1981, "ranking": 118 }, "geometry": { "type": "Point", "coordinates": [-0.1952, 51.4980] } },
+    { "type": "Feature", "properties": { "name": "Hill House School", "type": "co-ed", "founded": 1949, "ranking": 119 }, "geometry": { "type": "Point", "coordinates": [-0.1718, 51.4952] } },
+    { "type": "Feature", "properties": { "name": "Garden House School", "type": "co-ed", "founded": 1986, "ranking": 120 }, "geometry": { "type": "Point", "coordinates": [-0.1621, 51.4929] } },
+    { "type": "Feature", "properties": { "name": "Kensington Park School", "type": "co-ed", "founded": 2018, "ranking": 121 }, "geometry": { "type": "Point", "coordinates": [-0.1929, 51.5026] } },
+    { "type": "Feature", "properties": { "name": "DLD College London", "type": "co-ed", "founded": 1931, "ranking": 122 }, "geometry": { "type": "Point", "coordinates": [-0.1203, 51.5003] } },
+    { "type": "Feature", "properties": { "name": "MPW London", "type": "co-ed", "founded": 1973, "ranking": 123 }, "geometry": { "type": "Point", "coordinates": [-0.1856, 51.4965] } },
+    { "type": "Feature", "properties": { "name": "Chelsea Academy", "type": "co-ed", "founded": 2009, "ranking": 124 }, "geometry": { "type": "Point", "coordinates": [-0.1873, 51.4819] } },
+    { "type": "Feature", "properties": { "name": "Bales College", "type": "co-ed", "founded": 1989, "ranking": 125 }, "geometry": { "type": "Point", "coordinates": [-0.1818, 51.5178] } },
+    { "type": "Feature", "properties": { "name": "Ashbourne College", "type": "co-ed", "founded": 1981, "ranking": 126 }, "geometry": { "type": "Point", "coordinates": [-0.1905, 51.5028] } },
+    { "type": "Feature", "properties": { "name": "David Game College", "type": "co-ed", "founded": 1974, "ranking": 127 }, "geometry": { "type": "Point", "coordinates": [-0.0950, 51.5090] } },
+    { "type": "Feature", "properties": { "name": "Lansdowne College", "type": "co-ed", "founded": 1976, "ranking": 128 }, "geometry": { "type": "Point", "coordinates": [-0.1838, 51.5033] } },
+    { "type": "Feature", "properties": { "name": "Collingham College", "type": "co-ed", "founded": 1975, "ranking": 129 }, "geometry": { "type": "Point", "coordinates": [-0.1920, 51.4972] } },
+    { "type": "Feature", "properties": { "name": "Chelsea Independent College", "type": "co-ed", "founded": 1952, "ranking": 130 }, "geometry": { "type": "Point", "coordinates": [-0.1740, 51.4853] } },
+    { "type": "Feature", "properties": { "name": "Birkbeck School", "type": "co-ed", "founded": 1947, "ranking": 131 }, "geometry": { "type": "Point", "coordinates": [-0.0978, 51.4520] } },
+    { "type": "Feature", "properties": { "name": "St James Senior Girls", "type": "girls", "founded": 1975, "ranking": 132 }, "geometry": { "type": "Point", "coordinates": [-0.2060, 51.4912] } },
+    { "type": "Feature", "properties": { "name": "St James Senior Boys", "type": "boys", "founded": 1975, "ranking": 133 }, "geometry": { "type": "Point", "coordinates": [-0.2051, 51.4918] } },
+    { "type": "Feature", "properties": { "name": "Fine Arts College", "type": "co-ed", "founded": 1978, "ranking": 134 }, "geometry": { "type": "Point", "coordinates": [-0.1648, 51.5472] } },
+    { "type": "Feature", "properties": { "name": "Southbank International", "type": "co-ed", "founded": 1979, "ranking": 135 }, "geometry": { "type": "Point", "coordinates": [-0.1286, 51.5007] } },
+    { "type": "Feature", "properties": { "name": "ACS Cobham", "type": "co-ed", "founded": 1967, "ranking": 136 }, "geometry": { "type": "Point", "coordinates": [-0.3980, 51.3301] } },
+    { "type": "Feature", "properties": { "name": "ACS Egham", "type": "co-ed", "founded": 1995, "ranking": 137 }, "geometry": { "type": "Point", "coordinates": [-0.5456, 51.4178] } },
+    { "type": "Feature", "properties": { "name": "ACS Hillingdon", "type": "co-ed", "founded": 1989, "ranking": 138 }, "geometry": { "type": "Point", "coordinates": [-0.4500, 51.5289] } },
+    { "type": "Feature", "properties": { "name": "International School of London", "type": "co-ed", "founded": 1972, "ranking": 139 }, "geometry": { "type": "Point", "coordinates": [-0.1779, 51.4239] } },
+    { "type": "Feature", "properties": { "name": "The American School London", "type": "co-ed", "founded": 1951, "ranking": 140 }, "geometry": { "type": "Point", "coordinates": [-0.1752, 51.5310] } },
+    { "type": "Feature", "properties": { "name": "Lycée Français Charles de Gaulle", "type": "co-ed", "founded": 1915, "ranking": 141 }, "geometry": { "type": "Point", "coordinates": [-0.1882, 51.4929] } },
+    { "type": "Feature", "properties": { "name": "German School London", "type": "co-ed", "founded": 1971, "ranking": 142 }, "geometry": { "type": "Point", "coordinates": [-0.2427, 51.4196] } },
+    { "type": "Feature", "properties": { "name": "Dwight School London", "type": "co-ed", "founded": 1972, "ranking": 143 }, "geometry": { "type": "Point", "coordinates": [-0.1738, 51.5642] } },
+    { "type": "Feature", "properties": { "name": "North Bridge House Senior", "type": "co-ed", "founded": 1939, "ranking": 144 }, "geometry": { "type": "Point", "coordinates": [-0.1683, 51.5369] } },
+    { "type": "Feature", "properties": { "name": "Fairley House School", "type": "co-ed", "founded": 1982, "ranking": 145 }, "geometry": { "type": "Point", "coordinates": [-0.1413, 51.5005] } },
+    { "type": "Feature", "properties": { "name": "The Cavendish School", "type": "girls", "founded": 1919, "ranking": 146 }, "geometry": { "type": "Point", "coordinates": [-0.1688, 51.5159] } },
+    { "type": "Feature", "properties": { "name": "L'Ecole des Petits", "type": "co-ed", "founded": 1977, "ranking": 147 }, "geometry": { "type": "Point", "coordinates": [-0.1705, 51.4858] } },
+    { "type": "Feature", "properties": { "name": "The Hampshire School", "type": "co-ed", "founded": 1928, "ranking": 148 }, "geometry": { "type": "Point", "coordinates": [-0.1736, 51.4898] } },
+    { "type": "Feature", "properties": { "name": "Eaton Square School", "type": "co-ed", "founded": 1981, "ranking": 149 }, "geometry": { "type": "Point", "coordinates": [-0.1503, 51.4963] } },
+    { "type": "Feature", "properties": { "name": "Knightsbridge School", "type": "co-ed", "founded": 2006, "ranking": 150 }, "geometry": { "type": "Point", "coordinates": [-0.1665, 51.4998] } },
+    { "type": "Feature", "properties": { "name": "Pembridge Hall", "type": "girls", "founded": 1980, "ranking": 151 }, "geometry": { "type": "Point", "coordinates": [-0.1988, 51.5119] } },
+    { "type": "Feature", "properties": { "name": "Glendower Prep", "type": "girls", "founded": 1895, "ranking": 152 }, "geometry": { "type": "Point", "coordinates": [-0.1878, 51.4973] } },
+    { "type": "Feature", "properties": { "name": "Cameron House School", "type": "co-ed", "founded": 1980, "ranking": 153 }, "geometry": { "type": "Point", "coordinates": [-0.1718, 51.4868] } },
+    { "type": "Feature", "properties": { "name": "Falkner House", "type": "girls", "founded": 1954, "ranking": 154 }, "geometry": { "type": "Point", "coordinates": [-0.1872, 51.4948] } },
+    { "type": "Feature", "properties": { "name": "Sussex House School", "type": "boys", "founded": 1952, "ranking": 155 }, "geometry": { "type": "Point", "coordinates": [-0.1772, 51.4891] } }
   ]
 }

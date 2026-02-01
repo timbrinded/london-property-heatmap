@@ -10,11 +10,13 @@ interface PostcodeData {
   sampleSize: number;
 }
 
-interface School {
+interface SchoolProperties {
   name: string;
   type: 'boys' | 'girls' | 'co-ed';
   founded: number;
   ranking: number;
+  feesPerYear?: number;
+  feesEstimated?: boolean;
 }
 
 // E14 (Millwall/Isle of Dogs) baseline - will be calculated from data
@@ -51,6 +53,10 @@ function formatDiff(diff: number): string {
   return `${sign}${diff.toFixed(0)}% vs E14`;
 }
 
+function formatFees(fees: number): string {
+  return `£${(fees / 1000).toFixed(0)}k/year`;
+}
+
 async function loadData(): Promise<PostcodeData[]> {
   const response = await fetch('/data/prices.json');
   return response.json();
@@ -67,15 +73,36 @@ async function loadTransport(): Promise<GeoJSON.FeatureCollection> {
 }
 
 async function loadSchools(): Promise<GeoJSON.FeatureCollection> {
+  // Try to load schools with fees first, fall back to regular schools
+  try {
+    const response = await fetch('/data/schools-with-fees.json');
+    if (response.ok) {
+      return response.json();
+    }
+  } catch (e) {
+    // Fall back to original schools.json
+  }
   const response = await fetch('/data/schools.json');
   return response.json();
 }
 
-function setupToggle(id: string, callback: (checked: boolean) => void) {
-  const toggle = document.getElementById(id) as HTMLInputElement;
-  if (toggle) {
-    toggle.addEventListener('change', () => callback(toggle.checked));
-  }
+// Transport filter state
+interface TransportFilters {
+  underground: boolean;
+  elizabeth: boolean;
+  dlr: boolean;
+  overground: boolean;
+}
+
+// School filter state
+interface SchoolFilters {
+  top25: boolean;
+  top100: boolean;
+  top250: boolean;
+  fees15k: boolean;
+  fees25k: boolean;
+  fees35k: boolean;
+  fees50k: boolean;
 }
 
 async function init() {
@@ -126,6 +153,128 @@ async function init() {
       }
     };
   }).filter(f => f.properties.medianPrice > 0);
+
+  // Filter state
+  const transportFilters: TransportFilters = {
+    underground: true,
+    elizabeth: true,
+    dlr: true,
+    overground: true
+  };
+
+  const schoolFilters: SchoolFilters = {
+    top25: true,
+    top100: true,
+    top250: true,
+    fees15k: true,
+    fees25k: true,
+    fees35k: true,
+    fees50k: true
+  };
+
+  // Helper to update transport layer visibility
+  function updateTransportLayers() {
+    if (!map.getLayer('transport-lines')) return;
+    
+    // Build filter expression for transport
+    const typeFilters: any[] = ['any'];
+    
+    if (transportFilters.underground) {
+      typeFilters.push(['==', ['get', 'type'], 'tube']);
+    }
+    if (transportFilters.elizabeth) {
+      typeFilters.push(['==', ['get', 'type'], 'elizabeth']);
+    }
+    if (transportFilters.dlr) {
+      typeFilters.push(['==', ['get', 'type'], 'dlr']);
+    }
+    if (transportFilters.overground) {
+      typeFilters.push(['any', 
+        ['==', ['get', 'type'], 'overground'],
+        ['==', ['get', 'type'], 'national']
+      ]);
+    }
+    
+    // If no filters selected, hide all
+    const anySelected = Object.values(transportFilters).some(v => v);
+    if (!anySelected) {
+      map.setLayoutProperty('transport-glow', 'visibility', 'none');
+      map.setLayoutProperty('transport-lines', 'visibility', 'none');
+    } else {
+      map.setLayoutProperty('transport-glow', 'visibility', 'visible');
+      map.setLayoutProperty('transport-lines', 'visibility', 'visible');
+      map.setFilter('transport-glow', typeFilters);
+      map.setFilter('transport-lines', typeFilters);
+    }
+  }
+
+  // Helper to update school layer visibility based on filters
+  function updateSchoolLayers() {
+    if (!map.getLayer('schools-markers')) return;
+    
+    // Build filter: show school if it matches ANY enabled ranking OR fee filter
+    const conditions: any[] = ['any'];
+    
+    // Ranking filters (cumulative tiers)
+    if (schoolFilters.top25) {
+      conditions.push(['<=', ['get', 'ranking'], 25]);
+    }
+    if (schoolFilters.top100) {
+      conditions.push(['all', 
+        ['>', ['get', 'ranking'], 25],
+        ['<=', ['get', 'ranking'], 100]
+      ]);
+    }
+    if (schoolFilters.top250) {
+      conditions.push(['all', 
+        ['>', ['get', 'ranking'], 100],
+        ['<=', ['get', 'ranking'], 250]
+      ]);
+    }
+    
+    // Fee filters (only if feesPerYear exists)
+    if (schoolFilters.fees15k) {
+      conditions.push(['all',
+        ['has', 'feesPerYear'],
+        ['>=', ['get', 'feesPerYear'], 15000]
+      ]);
+    }
+    if (schoolFilters.fees25k) {
+      conditions.push(['all',
+        ['has', 'feesPerYear'],
+        ['>=', ['get', 'feesPerYear'], 25000]
+      ]);
+    }
+    if (schoolFilters.fees35k) {
+      conditions.push(['all',
+        ['has', 'feesPerYear'],
+        ['>=', ['get', 'feesPerYear'], 35000]
+      ]);
+    }
+    if (schoolFilters.fees50k) {
+      conditions.push(['all',
+        ['has', 'feesPerYear'],
+        ['>=', ['get', 'feesPerYear'], 50000]
+      ]);
+    }
+    
+    // If no filters selected, hide all
+    const anyRankingSelected = schoolFilters.top25 || schoolFilters.top100 || schoolFilters.top250;
+    const anyFeesSelected = schoolFilters.fees15k || schoolFilters.fees25k || schoolFilters.fees35k || schoolFilters.fees50k;
+    
+    if (!anyRankingSelected && !anyFeesSelected) {
+      map.setLayoutProperty('schools-glow', 'visibility', 'none');
+      map.setLayoutProperty('schools-markers', 'visibility', 'none');
+      map.setLayoutProperty('schools-labels', 'visibility', 'none');
+    } else {
+      map.setLayoutProperty('schools-glow', 'visibility', 'visible');
+      map.setLayoutProperty('schools-markers', 'visibility', 'visible');
+      map.setLayoutProperty('schools-labels', 'visibility', 'visible');
+      map.setFilter('schools-glow', conditions);
+      map.setFilter('schools-markers', conditions);
+      map.setFilter('schools-labels', conditions);
+    }
+  }
 
   map.on('load', () => {
     // === POSTCODE HEATMAP LAYERS ===
@@ -180,7 +329,7 @@ async function init() {
       type: 'line',
       source: 'transport',
       layout: {
-        'visibility': 'none',
+        'visibility': 'visible',
         'line-join': 'round',
         'line-cap': 'round'
       },
@@ -198,7 +347,7 @@ async function init() {
       type: 'line',
       source: 'transport',
       layout: {
-        'visibility': 'none',
+        'visibility': 'visible',
         'line-join': 'round',
         'line-cap': 'round'
       },
@@ -220,7 +369,7 @@ async function init() {
       id: 'schools-glow',
       type: 'circle',
       source: 'schools',
-      layout: { 'visibility': 'none' },
+      layout: { 'visibility': 'visible' },
       paint: {
         'circle-radius': 18,
         'circle-color': [
@@ -239,7 +388,7 @@ async function init() {
       id: 'schools-markers',
       type: 'circle',
       source: 'schools',
-      layout: { 'visibility': 'none' },
+      layout: { 'visibility': 'visible' },
       paint: {
         'circle-radius': 10,
         'circle-color': [
@@ -259,7 +408,7 @@ async function init() {
       type: 'symbol',
       source: 'schools',
       layout: {
-        'visibility': 'none',
+        'visibility': 'visible',
         'text-field': ['get', 'name'],
         'text-font': ['DIN Pro Medium', 'Arial Unicode MS Regular'],
         'text-size': 11,
@@ -273,6 +422,10 @@ async function init() {
         'text-halo-width': 1.5
       }
     });
+
+    // Apply initial filters (all on by default)
+    updateTransportLayers();
+    updateSchoolLayers();
 
     // === HOVER EFFECTS ===
     const popup = document.getElementById('popup')!;
@@ -332,18 +485,25 @@ async function init() {
       
       if (e.features && e.features.length > 0) {
         const feature = e.features[0];
-        const props = feature.properties as School;
+        const props = feature.properties as SchoolProperties;
         const coords = (feature.geometry as GeoJSON.Point).coordinates;
         
         const typeLabel = props.type === 'co-ed' ? 'Co-educational' : 
                          props.type === 'boys' ? "Boys' school" : "Girls' school";
+        
+        let feesHtml = '';
+        if (props.feesPerYear) {
+          const estimated = props.feesEstimated ? ' (est.)' : '';
+          feesHtml = `<br><span style="color: #4caf50">💰 ${formatFees(props.feesPerYear)}${estimated}</span>`;
+        }
         
         schoolTooltip
           .setLngLat(coords as [number, number])
           .setHTML(`
             <strong>${props.name}</strong><br>
             <span style="color: ${SCHOOL_COLORS[props.type]}">${typeLabel}</span><br>
-            <span style="opacity: 0.7">Founded ${props.founded}</span>
+            <span style="opacity: 0.7">Rank #${props.ranking} • Founded ${props.founded}</span>
+            ${feesHtml}
           `)
           .addTo(map);
       }
@@ -355,17 +515,44 @@ async function init() {
     });
 
     // === TOGGLE HANDLERS ===
-    setupToggle('toggle-transport', (checked) => {
-      const visibility = checked ? 'visible' : 'none';
-      map.setLayoutProperty('transport-glow', 'visibility', visibility);
-      map.setLayoutProperty('transport-lines', 'visibility', visibility);
+    
+    // Transport toggles
+    const transportToggleIds: Array<{id: string; key: keyof TransportFilters}> = [
+      { id: 'toggle-underground', key: 'underground' },
+      { id: 'toggle-elizabeth', key: 'elizabeth' },
+      { id: 'toggle-dlr', key: 'dlr' },
+      { id: 'toggle-overground', key: 'overground' }
+    ];
+    
+    transportToggleIds.forEach(({ id, key }) => {
+      const toggle = document.getElementById(id) as HTMLInputElement;
+      if (toggle) {
+        toggle.addEventListener('change', () => {
+          transportFilters[key] = toggle.checked;
+          updateTransportLayers();
+        });
+      }
     });
-
-    setupToggle('toggle-schools', (checked) => {
-      const visibility = checked ? 'visible' : 'none';
-      map.setLayoutProperty('schools-glow', 'visibility', visibility);
-      map.setLayoutProperty('schools-markers', 'visibility', visibility);
-      map.setLayoutProperty('schools-labels', 'visibility', visibility);
+    
+    // School toggles
+    const schoolToggleIds: Array<{id: string; key: keyof SchoolFilters}> = [
+      { id: 'toggle-schools-top25', key: 'top25' },
+      { id: 'toggle-schools-top100', key: 'top100' },
+      { id: 'toggle-schools-top250', key: 'top250' },
+      { id: 'toggle-fees-15k', key: 'fees15k' },
+      { id: 'toggle-fees-25k', key: 'fees25k' },
+      { id: 'toggle-fees-35k', key: 'fees35k' },
+      { id: 'toggle-fees-50k', key: 'fees50k' }
+    ];
+    
+    schoolToggleIds.forEach(({ id, key }) => {
+      const toggle = document.getElementById(id) as HTMLInputElement;
+      if (toggle) {
+        toggle.addEventListener('change', () => {
+          schoolFilters[key] = toggle.checked;
+          updateSchoolLayers();
+        });
+      }
     });
   });
 }
