@@ -63,23 +63,23 @@ function formatFees(fees: number): string {
 }
 
 async function loadData(): Promise<PostcodeData[]> {
-  const response = await fetch('/data/prices.json');
+  const response = await fetch('./data/prices.json');
   return response.json();
 }
 
 async function loadGeoJSON(): Promise<GeoJSON.FeatureCollection> {
-  const response = await fetch('/data/postcode-districts.geojson');
+  const response = await fetch('./data/postcode-districts.geojson');
   return response.json();
 }
 
 async function loadTransport(): Promise<GeoJSON.FeatureCollection> {
-  const response = await fetch('/data/transport-lines.json');
+  const response = await fetch('./data/transport-lines.json');
   return response.json();
 }
 
 async function loadSchools(): Promise<GeoJSON.FeatureCollection> {
   // Load from Notion-synced schools.json (has rich metadata: images, highlights, website, stats)
-  const response = await fetch('/data/schools.json');
+  const response = await fetch('./data/schools.json');
   return response.json();
 }
 
