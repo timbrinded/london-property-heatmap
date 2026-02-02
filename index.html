@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#4a90a4" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Property Map" />
+    <link rel="icon" type="image/png" href="./icon-192.png" />
+    <link rel="apple-touch-icon" href="./apple-touch-icon.png" />
+    <link rel="manifest" href="./manifest.json" />
+    <title>London Property Heatmap - Prices Relative to Millwall</title>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.css" rel="stylesheet" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        background: #1a1a2e;
+        color: #eee;
+      }
+      
+      #map {
+        width: 100vw;
+        height: 100vh;
+      }
+      
+      .legend {
+        position: absolute;
+        bottom: 30px;
+        left: 20px;
+        background: rgba(26, 26, 46, 0.95);
+        border-radius: 12px;
+        font-size: 13px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255,255,255,0.1);
+        z-index: 1000;
+        overflow: hidden;
+        transition: all 0.3s ease;
+      }
+      
+      .legend-header {
+        padding: 12px 16px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        cursor: pointer;
+        user-select: none;
+      }
+      
+      .legend-header:hover {
+        background: rgba(255,255,255,0.05);
+      }
+      
+      .legend h3 {
+        font-size: 14px;
+        font-weight: 600;
+        color: #fff;
+        margin: 0;
+      }
+      
+      .legend-toggle {
+        font-size: 12px;
+        color: #888;
+        transition: transform 0.3s ease;
+      }
+      
+      .legend.collapsed .legend-toggle {
+        transform: rotate(180deg);
+      }
+      
+      .legend-content {
+        padding: 0 16px 12px;
+        transition: all 0.3s ease;
+      }
+      
+      .legend.collapsed .legend-content {
+        display: none;
+      }
+      
+      .legend-scale {
+        display: flex;
+        align-items: center;
+        gap: 2px;
+        margin-bottom: 8px;
+      }
+      
+      .legend-scale span {
+        width: 28px;
+        height: 16px;
+        border-radius: 2px;
+      }
+      
+      .legend-labels {
+        display: flex;
+        justify-content: space-between;
+        font-size: 11px;
+        color: #aaa;
+      }
+      
+      /* Mobile: smaller panels */
+      @media (max-width: 600px) {
+        .info-panel {
+          top: 10px;
+          left: 10px;
+          right: 10px;
+          max-width: none;
+          padding: 12px 14px;
+        }
+        
+        .info-panel h1 {
+          font-size: 16px;
+        }
+        
+        .info-panel p {
+          font-size: 12px;
+        }
+        
+        .legend {
+          bottom: 10px;
+          left: 10px;
+          right: 10px;
+        }
+        
+        .legend-scale span {
+          flex: 1;
+          width: auto;
+        }
+      }
+      
+      .info-panel {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        background: rgba(26, 26, 46, 0.95);
+        border-radius: 12px;
+        max-width: 320px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255,255,255,0.1);
+        z-index: 1000;
+        overflow: hidden;
+        transition: all 0.3s ease;
+        max-height: calc(100vh - 40px);
+        overflow-y: auto;
+      }
+      
+      .info-header {
+        padding: 14px 16px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        cursor: pointer;
+        user-select: none;
+      }
+      
+      .info-header:hover {
+        background: rgba(255,255,255,0.05);
+      }
+      
+      .info-panel h1 {
+        font-size: 18px;
+        margin: 0;
+        color: #fff;
+      }
+      
+      .info-toggle {
+        font-size: 12px;
+        color: #888;
+        transition: transform 0.3s ease;
+      }
+      
+      .info-panel.collapsed .info-toggle {
+        transform: rotate(180deg);
+      }
+      
+      .info-content {
+        padding: 0 16px 14px;
+        transition: all 0.3s ease;
+      }
+      
+      .info-panel.collapsed .info-content {
+        display: none;
+      }
+      
+      .info-panel p {
+        font-size: 13px;
+        color: #aaa;
+        line-height: 1.5;
+      }
+      
+      .info-panel .baseline {
+        margin-top: 12px;
+        padding-top: 12px;
+        border-top: 1px solid rgba(255,255,255,0.1);
+      }
+      
+      .info-panel .baseline strong {
+        color: #64b5f6;
+      }
+      
+      /* Filter Groups */
+      .filter-group {
+        margin-top: 16px;
+        padding-top: 16px;
+        border-top: 1px solid rgba(255,255,255,0.1);
+      }
+      
+      .filter-group-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        cursor: pointer;
+        user-select: none;
+        padding: 4px 0;
+        margin-bottom: 8px;
+      }
+      
+      .filter-group-header:hover h4 {
+        color: #fff;
+      }
+      
+      .filter-group h4 {
+        font-size: 12px;
+        font-weight: 600;
+        color: #888;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        transition: color 0.2s;
+      }
+      
+      .filter-group h4 .icon {
+        font-size: 14px;
+      }
+      
+      .filter-group-toggle {
+        font-size: 10px;
+        color: #666;
+        transition: transform 0.3s ease;
+      }
+      
+      .filter-group.collapsed .filter-group-toggle {
+        transform: rotate(180deg);
+      }
+      
+      .filter-group.collapsed .filter-group-content {
+        display: none;
+      }
+      
+      .filter-group-content {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+      
+      .filter-subgroup {
+        margin-top: 8px;
+      }
+      
+      .filter-subgroup-label {
+        font-size: 10px;
+        color: #666;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-bottom: 6px;
+      }
+      
+      .toggle-group {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+      
+      .toggle-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      
+      .toggle-item label {
+        font-size: 13px;
+        color: #ccc;
+        cursor: pointer;
+        user-select: none;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      
+      .toggle-item .icon {
+        font-size: 16px;
+      }
+      
+      .toggle-item .line-color {
+        width: 12px;
+        height: 12px;
+        border-radius: 2px;
+        display: inline-block;
+      }
+      
+      /* Custom Toggle Switch */
+      .toggle-switch {
+        position: relative;
+        width: 36px;
+        height: 20px;
+        flex-shrink: 0;
+      }
+      
+      .toggle-switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+      }
+      
+      .toggle-slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #444;
+        transition: 0.3s;
+        border-radius: 20px;
+      }
+      
+      .toggle-slider:before {
+        position: absolute;
+        content: "";
+        height: 14px;
+        width: 14px;
+        left: 3px;
+        bottom: 3px;
+        background-color: #fff;
+        transition: 0.3s;
+        border-radius: 50%;
+      }
+      
+      .toggle-switch input:checked + .toggle-slider {
+        background-color: #64b5f6;
+      }
+      
+      .toggle-switch input:checked + .toggle-slider:before {
+        transform: translateX(16px);
+      }
+      
+      /* Radio button group for single-select filters */
+      .radio-group {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+      
+      .radio-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        cursor: pointer;
+        padding: 6px 8px;
+        border-radius: 6px;
+        transition: background 0.2s;
+      }
+      
+      .radio-item:hover {
+        background: rgba(255,255,255,0.05);
+      }
+      
+      .radio-item input {
+        display: none;
+      }
+      
+      .radio-dot {
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        border: 2px solid #555;
+        background: transparent;
+        transition: all 0.2s;
+        flex-shrink: 0;
+        position: relative;
+      }
+      
+      .radio-dot::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #64b5f6;
+        transform: translate(-50%, -50%) scale(0);
+        transition: transform 0.2s;
+      }
+      
+      .radio-item input:checked + .radio-dot {
+        border-color: #64b5f6;
+      }
+      
+      .radio-item input:checked + .radio-dot::after {
+        transform: translate(-50%, -50%) scale(1);
+      }
+      
+      .radio-label {
+        font-size: 12px;
+        color: #ccc;
+      }
+      
+      .radio-item input:checked ~ .radio-label {
+        color: #fff;
+      }
+      
+      /* School legend */
+      .schools-legend {
+        margin-top: 12px;
+        padding-top: 10px;
+        border-top: 1px solid rgba(255,255,255,0.08);
+        display: none;
+      }
+      
+      .schools-legend.visible {
+        display: block;
+      }
+      
+      .schools-legend h5 {
+        font-size: 10px;
+        font-weight: 600;
+        color: #666;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-bottom: 6px;
+      }
+      
+      .school-type {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 11px;
+        color: #888;
+        margin-bottom: 3px;
+      }
+      
+      .school-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        border: 1.5px solid #fff;
+      }
+      
+      .school-dot.boys { background: #4FC3F7; }
+      .school-dot.girls { background: #F48FB1; }
+      .school-dot.coed { background: #AED581; }
+      
+      .hover-popup {
+        position: absolute;
+        display: none;
+        background: rgba(26, 26, 46, 0.98);
+        padding: 12px 16px;
+        border-radius: 8px;
+        pointer-events: none;
+        z-index: 1001;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+        border: 1px solid rgba(255,255,255,0.1);
+      }
+      
+      .hover-popup h4 {
+        font-size: 14px;
+        margin-bottom: 4px;
+        color: #fff;
+      }
+      
+      .hover-popup .price {
+        font-size: 18px;
+        font-weight: 700;
+        margin-bottom: 4px;
+      }
+      
+      .hover-popup .diff {
+        font-size: 13px;
+      }
+      
+      .hover-popup .diff.cheaper { color: #4caf50; }
+      .hover-popup .diff.expensive { color: #f44336; }
+      .hover-popup .diff.baseline { color: #64b5f6; }
+      
+      /* School popup styling */
+      .mapboxgl-popup.school-popup .mapboxgl-popup-content {
+        background: rgba(26, 26, 46, 0.98);
+        color: #fff;
+        padding: 10px 14px;
+        border-radius: 8px;
+        font-size: 12px;
+        border: 1px solid rgba(255,255,255,0.1);
+        box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+      }
+      
+      .mapboxgl-popup.school-popup .mapboxgl-popup-tip {
+        border-top-color: rgba(26, 26, 46, 0.98);
+      }
+      
+      /* School detail popup (on click) */
+      .mapboxgl-popup.school-detail-popup .mapboxgl-popup-content {
+        background: rgba(26, 26, 46, 0.98);
+        color: #fff;
+        padding: 0;
+        border-radius: 12px;
+        font-size: 13px;
+        border: 1px solid rgba(255,255,255,0.15);
+        box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+        min-width: 280px;
+        overflow: hidden;
+      }
+      
+      .mapboxgl-popup.school-detail-popup .school-popup-content {
+        padding: 14px 16px;
+      }
+      
+      .mapboxgl-popup.school-detail-popup .school-popup-image {
+        width: 100%;
+        height: 140px;
+        object-fit: cover;
+        display: block;
+      }
+      
+      .mapboxgl-popup.school-detail-popup .school-popup-image-container {
+        width: 100%;
+        min-height: 140px;
+        background: rgba(255,255,255,0.05);
+      }
+      
+      .mapboxgl-popup.school-detail-popup .school-popup-image-loading {
+        height: 140px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #666;
+        font-size: 12px;
+      }
+      
+      .mapboxgl-popup.school-detail-popup .mapboxgl-popup-tip {
+        border-top-color: rgba(26, 26, 46, 0.98);
+      }
+      
+      .mapboxgl-popup.school-detail-popup .mapboxgl-popup-close-button {
+        color: #fff;
+        font-size: 20px;
+        padding: 4px 8px;
+        right: 4px;
+        top: 4px;
+      }
+      
+      .mapboxgl-popup.school-detail-popup .mapboxgl-popup-close-button:hover {
+        background: rgba(255,255,255,0.1);
+        border-radius: 4px;
+      }
+
+      /* Active filter count badge */
+      .filter-count {
+        background: #64b5f6;
+        color: #1a1a2e;
+        font-size: 10px;
+        font-weight: 700;
+        padding: 2px 6px;
+        border-radius: 10px;
+        margin-left: 6px;
+      }
+    </style>
+    <script type="module" crossorigin src="./assets/index-DoFaeIXT.js"></script>
+  </head>
+  <body>
+    <div id="map"></div>
+    
+    <div class="info-panel" id="info-panel">
+      <div class="info-header" onclick="document.getElementById('info-panel').classList.toggle('collapsed')">
+        <h1>🏠 London Property Prices</h1>
+        <span class="info-toggle">▲</span>
+      </div>
+      <div class="info-content">
+        <p>Median property prices by postcode district, shown relative to your baseline location.</p>
+        <div class="baseline">
+          <strong>Baseline: E14 (Millwall)</strong><br>
+          <span id="baseline-price">Loading...</span>
+        </div>
+        
+        <!-- TRAVEL FILTER GROUP -->
+        <div class="filter-group" id="travel-group">
+          <div class="filter-group-header" onclick="document.getElementById('travel-group').classList.toggle('collapsed')">
+            <h4><span class="icon">🚇</span> Travel</h4>
+            <span class="filter-group-toggle">▲</span>
+          </div>
+          <div class="filter-group-content">
+            <div class="toggle-group">
+              <div class="toggle-item">
+                <label class="toggle-switch">
+                  <input type="checkbox" id="toggle-underground" checked>
+                  <span class="toggle-slider"></span>
+                </label>
+                <label for="toggle-underground">
+                  <span class="line-color" style="background: #DC241F; border-radius: 50%;"></span> Underground
+                </label>
+              </div>
+              <div class="toggle-item">
+                <label class="toggle-switch">
+                  <input type="checkbox" id="toggle-elizabeth" checked>
+                  <span class="toggle-slider"></span>
+                </label>
+                <label for="toggle-elizabeth">
+                  <span class="line-color" style="background: #6950A1;"></span> Elizabeth Line
+                </label>
+              </div>
+              <div class="toggle-item">
+                <label class="toggle-switch">
+                  <input type="checkbox" id="toggle-dlr" checked>
+                  <span class="toggle-slider"></span>
+                </label>
+                <label for="toggle-dlr">
+                  <span class="line-color" style="background: #00AFAD;"></span> DLR
+                </label>
+              </div>
+              <div class="toggle-item">
+                <label class="toggle-switch">
+                  <input type="checkbox" id="toggle-overground" checked>
+                  <span class="toggle-slider"></span>
+                </label>
+                <label for="toggle-overground">
+                  <span class="line-color" style="background: #EF7B10;"></span> Overground
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- SCHOOLS FILTER GROUP -->
+        <div class="filter-group" id="schools-group">
+          <div class="filter-group-header" onclick="document.getElementById('schools-group').classList.toggle('collapsed')">
+            <h4><span class="icon">🎓</span> Schools</h4>
+            <span class="filter-group-toggle">▲</span>
+          </div>
+          <div class="filter-group-content">
+            <div class="filter-subgroup">
+              <div class="filter-subgroup-label">By Ranking</div>
+              <div class="toggle-group">
+                <div class="toggle-item">
+                  <label class="toggle-switch">
+                    <input type="checkbox" id="toggle-schools-top25" checked>
+                    <span class="toggle-slider"></span>
+                  </label>
+                  <label for="toggle-schools-top25">Top 25</label>
+                </div>
+                <div class="toggle-item">
+                  <label class="toggle-switch">
+                    <input type="checkbox" id="toggle-schools-top100" checked>
+                    <span class="toggle-slider"></span>
+                  </label>
+                  <label for="toggle-schools-top100">Top 100</label>
+                </div>
+                <div class="toggle-item">
+                  <label class="toggle-switch">
+                    <input type="checkbox" id="toggle-schools-top250" checked>
+                    <span class="toggle-slider"></span>
+                  </label>
+                  <label for="toggle-schools-top250">Top 250</label>
+                </div>
+              </div>
+            </div>
+            
+            <div class="filter-subgroup">
+              <div class="filter-subgroup-label">Fee Range</div>
+              <div class="radio-group">
+                <label class="radio-item">
+                  <input type="radio" name="fee-band" value="all" checked>
+                  <span class="radio-dot"></span>
+                  <span class="radio-label">All fees</span>
+                </label>
+                <label class="radio-item">
+                  <input type="radio" name="fee-band" value="under25k">
+                  <span class="radio-dot"></span>
+                  <span class="radio-label">Under £25k</span>
+                </label>
+                <label class="radio-item">
+                  <input type="radio" name="fee-band" value="25k-35k">
+                  <span class="radio-dot"></span>
+                  <span class="radio-label">£25k – £35k</span>
+                </label>
+                <label class="radio-item">
+                  <input type="radio" name="fee-band" value="35k-50k">
+                  <span class="radio-dot"></span>
+                  <span class="radio-label">£35k – £50k</span>
+                </label>
+                <label class="radio-item">
+                  <input type="radio" name="fee-band" value="over50k">
+                  <span class="radio-dot"></span>
+                  <span class="radio-label">£50k+</span>
+                </label>
+              </div>
+            </div>
+            
+            <div class="schools-legend visible" id="schools-legend">
+              <h5>School Types</h5>
+              <div class="school-type"><span class="school-dot boys"></span> Boys</div>
+              <div class="school-type"><span class="school-dot girls"></span> Girls</div>
+              <div class="school-type"><span class="school-dot coed"></span> Co-educational</div>
+            </div>
+            <div class="notion-link" style="margin-top: 12px; padding-top: 10px; border-top: 1px solid rgba(255,255,255,0.08);">
+              <a href="https://www.notion.so/2fa8cb5661db81d389bbdd8a3cbddbe9" target="_blank" rel="noopener" style="font-size: 11px; color: #64b5f6; text-decoration: none; display: flex; align-items: center; gap: 6px;">
+                📋 View schools data
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="legend" id="legend">
+      <div class="legend-header" onclick="document.getElementById('legend').classList.toggle('collapsed')">
+        <h3>Price vs E14</h3>
+        <span class="legend-toggle">▲</span>
+      </div>
+      <div class="legend-content">
+        <div class="legend-scale">
+          <span style="background: #1b5e20"></span>
+          <span style="background: #388e3c"></span>
+          <span style="background: #66bb6a"></span>
+          <span style="background: #64b5f6"></span>
+          <span style="background: #ff9800"></span>
+          <span style="background: #f44336"></span>
+          <span style="background: #b71c1c"></span>
+        </div>
+        <div class="legend-labels">
+          <span>-50%</span>
+          <span>0%</span>
+          <span>+100%</span>
+        </div>
+      </div>
+    </div>
+    
+    <div class="hover-popup" id="popup">
+      <h4 id="popup-district"></h4>
+      <div class="price" id="popup-price"></div>
+      <div class="diff" id="popup-diff"></div>
+    </div>
+    
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js')
+            .then(reg => console.log('SW registered'))
+            .catch(err => console.log('SW registration failed:', err));
+        });
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,2123 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "James Allen's Girls'",
+        "type": "girls",
+        "ranking": 50,
+        "feesPerYear": 26000,
+        "website": "https://www.jags.org.uk/",
+        "wikiUrl": null,
+        "founded": 1741,
+        "highlights": "Founded 1741, part of Edward Alleyn foundation with Dulwich College. Outstanding results - 46% A* in 2024. Top girls school.",
+        "aLevelPercent": 85,
+        "gcsePercent": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.0831,
+          51.4438
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Ibstock Place School",
+        "type": "co-ed",
+        "ranking": 50,
+        "feesPerYear": 29938,
+        "website": "https://www.ibstockplaceschool.co.uk/",
+        "wikiUrl": "https://en.wikipedia.org/wiki/Ibstock_Place_School",
+        "founded": 1894,
+        "highlights": "Founded 1894 as Froebel Demonstration School. Co-ed in Roehampton. Progressive educational approach.",
+        "aLevelPercent": 65,
+        "gcsePercent": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.2367,
+          51.4503
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Chelsea Independent College",
+        "type": "co-ed",
+        "ranking": 150,
+        "feesPerYear": 28000,
+        "website": "https://www.chelseaindependentcollege.com/",
+        "wikiUrl": "https://en.wikipedia.org/wiki/Chelsea_Independent_College",
+        "founded": 2000,
+        "highlights": "Day and boarding sixth form college in Chelsea. GCSE, A-Level and Foundation courses. Small class sizes.",
+        "aLevelPercent": null,
+        "gcsePercent": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.174,
+          51.4853
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Thomas's Kensington",
+        "type": "co-ed",
+        "ranking": 150,
+        "feesPerYear": 34635,
+        "website": "https://www.thomas-s.co.uk/thomass-kensington/",
+        "wikiUrl": null,
+        "founded": 1971,
+        "highlights": "Part of Thomas London Day Schools. Prep school in fashionable Kensington. Creative, nurturing ethos.",
+        "aLevelPercent": null,
+        "gcsePercent": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.1952,
+          51.498
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Notting Hill & Ealing High",
+        "type": "girls",
+        "ranking": 50,
+        "feesPerYear": 23895,
+        "website": "https://www.nhehs.gdst.net/",
+        "wikiUrl": null,
+        "founded": 1873,
+        "highlights": "Founded 1873. GDST school. Top 20 UK for both GCSE and A-Level - one of only 10 schools to achieve this.",
+        "aLevelPercent": 75,
+        "gcsePercent": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.2882,
+          51.5143
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Latymer Upper School",
+        "type": "co-ed",
+        "ranking": 50,
+        "feesPerYear": 31095,
+        "website": "https://www.latymer-upper.org/",
+        "wikiUrl": "https://en.wikipedia.org/wiki/Latymer_Upper_School",
+        "founded": 1624,
+        "highlights": "Founded 1624 by Edward Latymer. Leading co-ed day school in Hammersmith. Strong drama tradition with notable alumni.",
+        "aLevelPercent": 78,
+        "gcsePercent": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.2349,
+          51.4894
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Kingston Grammar School",
+        "type": "co-ed",
+        "ranking": 50,
+        "feesPerYear": 27450,
+        "website": "https://www.kgs.org.uk/",
+        "wikiUrl": "https://en.wikipedia.org/wiki/Kingston_Grammar_School",
+        "founded": 1561,
+        "highlights": "Founded 1561 by royal charter. Co-ed since 1978. Record-breaking 2024 A-Level results.",
+        "aLevelPercent": 75,
+        "gcsePercent": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.3039,
+          51.4109
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "German School London",
+        "type": "co-ed",
+        "ranking": 150,
+        "feesPerYear": 15000,
+        "website": "https://www.dslondon.org.uk/",
+        "wikiUrl": "https://en.wikipedia.org/wiki/German_School_London",
+        "founded": 1971,
+        "highlights": "Founded 1971 in Richmond. German curriculum plus IB. 800+ students. Abitur and IB Diploma.",
+        "aLevelPercent": null,
+        "gcsePercent": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.2427,
+          51.4196
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Collingham College",
+        "type": "co-ed",
+        "ranking": 150,
+        "feesPerYear": 33195,
+        "website": "https://collingham.co.uk/",
+        "wikiUrl": "https://en.wikipedia.org/wiki/Collingham_College",
+        "founded": 1975,
+        "highlights": "Founded 1975 in Kensington. Celebrates 50 years in 2025. Tutorial college with small classes. Oxbridge preparation.",
+        "aLevelPercent": null,
+        "gcsePercent": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.192,
+          51.4972
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Trinity School Croydon",
+        "type": "co-ed",
+        "ranking": 50,
+        "feesPerYear": 29400,
+        "website": "https://www.trinity-school.org/",
+        "wikiUrl": null,
+        "founded": 1596,
+        "highlights": "Founded 1596 by Archbishop Whitgift. Part of Whitgift Foundation. Boys school with strong sport and academics.",
+        "aLevelPercent": 67,
+        "gcsePercent": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.0889,
+          51.3743
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Eltham College",
+        "type": "co-ed",
+        "ranking": 50,
+        "feesPerYear": 29997,
+        "website": "https://www.eltham-college.org.uk/",
+        "wikiUrl": "https://en.wikipedia.org/wiki/Eltham_College",
+        "founded": 1842,
+        "highlights": "Founded 1842. Sunday Times London Independent School of Year 2024. Strong maths and science. Co-ed.",
+        "aLevelPercent": 65,
+        "gcsePercent": 71
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          0.0492,
+          51.4374
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Highgate School",
+        "type": "co-ed",
+        "ranking": 50,
+        "feesPerYear": 26490,
+        "website": "https://www.highgateschool.org.uk/",
+        "wikiUrl": "https://en.wikipedia.org/wiki/Highgate_School",
+        "founded": 1565,
+        "highlights": "Founded 1565. Co-ed since 2004. Victorian Gothic architecture in leafy Highgate Village. Alumni include John Betjeman.",
+        "aLevelPercent": 78,
+        "gcsePercent": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.1463,
+          51.5736
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "The Cavendish School",
+        "type": "girls",
+        "ranking": 150,
+        "feesPerYear": 22000,
+        "website": "https://cavendishschool.co.uk/",
+        "wikiUrl": "https://en.wikipedia.org/wiki/The_Cavendish_School",
+        "founded": 1966,
+        "highlights": "Girls prep school in Camden Town. Small classes, exceptional pastoral care. Ages 3-11.",
+        "aLevelPercent": null,
+        "gcsePercent": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.1688,
+          51.5159
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Harrow School",
+        "type": "boys",
+        "ranking": 50,
+        "feesPerYear": 63735,
+        "website": "https://www.harrowschool.org.uk/",
+        "wikiUrl": "https://en.wikipedia.org/wiki/Harrow_School",
+        "founded": 1572,
+        "highlights": "Founded 1572. Winston Churchill, Lord Byron, Benedict Cumberbatch among alumni. Full boarding school with 800 boys.",
+        "aLevelPercent": 67,
+        "gcsePercent": 67
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.3361,
+          51.5731
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Portland Place School",
+        "type": "co-ed",
+        "ranking": 150,
+        "feesPerYear": 27000,
+        "website": "https://www.portland-place.co.uk/",
+        "wikiUrl": null,
+        "founded": 1996,
+        "highlights": "Founded 1996. NOTE: School closed summer 2024. Was known for music and small class sizes.",
+        "aLevelPercent": null,
+        "gcsePercent": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.1455,
+          51.5213
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "David Game College",
+        "type": "co-ed",
+        "ranking": 150,
+        "feesPerYear": 25000,
+        "website": "https://www.davidgamecollege.com/",
+        "wikiUrl": "https://en.wikipedia.org/wiki/David_Game_College",
+        "founded": 1974,
+        "highlights": "Founded 1974 in City of London. Independent sixth form college. Intensive and standard A-Level programmes.",
+        "aLevelPercent": null,
+        "gcsePercent": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.095,
+          51.509
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Sussex House School",
+        "type": "boys",
+        "ranking": 150,
+        "feesPerYear": 33300,
+        "website": "https://www.sussexhouseschool.co.uk/",
+        "wikiUrl": "https://en.wikipedia.org/wiki/Sussex_House_School",
+        "founded": 1952,
+        "highlights": "Founded 1952. Boys prep in Chelsea. Beautiful Norman Shaw designed building at Cadogan Square.",
+        "aLevelPercent": null,
+        "gcsePercent": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.1772,
+          51.4891
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Mill Hill School",
+        "type": "co-ed",
+        "ranking": 150,
+        "feesPerYear": 32025,
+        "website": "https://www.millhill.org.uk/",
+        "wikiUrl": "https://en.wikipedia.org/wiki/Mill_Hill_School",
+        "founded": 1807,
+        "highlights": "Founded 1807. Beautiful 120-acre campus. Day and boarding. Good sport facilities including 9-hole golf course.",
+        "aLevelPercent": 52,
+        "gcsePercent": 66
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.239,
+          51.6176
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "City of London School",
+        "type": "boys",
+        "ranking": 50,
+        "feesPerYear": 28458,
+        "website": "https://www.cityoflondonschool.org.uk/",
+        "wikiUrl": "https://en.wikipedia.org/wiki/City_of_London_School",
+        "founded": 1834,
+        "highlights": "Founded 1834 on Thames embankment. Notable alumni include H.H. Asquith (PM), Julian Barnes, Daniel Radcliffe.",
+        "aLevelPercent": 81,
+        "gcsePercent": 95
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.0991,
+          51.5108
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Bales College",
+        "type": "co-ed",
+        "ranking": 150,
+        "feesPerYear": 18000,
+        "website": "https://balescollege.co.uk/",
+        "wikiUrl": null,
+        "founded": 1966,
+        "highlights": "Founded 1966 in West London. Independent school and sixth form. Small group teaching ages 13-19.",
+        "aLevelPercent": null,
+        "gcsePercent": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.1818,
+          51.5178
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Bromley High School",
+        "type": "girls",
+        "ranking": 150,
+        "feesPerYear": 25491,
+        "website": "https://www.bromleyhigh.gdst.net/",
+        "wikiUrl": "https://en.wikipedia.org/wiki/Bromley_High_School",
+        "founded": 1883,
+        "highlights": "Founded 1883. GDST school. Outstanding reputation for academics, sport and music. Beautiful campus.",
+        "aLevelPercent": 70,
+        "gcsePercent": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          0.0094,
+          51.4044
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Hampton School",
+        "type": "boys",
+        "ranking": 50,
+        "feesPerYear": 29916,
+        "website": "https://hamptonschool.org.uk/",
+        "wikiUrl": "https://en.wikipedia.org/wiki/Hampton_School",
+        "founded": 1556,
+        "highlights": "Founded 1556. Was a grammar school until 1975. Strong rowing tradition - major competitor at Henley. Stephen Fry attended.",
+        "aLevelPercent": 77,
+        "gcsePercent": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.3629,
+          51.4229
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Cameron House School",
+        "type": "co-ed",
+        "ranking": 150,
+        "feesPerYear": 25000,
+        "website": "https://www.cameronhouseschool.org/",
+        "wikiUrl": null,
+        "founded": 1980,
+        "highlights": "Small co-ed prep in Chelsea. Only 20 children per year. Nurturing family atmosphere.",
+        "aLevelPercent": null,
+        "gcsePercent": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.1718,
+          51.4868
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Fulham Prep School",
+        "type": "co-ed",
+        "ranking": 150,
+        "feesPerYear": 25443,
+        "website": "https://www.fulham.school/",
+        "wikiUrl": null,
+        "founded": 1996,
+        "highlights": "Founded 1996. Co-ed prep in Fulham. 3 campuses. 25 years of academic excellence. Part of Inspired Group.",
+        "aLevelPercent": null,
+        "gcsePercent": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.2119,
+          51.4813
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "North Bridge House Senior",
+        "type": "co-ed",
+        "ranking": 150,
+        "feesPerYear": 26000,
+        "website": "https://www.northbridgehouse.com/",
+        "wikiUrl": null,
+        "founded": 1939,
+        "highlights": "Founded 1939. Co-ed across multiple North London campuses. Part of Cognita Group. Now linked with Alleyns.",
+        "aLevelPercent": null,
+        "gcsePercent": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.1683,
+          51.5369
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Emanuel School",
+        "type": "co-ed",
+        "ranking": 50,
+        "feesPerYear": 29748,
+        "website": "https://www.emanuel.org.uk/",
+        "wikiUrl": "https://en.wikipedia.org/wiki/Emanuel_School",
+        "founded": 1594,
+        "highlights": "Founded 1594 in Wandsworth. Co-ed since 2012. Beautiful riverside campus. Top 50 independent school in UK.",
+        "aLevelPercent": 64,
+        "gcsePercent": 89
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.1737,
+          51.462
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Eaton Square School",
+        "type": "co-ed",
+        "ranking": 150,
+        "feesPerYear": 28000,
+        "website": "https://www.eatonsquareschools.com/",
+        "wikiUrl": "https://en.wikipedia.org/wiki/Eaton_Square_School",
+        "founded": 1981,
+        "highlights": "Founded 1981 in Belgravia. Prep school for ages 2-11. Feeds to top London senior schools.",
+        "aLevelPercent": null,
+        "gcsePercent": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.1503,
+          51.4963
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "International School of London",
+        "type": "co-ed",
+        "ranking": 150,
+        "feesPerYear": 32000,
+        "website": "https://www.isllondon.org/",
+        "wikiUrl": null,
+        "founded": 1972,
+        "highlights": "Founded 1972. One of first IB Diploma schools in UK. Strong home language literacy programmes.",
+        "aLevelPercent": null,
+        "gcsePercent": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.1779,
+          51.4239
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "ACS Cobham",
+        "type": "co-ed",
+        "ranking": 150,
+        "feesPerYear": 38000,
+        "website": "https://www.acs-schools.com/cobham/",
+        "wikiUrl": "https://en.wikipedia.org/wiki/ACS_Cobham",
+        "founded": 1967,
+        "highlights": "Founded 1967. 128-acre Surrey campus. Day and boarding. IB and AP curriculum. World-class facilities.",
+        "aLevelPercent": null,
+        "gcsePercent": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.398,
+          51.3301
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "St Helen's Northwood",
+        "type": "girls",
+        "ranking": 50,
+        "feesPerYear": 26616,
+        "website": "https://www.sthelens.london/",
+        "wikiUrl": null,
+        "founded": 1899,
+        "highlights": "Founded 1899 in Northwood. One of UKs leading girls schools. 84% A*-A at A-Level. Strong sport.",
+        "aLevelPercent": 84,
+        "gcsePercent": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.4183,
+          51.6051
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Haberdashers' Boys",
+        "type": "boys",
+        "ranking": 150,
+        "feesPerYear": 31269,
+        "website": "https://www.habsboys.org.uk/",
+        "wikiUrl": null,
+        "founded": 1690,
+        "highlights": "Founded 1690 by Haberdashers Company. Elstree campus shared with girls school. Strong sport and academics.",
+        "aLevelPercent": 80,
+        "gcsePercent": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.2788,
+          51.6356
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "University College School",
+        "type": "co-ed",
+        "ranking": 50,
+        "feesPerYear": 32913,
+        "website": "https://www.ucs.org.uk/",
+        "wikiUrl": "https://en.wikipedia.org/wiki/University_College_School",
+        "founded": 1830,
+        "highlights": "Founded 1830 in Hampstead. Liberal ethos, no CCF or chapel. Known for progressive values and strong academics.",
+        "aLevelPercent": 80,
+        "gcsePercent": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.1756,
+          51.5544
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Croydon High School",
+        "type": "girls",
+        "ranking": 50,
+        "feesPerYear": 24564,
+        "website": "https://www.croydonhigh.gdst.net/",
+        "wikiUrl": "https://en.wikipedia.org/wiki/Croydon_High_School",
+        "founded": 1874,
+        "highlights": "Founded 1874. GDST school in South London. 82% A*-B at A-Level 2024. Strong science and STEM.",
+        "aLevelPercent": 52,
+        "gcsePercent": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.0777,
+          51.3553
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Surbiton High School",
+        "type": "girls",
+        "ranking": 50,
+        "feesPerYear": 25850,
+        "website": "https://www.surbitonhigh.com/",
+        "wikiUrl": "https://en.wikipedia.org/wiki/Surbiton_High_School",
+        "founded": 1884,
+        "highlights": "Founded 1884. Part of United Church Schools Trust. 46% grade 9s at GCSE. Strong sport and music.",
+        "aLevelPercent": 62,
+        "gcsePercent": 46
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.3029,
+          51.3938
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Forest School",
+        "type": "co-ed",
+        "ranking": 150,
+        "feesPerYear": 32070,
+        "website": "https://www.forest.org.uk/",
+        "wikiUrl": "https://en.wikipedia.org/wiki/Forest_School",
+        "founded": 1834,
+        "highlights": "Founded 1834 in Snaresbrook, East London. Large co-ed school. Beautiful Epping Forest location.",
+        "aLevelPercent": 68,
+        "gcsePercent": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.0044,
+          51.5962
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "MPW London",
+        "type": "co-ed",
+        "ranking": 150,
+        "feesPerYear": 35898,
+        "website": "https://www.mpw.ac.uk/locations/london/",
+        "wikiUrl": null,
+        "founded": 1973,
+        "highlights": "Founded 1973. Tutorial-style teaching in small groups (under 10). GCSE and A-Level retakes specialist.",
+        "aLevelPercent": null,
+        "gcsePercent": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.1856,
+          51.4965
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Francis Holland Regent's Pk",
+        "type": "girls",
+        "ranking": 50,
+        "feesPerYear": 30834,
+        "website": "https://www.fhs-nw1.org.uk/",
+        "wikiUrl": null,
+        "founded": 1878,
+        "highlights": "Founded 1878 by Canon Francis Holland. Church of England girls school near Regents Park. Warm, supportive ethos.",
+        "aLevelPercent": 57,
+        "gcsePercent": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.1495,
+          51.5259
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Garden House School",
+        "type": "co-ed",
+        "ranking": 150,
+        "feesPerYear": 33300,
+        "website": "https://www.gardenhouseschool.co.uk/",
+        "wikiUrl": "https://en.wikipedia.org/wiki/Garden_House_School",
+        "founded": 1950,
+        "highlights": "Founded 1950 in Chelsea. Educated offspring of diplomats and PMs including Churchill. Now co-ed prep.",
+        "aLevelPercent": null,
+        "gcsePercent": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.1621,
+          51.4929
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Channing School",
+        "type": "girls",
+        "ranking": 50,
+        "feesPerYear": 31662,
+        "website": "https://www.channing.co.uk/",
+        "wikiUrl": "https://en.wikipedia.org/wiki/Channing_School",
+        "founded": 1885,
+        "highlights": "Founded 1885 in Highgate. Unique Unitarian foundation. Inclusive, supportive ethos with strong academics.",
+        "aLevelPercent": 65,
+        "gcsePercent": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.1452,
+          51.5673
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Dulwich College",
+        "type": "boys",
+        "ranking": 50,
+        "feesPerYear": 28000,
+        "website": "https://www.dulwich.org.uk/",
+        "wikiUrl": "https://en.wikipedia.org/wiki/Dulwich_College",
+        "founded": 1619,
+        "highlights": "Founded 1619 by actor Edward Alleyn. Alumni include P.G. Wodehouse, Raymond Chandler, Ernest Shackleton.",
+        "aLevelPercent": 68,
+        "gcsePercent": 91
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.0871,
+          51.4412
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "ACS Egham",
+        "type": "co-ed",
+        "ranking": 150,
+        "feesPerYear": 35000,
+        "website": "https://www.acs-schools.com/egham/",
+        "wikiUrl": "https://en.wikipedia.org/wiki/ACS_Egham",
+        "founded": 1967,
+        "highlights": "Founded 1967. Part of ACS International Schools. Day and boarding. IB and AP curriculum.",
+        "aLevelPercent": null,
+        "gcsePercent": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.5456,
+          51.4178
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "The Lyceum",
+        "type": "co-ed",
+        "ranking": 150,
+        "feesPerYear": 23676,
+        "website": "https://www.lyceumschool.co.uk/",
+        "wikiUrl": "https://en.wikipedia.org/wiki/The_Lyceum",
+        "founded": 1997,
+        "highlights": "Founded 1997 in City of London. Co-ed prep 4-11. Creative, thematic teaching. Part of Dukes Education.",
+        "aLevelPercent": null,
+        "gcsePercent": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.0887,
+          51.5178
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Haberdashers' Girls",
+        "type": "girls",
+        "ranking": 150,
+        "feesPerYear": 30117,
+        "website": "https://www.habsgirls.org.uk/",
+        "wikiUrl": null,
+        "founded": 1875,
+        "highlights": "Founded 1875 by Haberdashers Company. Shares 100-acre Elstree campus with boys school. Now offers co-ed sixth form.",
+        "aLevelPercent": 78,
+        "gcsePercent": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.2801,
+          51.6345
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Wimbledon High School",
+        "type": "girls",
+        "ranking": 50,
+        "feesPerYear": 28857,
+        "website": "https://www.wimbledonhigh.gdst.net/",
+        "wikiUrl": "https://en.wikipedia.org/wiki/Wimbledon_High_School",
+        "founded": 1880,
+        "highlights": "Founded 1880. GDST school. Exceptional 2024 results - 50% A* grades. Senior School of Year winner.",
+        "aLevelPercent": 85,
+        "gcsePercent": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.2058,
+          51.4229
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Pembridge Hall",
+        "type": "girls",
+        "ranking": 150,
+        "feesPerYear": 28000,
+        "website": "https://www.pembridgehall.co.uk/",
+        "wikiUrl": null,
+        "founded": 1979,
+        "highlights": "Founded 1979 in Notting Hill. Girls prep 4-11. Part of Inspired Education Group. Feeds to top London senior schools.",
+        "aLevelPercent": null,
+        "gcsePercent": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.1988,
+          51.5119
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "King's College School",
+        "type": "co-ed",
+        "ranking": 50,
+        "feesPerYear": 29232,
+        "website": "https://www.kcs.org.uk/",
+        "wikiUrl": "https://en.wikipedia.org/wiki/King's_College_School",
+        "founded": 1829,
+        "highlights": "Founded 1829 by King George IV. Originally part of Kings College London. Beautiful Wimbledon campus.",
+        "aLevelPercent": 86,
+        "gcsePercent": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.2196,
+          51.4313
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "South Hampstead High",
+        "type": "girls",
+        "ranking": 50,
+        "feesPerYear": 28371,
+        "website": "https://www.shhs.gdst.net/",
+        "wikiUrl": null,
+        "founded": 1876,
+        "highlights": "Founded 1876. GDST school celebrating 150th anniversary. Strong academics in leafy Hampstead.",
+        "aLevelPercent": 75,
+        "gcsePercent": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.1818,
+          51.547
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "St Paul's School",
+        "type": "boys",
+        "ranking": 50,
+        "feesPerYear": 35847,
+        "website": "https://www.stpaulsschool.org.uk/",
+        "wikiUrl": "https://en.wikipedia.org/wiki/St_Paul's_School",
+        "founded": 1509,
+        "highlights": "Founded 1509 by John Colet. Ranked #1 UK school in 2025 (Sunday Times). First English school to teach Greek.",
+        "aLevelPercent": 90,
+        "gcsePercent": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.2318,
+          51.4851
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Thomas's Battersea",
+        "type": "co-ed",
+        "ranking": 150,
+        "feesPerYear": 32886,
+        "website": "https://www.thomas-s.co.uk/thomass-battersea/",
+        "wikiUrl": "https://en.wikipedia.org/wiki/Thomas's_Battersea",
+        "founded": 1971,
+        "highlights": "Founded 1971. Prince George and Princess Charlotte attended. Prep school feeding into top public schools.",
+        "aLevelPercent": null,
+        "gcsePercent": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.17,
+          51.4743
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "St James Senior Girls",
+        "type": "girls",
+        "ranking": 150,
+        "feesPerYear": 22500,
+        "website": "https://www.stjamesschools.co.uk/seniorgirls/",
+        "wikiUrl": null,
+        "founded": 1975,
+        "highlights": "Founded 1975 in West Kensington. Unique philosophical approach with regular mindfulness. Transitioning to co-ed.",
+        "aLevelPercent": null,
+        "gcsePercent": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.206,
+          51.4912
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Wetherby School",
+        "type": "boys",
+        "ranking": 150,
+        "feesPerYear": 32970,
+        "website": "https://www.wetherbyschool.co.uk/",
+        "wikiUrl": "https://en.wikipedia.org/wiki/Wetherby_School",
+        "founded": 1951,
+        "highlights": "Founded 1951. Boys prep in Notting Hill. Prince William and Harry attended. Feeds to Eton, Westminster, St Pauls.",
+        "aLevelPercent": null,
+        "gcsePercent": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.1892,
+          51.5127
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Putney High School",
+        "type": "girls",
+        "ranking": 50,
+        "feesPerYear": 24000,
+        "website": "https://www.putneyhigh.gdst.net/",
+        "wikiUrl": "https://en.wikipedia.org/wiki/Putney_High_School",
+        "founded": 1893,
+        "highlights": "Founded 1893. GDST school. Record-breaking 2024 A-Levels with best ever Oxbridge offers.",
+        "aLevelPercent": 78,
+        "gcsePercent": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.2147,
+          51.462
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Alleyn's School",
+        "type": "co-ed",
+        "ranking": 50,
+        "feesPerYear": 26500,
+        "website": "https://www.alleyns.org.uk/",
+        "wikiUrl": "https://en.wikipedia.org/wiki/Alleyn's_School",
+        "founded": 1619,
+        "highlights": "Founded 1619 by Edward Alleyn. Part of the Dulwich schools foundation with Dulwich College and JAGs. Co-ed since 1976.",
+        "aLevelPercent": 65,
+        "gcsePercent": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.0781,
+          51.4479
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Dwight School London",
+        "type": "co-ed",
+        "ranking": 150,
+        "feesPerYear": 28000,
+        "website": "https://www.dwightlondon.org/",
+        "wikiUrl": "https://en.wikipedia.org/wiki/Dwight_School_London",
+        "founded": 1972,
+        "highlights": "Full IB curriculum school. Ranked #1 for IB Diploma scores among all international schools in London. Top 100 IB globally.",
+        "aLevelPercent": null,
+        "gcsePercent": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.1738,
+          51.5642
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Colfe's School",
+        "type": "co-ed",
+        "ranking": 50,
+        "feesPerYear": 26199,
+        "website": "https://www.colfes.com/",
+        "wikiUrl": "https://en.wikipedia.org/wiki/Colfe's_School",
+        "founded": 1652,
+        "highlights": "Founded 1652 in Lewisham. One of oldest schools in London. Co-ed. Strong sport including rowing.",
+        "aLevelPercent": 60,
+        "gcsePercent": 79
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.0148,
+          51.4521
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Glendower Prep",
+        "type": "girls",
+        "ranking": 150,
+        "feesPerYear": 26000,
+        "website": "https://www.glendowerprep.org/",
+        "wikiUrl": null,
+        "founded": 1895,
+        "highlights": "Founded 1895 in South Kensington. Girls prep 4-11. Excellent 11+ results to top senior schools.",
+        "aLevelPercent": null,
+        "gcsePercent": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.1878,
+          51.4973
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Lycée Français Charles de Gaulle",
+        "type": "co-ed",
+        "ranking": 150,
+        "feesPerYear": 11295,
+        "website": "https://www.lyceefrancais.org.uk/",
+        "wikiUrl": "https://en.wikipedia.org/wiki/Lycée_Français_Charles_de_Gaulle",
+        "founded": 1915,
+        "highlights": "Founded 1915 in South Kensington. French curriculum. 3400+ students, 46 nationalities. Baccalauréat.",
+        "aLevelPercent": null,
+        "gcsePercent": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.1882,
+          51.4929
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Sydenham High School",
+        "type": "girls",
+        "ranking": 150,
+        "feesPerYear": 23910,
+        "website": "https://www.sydenhamhighschool.gdst.net/",
+        "wikiUrl": "https://en.wikipedia.org/wiki/Sydenham_High_School",
+        "founded": 1887,
+        "highlights": "Founded 1887. GDST school in South East London. Best ever GCSE results 2025. Strong arts and music.",
+        "aLevelPercent": 55,
+        "gcsePercent": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.0561,
+          51.4285
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Lady Eleanor Holles",
+        "type": "girls",
+        "ranking": 50,
+        "feesPerYear": 30756,
+        "website": "https://lehs.org.uk/",
+        "wikiUrl": null,
+        "founded": 1711,
+        "highlights": "Founded 1711 in Cripplegate, moved to Hampton 1937. London Independent School of Year 2025. Known for music and sport.",
+        "aLevelPercent": 82,
+        "gcsePercent": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.3584,
+          51.4213
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Bancroft's School",
+        "type": "co-ed",
+        "ranking": 50,
+        "feesPerYear": 30144,
+        "website": "https://www.bancrofts.org/",
+        "wikiUrl": "https://en.wikipedia.org/wiki/Bancroft's_School",
+        "founded": 1737,
+        "highlights": "Founded 1737 by Francis Bancroft. Woodford Green campus. Top 15 co-ed schools in UK. Strong music tradition.",
+        "aLevelPercent": 75,
+        "gcsePercent": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          0.0179,
+          51.5961
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Hill House School",
+        "type": "co-ed",
+        "ranking": 150,
+        "feesPerYear": 28980,
+        "website": "https://hillhouseschool.co.uk/",
+        "wikiUrl": "https://en.wikipedia.org/wiki/Hill_House_School",
+        "founded": 1951,
+        "highlights": "Founded 1951 in Switzerland, moved to London. Prince Charles attended. Famous rust-coloured uniform. Swiss chalet trips.",
+        "aLevelPercent": null,
+        "gcsePercent": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.1718,
+          51.4952
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "St Paul's Girls' School",
+        "type": "girls",
+        "ranking": 50,
+        "feesPerYear": 37242,
+        "website": "https://spgs.org/",
+        "wikiUrl": "https://en.wikipedia.org/wiki/St_Paul's_Girls'_School",
+        "founded": 1904,
+        "highlights": "Founded 1904, sister school to St Pauls. Top UK girls school. Gustav Holst was Director of Music 1905-1934.",
+        "aLevelPercent": 89,
+        "gcsePercent": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.2283,
+          51.4912
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "The American School London",
+        "type": "co-ed",
+        "ranking": 150,
+        "feesPerYear": 42588,
+        "website": "https://www.asl.org/",
+        "wikiUrl": null,
+        "founded": 1951,
+        "highlights": "Founded 1951 in St Johns Wood. American curriculum K-12. 50+ nationalities. Ivy League feeders.",
+        "aLevelPercent": null,
+        "gcsePercent": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.1752,
+          51.531
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "St Augustine's Priory",
+        "type": "girls",
+        "ranking": 50,
+        "feesPerYear": 24500,
+        "website": "https://www.sapriory.com/",
+        "wikiUrl": "https://en.wikipedia.org/wiki/St_Augustine's_Priory",
+        "founded": 1634,
+        "highlights": "Founded 1634. Catholic girls school in Ealing. 13-acre campus. Run by lay head since 1996 (originally by nuns).",
+        "aLevelPercent": null,
+        "gcsePercent": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.3111,
+          51.5158
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Godolphin & Latymer",
+        "type": "girls",
+        "ranking": 50,
+        "feesPerYear": 34622,
+        "website": "https://www.godolphinandlatymer.com/",
+        "wikiUrl": null,
+        "founded": 1905,
+        "highlights": "Hammersmith girls school. Offers both A-Level and IB. Kate Beckinsale, Davina McCall among alumni.",
+        "aLevelPercent": 80,
+        "gcsePercent": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.2324,
+          51.4929
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Streatham & Clapham High",
+        "type": "girls",
+        "ranking": 150,
+        "feesPerYear": 26040,
+        "website": "https://schs.gdst.net/",
+        "wikiUrl": null,
+        "founded": 1887,
+        "highlights": "Founded 1887. GDST school. ISI Excellent rating 2019. 100% A-Level pass rate.",
+        "aLevelPercent": 47,
+        "gcsePercent": 60
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.1259,
+          51.4384
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Queen's College London",
+        "type": "girls",
+        "ranking": 50,
+        "feesPerYear": 31806,
+        "website": "https://www.qcl.org.uk/",
+        "wikiUrl": null,
+        "founded": 1848,
+        "highlights": "Founded 1848 on Harley Street. First institution to award academic qualifications to women in UK. Historic pioneer.",
+        "aLevelPercent": 43,
+        "gcsePercent": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.1448,
+          51.518
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Merchant Taylors' School",
+        "type": "boys",
+        "ranking": 50,
+        "feesPerYear": 31947,
+        "website": "https://www.mtsn.org.uk/",
+        "wikiUrl": "https://en.wikipedia.org/wiki/Merchant_Taylors'_School",
+        "founded": 1561,
+        "highlights": "Founded 1561 by Merchant Taylors Company. 285-acre Sandy Lodge campus. One of original nine Clarendon Schools.",
+        "aLevelPercent": 70,
+        "gcsePercent": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.3985,
+          51.5978
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Northwood College",
+        "type": "girls",
+        "ranking": 150,
+        "feesPerYear": 24825,
+        "website": "https://www.northwoodcollege.gdst.net/",
+        "wikiUrl": "https://en.wikipedia.org/wiki/Northwood_College",
+        "founded": 1878,
+        "highlights": "Founded 1878. GDST school in Northwood. 100% top scores in Music, Further Maths, French.",
+        "aLevelPercent": 53,
+        "gcsePercent": 70
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.4208,
+          51.6101
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Harrodian School",
+        "type": "co-ed",
+        "ranking": 50,
+        "feesPerYear": 31956,
+        "website": "https://www.harrodian.com/",
+        "wikiUrl": "https://en.wikipedia.org/wiki/Harrodian_School",
+        "founded": 1993,
+        "highlights": "Founded 1993 on former Harrods Sports Club site in Barnes. Co-ed 4-18. Creative arts strength. Celebrity alumni.",
+        "aLevelPercent": null,
+        "gcsePercent": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.2431,
+          51.4718
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Ashbourne College",
+        "type": "co-ed",
+        "ranking": 150,
+        "feesPerYear": 37950,
+        "website": "https://www.ashbournecollege.co.uk/",
+        "wikiUrl": "https://en.wikipedia.org/wiki/Ashbourne_College",
+        "founded": 1981,
+        "highlights": "Founded 1981 in Kensington. Sixth form college. GCSE and A-Level specialist. Small tutorial groups.",
+        "aLevelPercent": null,
+        "gcsePercent": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.1905,
+          51.5028
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Eaton House Schools",
+        "type": "boys",
+        "ranking": 150,
+        "feesPerYear": 28000,
+        "website": "https://www.eatonhouseschools.com/",
+        "wikiUrl": null,
+        "founded": 1897,
+        "highlights": "Founded 1897. Group of single-sex prep schools in Belgravia. Ages 2-13. Part of Dukes Education.",
+        "aLevelPercent": null,
+        "gcsePercent": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.1585,
+          51.4889
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Eton College",
+        "type": "boys",
+        "ranking": 50,
+        "feesPerYear": 63299,
+        "website": "https://www.etoncollege.com/",
+        "wikiUrl": "https://en.wikipedia.org/wiki/Eton_College",
+        "founded": 1440,
+        "highlights": "Founded 1440 by King Henry VI. 20 UK Prime Ministers including Boris Johnson, David Cameron. Most famous public school.",
+        "aLevelPercent": 77,
+        "gcsePercent": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.6092,
+          51.4907
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Blackheath High School",
+        "type": "girls",
+        "ranking": 150,
+        "feesPerYear": 24468,
+        "website": "https://www.blackheathhighschool.gdst.net/",
+        "wikiUrl": "https://en.wikipedia.org/wiki/Blackheath_High_School",
+        "founded": 1880,
+        "highlights": "Founded 1880. GDST school. Best ever A*-B results 2025. Beautiful Blackheath location.",
+        "aLevelPercent": 40,
+        "gcsePercent": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.0068,
+          51.4669
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "L'Ecole des Petits",
+        "type": "co-ed",
+        "ranking": 150,
+        "feesPerYear": 18000,
+        "website": "https://lecoledespetits.co.uk/",
+        "wikiUrl": null,
+        "founded": 1977,
+        "highlights": "Founded 1977 in Fulham. First French bilingual school recognised by AEFE in Britain. Ofsted Outstanding.",
+        "aLevelPercent": null,
+        "gcsePercent": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.1705,
+          51.4858
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Kensington Park School",
+        "type": "co-ed",
+        "ranking": 150,
+        "feesPerYear": 27350,
+        "website": "https://www.kps.co.uk/",
+        "wikiUrl": "https://en.wikipedia.org/wiki/Kensington_Park_School",
+        "founded": 2020,
+        "highlights": "Formed 2020 from Chelsea Independent College merger. Day and boarding. Ages 11-18 in Bayswater and South Ken.",
+        "aLevelPercent": null,
+        "gcsePercent": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.1929,
+          51.5026
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "The Hampshire School",
+        "type": "co-ed",
+        "ranking": 150,
+        "feesPerYear": 25000,
+        "website": "https://www.thehampshireschoolchelsea.co.uk/",
+        "wikiUrl": null,
+        "founded": 1944,
+        "highlights": "Founded 1944. Chelsea prep in former Chelsea Library (Grade II listed). Ages 3-13.",
+        "aLevelPercent": null,
+        "gcsePercent": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.1736,
+          51.4898
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Chelsea Academy",
+        "type": "co-ed",
+        "ranking": 150,
+        "feesPerYear": 0,
+        "website": "https://www.chelsea-academy.org/",
+        "wikiUrl": "https://en.wikipedia.org/wiki/Chelsea_Academy",
+        "founded": 2009,
+        "highlights": "Founded 2009. FREE state academy (Church of England). Co-ed secondary and sixth form in Chelsea.",
+        "aLevelPercent": null,
+        "gcsePercent": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.1873,
+          51.4819
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "St Dunstan's College",
+        "type": "co-ed",
+        "ranking": 50,
+        "feesPerYear": 27261,
+        "website": "https://www.stdunstans.org.uk/",
+        "wikiUrl": "https://en.wikipedia.org/wiki/St_Dunstan's_College",
+        "founded": 1888,
+        "highlights": "Founded 1888 in Catford. Co-ed. Record-breaking 2024 results. Strong drama and music.",
+        "aLevelPercent": 64,
+        "gcsePercent": 77
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.053,
+          51.4448
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Whitgift School",
+        "type": "boys",
+        "ranking": 50,
+        "feesPerYear": 30240,
+        "website": "https://www.whitgift.co.uk/",
+        "wikiUrl": "https://en.wikipedia.org/wiki/Whitgift_School",
+        "founded": 1596,
+        "highlights": "Founded 1596 by Archbishop John Whitgift. South Croydon. Strong sport especially rugby and cricket. Offers IB and A-Level.",
+        "aLevelPercent": 64,
+        "gcsePercent": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.0823,
+          51.3691
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "City of London School for Girls",
+        "type": "girls",
+        "ranking": 50,
+        "feesPerYear": 30247,
+        "website": "https://clsg.org.uk/",
+        "wikiUrl": "https://en.wikipedia.org/wiki/City_of_London_School_for_Girls",
+        "founded": 1894,
+        "highlights": "Founded 1894 in the Barbican. Ranked 2nd best independent school UK (Sunday Times 2018). Notable alumni include Dido.",
+        "aLevelPercent": 81,
+        "gcsePercent": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.0948,
+          51.5197
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "More House School",
+        "type": "girls",
+        "ranking": 150,
+        "feesPerYear": 24825,
+        "website": "https://www.morehouse.org.uk/",
+        "wikiUrl": "https://en.wikipedia.org/wiki/More_House_School",
+        "founded": 1953,
+        "highlights": "Founded 1953 by Canonesses of St Augustine. Catholic girls school in Knightsbridge. Ages 9-18.",
+        "aLevelPercent": null,
+        "gcsePercent": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.1605,
+          51.4884
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Francis Holland Sloane Sq",
+        "type": "girls",
+        "ranking": 50,
+        "feesPerYear": 30834,
+        "website": "https://www.fhs-sw1.org.uk/",
+        "wikiUrl": null,
+        "founded": 1881,
+        "highlights": "Founded 1881 by Canon Francis Holland. Church of England girls school near Sloane Square. Best ever A* results in 2024.",
+        "aLevelPercent": 62,
+        "gcsePercent": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.1573,
+          51.4929
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "DLD College London",
+        "type": "co-ed",
+        "ranking": 150,
+        "feesPerYear": 34440,
+        "website": "https://www.dldcollege.co.uk/",
+        "wikiUrl": null,
+        "founded": 2015,
+        "highlights": "Central London sixth form college near Westminster. Day and boarding. A-Level, BTEC and IB. 98% pass rate.",
+        "aLevelPercent": 27,
+        "gcsePercent": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.1203,
+          51.5003
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "St James Senior Boys",
+        "type": "boys",
+        "ranking": 150,
+        "feesPerYear": 22500,
+        "website": "https://www.stjamesschools.co.uk/seniorboys/",
+        "wikiUrl": null,
+        "founded": 1975,
+        "highlights": "Founded 1975 in Ashford, Surrey. Unique philosophical approach. Transitioning to co-ed.",
+        "aLevelPercent": null,
+        "gcsePercent": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.2051,
+          51.4918
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Birkbeck School",
+        "type": "co-ed",
+        "ranking": 150,
+        "feesPerYear": 20000,
+        "website": "https://www.thebirkbeckschool.org.uk/",
+        "wikiUrl": null,
+        "founded": 1848,
+        "highlights": "Historic school with educational heritage. Named after George Birkbeck, founder of mechanics institutes.",
+        "aLevelPercent": null,
+        "gcsePercent": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.0978,
+          51.452
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Fairley House School",
+        "type": "co-ed",
+        "ranking": 150,
+        "feesPerYear": 35000,
+        "website": "https://fairleyhouse.org.uk/",
+        "wikiUrl": "https://en.wikipedia.org/wiki/Fairley_House_School",
+        "founded": 1982,
+        "highlights": "Founded 1982 as UKs first dyslexia school. Specialist education for specific learning difficulties. GCSE programme.",
+        "aLevelPercent": null,
+        "gcsePercent": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.1413,
+          51.5005
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Westminster School",
+        "type": "co-ed",
+        "ranking": 50,
+        "feesPerYear": 46353,
+        "website": "https://www.westminster.org.uk/",
+        "wikiUrl": "https://en.wikipedia.org/wiki/Westminster_School",
+        "founded": 1560,
+        "highlights": "Founded 1560 in Westminster Abbey precincts. 7 UK Prime Ministers, 3 Nobel laureates. Highest Oxbridge acceptance rate nationally.",
+        "aLevelPercent": 87,
+        "gcsePercent": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.1274,
+          51.4994
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Knightsbridge School",
+        "type": "co-ed",
+        "ranking": 150,
+        "feesPerYear": 29000,
+        "website": "https://www.knightsbridgeschool.com/",
+        "wikiUrl": "https://en.wikipedia.org/wiki/Knightsbridge_School",
+        "founded": 2006,
+        "highlights": "Founded 2006. Modern prep in Chelsea. Prepares for 8+ and 11+ entry to top schools.",
+        "aLevelPercent": null,
+        "gcsePercent": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.1665,
+          51.4998
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "North London Collegiate",
+        "type": "girls",
+        "ranking": 50,
+        "feesPerYear": 29751,
+        "website": "https://www.nlcs.org.uk/",
+        "wikiUrl": "https://en.wikipedia.org/wiki/North_London_Collegiate",
+        "founded": 1850,
+        "highlights": "Founded 1850 by Frances Mary Buss, pioneer of womens education. Consistently top 3 UK girls schools. Offers A-Level and IB.",
+        "aLevelPercent": 85,
+        "gcsePercent": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.2854,
+          51.6084
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Southbank International",
+        "type": "co-ed",
+        "ranking": 150,
+        "feesPerYear": 44508,
+        "website": "https://www.southbank.org/",
+        "wikiUrl": null,
+        "founded": 1979,
+        "highlights": "First UK school to offer all 3 IB programmes. 70 nationalities. Average IB score 37.7 (world avg 29.8).",
+        "aLevelPercent": null,
+        "gcsePercent": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.1286,
+          51.5007
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Falkner House",
+        "type": "girls",
+        "ranking": 150,
+        "feesPerYear": 27000,
+        "website": "https://www.falknerhouse.co.uk/",
+        "wikiUrl": null,
+        "founded": 1954,
+        "highlights": "Founded 1954. Family-run girls prep in South Kensington. Now also has boys school on Penywern Road.",
+        "aLevelPercent": null,
+        "gcsePercent": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.1872,
+          51.4948
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "ACS Hillingdon",
+        "type": "co-ed",
+        "ranking": 150,
+        "feesPerYear": 32000,
+        "website": "https://www.acs-schools.com/hillingdon/",
+        "wikiUrl": null,
+        "founded": 1967,
+        "highlights": "Founded 1967 near Heathrow. Part of ACS International Schools. Day school only. IB curriculum.",
+        "aLevelPercent": null,
+        "gcsePercent": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.45,
+          51.5289
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Fine Arts College",
+        "type": "co-ed",
+        "ranking": 150,
+        "feesPerYear": 21690,
+        "website": "https://www.hampsteadfinearts.com/",
+        "wikiUrl": null,
+        "founded": 1978,
+        "highlights": "Founded 1978 in Hampstead. Only independent college in London specialising in arts and humanities. Award-winning.",
+        "aLevelPercent": null,
+        "gcsePercent": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.1648,
+          51.5472
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Kew House School",
+        "type": "co-ed",
+        "ranking": 150,
+        "feesPerYear": 31525,
+        "website": "https://kewhouseschool.com/",
+        "wikiUrl": null,
+        "founded": 2013,
+        "highlights": "Founded 2013. Part of Gardener Schools Group. Innovative co-ed senior school in West London.",
+        "aLevelPercent": null,
+        "gcsePercent": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.2886,
+          51.481
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Lansdowne College",
+        "type": "co-ed",
+        "ranking": 150,
+        "feesPerYear": 28000,
+        "website": "https://www.lansdownecollege.com/",
+        "wikiUrl": null,
+        "founded": 1970,
+        "highlights": "Established sixth form college in Bayswater. GCSE and A-Level courses. NOTE: May have closed.",
+        "aLevelPercent": null,
+        "gcsePercent": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.1838,
+          51.5033
+        ]
+      }
+    }
+  ],
+  "_meta": {
+    "source": "notion",
+    "database": "2fa8cb56-61db-81d3-89bb-dd8a3cbddbe9",
+    "syncedAt": "2026-02-02T08:18:07.556Z",
+    "publicUrl": "https://www.notion.so/2fa8cb5661db81d389bbdd8a3cbddbe9"
+  }
+}
