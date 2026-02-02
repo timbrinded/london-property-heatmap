@@ -1,0 +1,7 @@
+node_modules
+cache
+test-results
+*.png
+!public/**/*.png
+screenshot*.png
+.git
