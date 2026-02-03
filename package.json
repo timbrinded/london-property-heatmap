@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "sync": "bun run scripts/sync-notion.js",
-    "build": "bun run sync && tsc && vite build",
+    "build": "bun run sync && tsc && vite build && node scripts/version-sw.js",
     "preview": "vite preview"
   },
   "devDependencies": {

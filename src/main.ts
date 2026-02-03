@@ -6,8 +6,14 @@ mapboxgl.accessToken = 'pk.eyJ1IjoidGltLXNiIiwiYSI6ImNta3lnbTI1czA3ZXAzZ3Iwa3IzZ
 interface PostcodeData {
   district: string;
   medianPrice: number;
+  medianHousesPrice: number;
+  medianFlatsPrice: number;
   percentDiff: number;
+  percentDiffHouses: number;
+  percentDiffFlats?: number;
   sampleSize: number;
+  housesSampleSize: number;
+  flatsSampleSize: number;
 }
 
 interface SchoolProperties {
@@ -27,6 +33,11 @@ interface SchoolProperties {
 // E14 (Millwall/Isle of Dogs) baseline - will be calculated from data
 const BASELINE_DISTRICT = 'E14';
 let baselinePrice = 0;
+let baselineHousesPrice = 0;
+let baselineFlatsPrice = 0;
+
+// Property type filter
+type PropertyType = 'all' | 'houses' | 'flats';
 
 // Color scale: green (cheaper) -> blue (baseline) -> red (more expensive)
 function getColor(percentDiff: number): string {
@@ -123,12 +134,20 @@ async function init() {
   const priceLookup = new Map<string, PostcodeData>();
   priceData.forEach(d => priceLookup.set(d.district, d));
 
-  // Get baseline price
+  // Get baseline prices for all property types
   const baseline = priceLookup.get(BASELINE_DISTRICT);
   if (baseline) {
     baselinePrice = baseline.medianPrice;
+    baselineHousesPrice = baseline.medianHousesPrice;
+    baselineFlatsPrice = baseline.medianFlatsPrice;
     document.getElementById('baseline-price')!.textContent = 
       `Median: ${formatPrice(baselinePrice)}`;
+  }
+
+  // Helper to calculate percent diff for flats (not in source data)
+  function calcFlatsPercentDiff(flatsPrice: number): number {
+    if (!flatsPrice || !baselineFlatsPrice) return 0;
+    return ((flatsPrice - baselineFlatsPrice) / baselineFlatsPrice) * 100;
   }
 
   // Merge price data into GeoJSON
@@ -141,8 +160,14 @@ async function init() {
       properties: {
         ...feature.properties,
         medianPrice: data?.medianPrice || 0,
+        medianHousesPrice: data?.medianHousesPrice || 0,
+        medianFlatsPrice: data?.medianFlatsPrice || 0,
         percentDiff: data?.percentDiff || 0,
+        percentDiffHouses: data?.percentDiffHouses || 0,
+        percentDiffFlats: data ? calcFlatsPercentDiff(data.medianFlatsPrice) : 0,
         sampleSize: data?.sampleSize || 0,
+        housesSampleSize: data?.housesSampleSize || 0,
+        flatsSampleSize: data?.flatsSampleSize || 0,
         color: data ? getColor(data.percentDiff) : '#333'
       }
     };
@@ -162,6 +187,38 @@ async function init() {
     top250: true,
     feeBand: 'all'
   };
+
+  // Property type filter
+  let propertyType: PropertyType = 'all';
+
+  // Helper to update postcode layer colors based on property type
+  function updatePostcodeColors() {
+    if (!map.getLayer('postcodes-fill')) return;
+    
+    // Determine which diff field to use for coloring
+    const diffField = propertyType === 'houses' ? 'percentDiffHouses' : 
+                      propertyType === 'flats' ? 'percentDiffFlats' : 'percentDiff';
+    
+    // Update baseline display
+    const basePrice = propertyType === 'houses' ? baselineHousesPrice : 
+                      propertyType === 'flats' ? baselineFlatsPrice : baselinePrice;
+    const typeLabel = propertyType === 'houses' ? ' (Houses)' : 
+                      propertyType === 'flats' ? ' (Flats)' : '';
+    document.getElementById('baseline-price')!.textContent = 
+      `Median${typeLabel}: ${formatPrice(basePrice)}`;
+    
+    // Dynamically compute color based on selected property type's percent diff
+    map.setPaintProperty('postcodes-fill', 'fill-color', [
+      'case',
+      ['<=', ['get', diffField], -40], '#1b5e20',
+      ['<=', ['get', diffField], -20], '#388e3c',
+      ['<=', ['get', diffField], -5], '#66bb6a',
+      ['<=', ['get', diffField], 5], '#64b5f6',
+      ['<=', ['get', diffField], 30], '#ff9800',
+      ['<=', ['get', diffField], 70], '#f44336',
+      '#b71c1c'
+    ]);
+  }
 
   // Helper to update transport layer visibility
   function updateTransportLayers() {
@@ -442,12 +499,17 @@ async function init() {
         
         map.getCanvas().style.cursor = 'pointer';
         
-        popupDistrict.textContent = props.name || props.POSTCODE || 'Unknown';
-        popupPrice.textContent = formatPrice(props.medianPrice || 0);
-        popupPrice.style.color = props.color || '#fff';
+        // Get price and diff based on current property type filter
+        const price = propertyType === 'houses' ? props.medianHousesPrice : 
+                      propertyType === 'flats' ? props.medianFlatsPrice : props.medianPrice;
+        const diff = propertyType === 'houses' ? props.percentDiffHouses : 
+                     propertyType === 'flats' ? props.percentDiffFlats : props.percentDiff;
         
-        const diff = props.percentDiff || 0;
-        popupDiff.textContent = formatDiff(diff);
+        popupDistrict.textContent = props.name || props.POSTCODE || 'Unknown';
+        popupPrice.textContent = formatPrice(price || 0);
+        popupPrice.style.color = getColor(diff || 0);
+        
+        popupDiff.textContent = formatDiff(diff || 0);
         popupDiff.className = 'diff ' + (
           Math.abs(diff) < 5 ? 'baseline' : 
           diff < 0 ? 'cheaper' : 'expensive'
@@ -667,6 +729,16 @@ async function init() {
         const target = e.target as HTMLInputElement;
         schoolFilters.feeBand = target.value as SchoolFilters['feeBand'];
         updateSchoolLayers();
+      });
+    });
+    
+    // Property type radio buttons
+    const propertyTypeRadios = document.querySelectorAll('input[name="property-type"]');
+    propertyTypeRadios.forEach(radio => {
+      radio.addEventListener('change', (e) => {
+        const target = e.target as HTMLInputElement;
+        propertyType = target.value as PropertyType;
+        updatePostcodeColors();
       });
     });
   });
