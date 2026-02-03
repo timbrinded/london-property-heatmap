@@ -28,6 +28,7 @@ interface SchoolProperties {
   highlights?: string;
   aLevelPercent?: number;
   gcsePercent?: number;
+  ageRange?: string;
 }
 
 // E14 (Millwall/Isle of Dogs) baseline - will be calculated from data
@@ -558,12 +559,15 @@ async function init() {
           feesHtml = `<br><span style="color: #4caf50">💰 ${formatFees(props.feesPerYear)}</span>`;
         }
         
+        const ageText = props.ageRange && props.ageRange !== 'Unknown' ? ` • Ages ${props.ageRange}` : '';
+        const foundedText = props.founded ? `Founded ${props.founded}` : '';
+        
         schoolTooltip
           .setLngLat(coords as [number, number])
           .setHTML(`
             <strong>${props.name}</strong><br>
             <span style="color: ${SCHOOL_COLORS[props.type]}">${typeLabel}</span><br>
-            <span style="opacity: 0.7">Rank #${props.ranking} • Founded ${props.founded}</span>
+            <span style="opacity: 0.7">Rank #${props.ranking}${ageText}${foundedText ? ` • ${foundedText}` : ''}</span>
             ${feesHtml}
           `)
           .addTo(map);
@@ -642,6 +646,7 @@ async function init() {
         }
         
         const foundedText = props.founded ? ` • Est. ${props.founded}` : '';
+        const ageRangeText = props.ageRange && props.ageRange !== 'Unknown' ? props.ageRange : null;
         
         schoolDetailPopup
           .setLngLat(coords as [number, number])
@@ -650,7 +655,9 @@ async function init() {
             <div class="school-popup-content">
               <div style="font-size:16px;font-weight:bold;margin-bottom:4px;">${props.name}</div>
               <div style="color:${typeColor};font-size:13px;">${typeLabel}${foundedText}</div>
-              <div style="font-size:12px;opacity:0.7;margin-top:4px;">📊 Ranking: #${props.ranking}</div>
+              <div style="font-size:12px;opacity:0.7;margin-top:4px;">
+                📊 Ranking: #${props.ranking}${ageRangeText ? ` • 🎂 Ages ${ageRangeText}` : ''}
+              </div>
               ${statsHtml}
               ${feesHtml}
               ${highlightsHtml}

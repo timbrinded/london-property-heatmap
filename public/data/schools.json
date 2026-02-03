@@ -13,7 +13,8 @@
         "founded": 1741,
         "highlights": "Founded 1741, part of Edward Alleyn foundation with Dulwich College. Outstanding results - 46% A* in 2024. Top girls school.",
         "aLevelPercent": 85,
-        "gcsePercent": null
+        "gcsePercent": null,
+        "ageRange": "4-18"
       },
       "geometry": {
         "type": "Point",
@@ -35,7 +36,8 @@
         "founded": 1894,
         "highlights": "Founded 1894 as Froebel Demonstration School. Co-ed in Roehampton. Progressive educational approach.",
         "aLevelPercent": 65,
-        "gcsePercent": null
+        "gcsePercent": null,
+        "ageRange": "4-18"
       },
       "geometry": {
         "type": "Point",
@@ -57,7 +59,8 @@
         "founded": 2000,
         "highlights": "Day and boarding sixth form college in Chelsea. GCSE, A-Level and Foundation courses. Small class sizes.",
         "aLevelPercent": null,
-        "gcsePercent": null
+        "gcsePercent": null,
+        "ageRange": "14-19"
       },
       "geometry": {
         "type": "Point",
@@ -79,7 +82,8 @@
         "founded": 1971,
         "highlights": "Part of Thomas London Day Schools. Prep school in fashionable Kensington. Creative, nurturing ethos.",
         "aLevelPercent": null,
-        "gcsePercent": null
+        "gcsePercent": null,
+        "ageRange": "4-11"
       },
       "geometry": {
         "type": "Point",
@@ -101,7 +105,8 @@
         "founded": 1873,
         "highlights": "Founded 1873. GDST school. Top 20 UK for both GCSE and A-Level - one of only 10 schools to achieve this.",
         "aLevelPercent": 75,
-        "gcsePercent": null
+        "gcsePercent": null,
+        "ageRange": "4-18"
       },
       "geometry": {
         "type": "Point",
@@ -123,7 +128,8 @@
         "founded": 1624,
         "highlights": "Founded 1624 by Edward Latymer. Leading co-ed day school in Hammersmith. Strong drama tradition with notable alumni.",
         "aLevelPercent": 78,
-        "gcsePercent": null
+        "gcsePercent": null,
+        "ageRange": "7-18"
       },
       "geometry": {
         "type": "Point",
@@ -145,7 +151,8 @@
         "founded": 1561,
         "highlights": "Founded 1561 by royal charter. Co-ed since 1978. Record-breaking 2024 A-Level results.",
         "aLevelPercent": 75,
-        "gcsePercent": null
+        "gcsePercent": null,
+        "ageRange": "11-18"
       },
       "geometry": {
         "type": "Point",
@@ -167,7 +174,8 @@
         "founded": 1971,
         "highlights": "Founded 1971 in Richmond. German curriculum plus IB. 800+ students. Abitur and IB Diploma.",
         "aLevelPercent": null,
-        "gcsePercent": null
+        "gcsePercent": null,
+        "ageRange": "3-18"
       },
       "geometry": {
         "type": "Point",
@@ -189,7 +197,8 @@
         "founded": 1975,
         "highlights": "Founded 1975 in Kensington. Celebrates 50 years in 2025. Tutorial college with small classes. Oxbridge preparation.",
         "aLevelPercent": null,
-        "gcsePercent": null
+        "gcsePercent": null,
+        "ageRange": "14-19"
       },
       "geometry": {
         "type": "Point",
@@ -211,7 +220,8 @@
         "founded": 1596,
         "highlights": "Founded 1596 by Archbishop Whitgift. Part of Whitgift Foundation. Boys school with strong sport and academics.",
         "aLevelPercent": 67,
-        "gcsePercent": null
+        "gcsePercent": null,
+        "ageRange": "10-18"
       },
       "geometry": {
         "type": "Point",
@@ -233,7 +243,8 @@
         "founded": 1842,
         "highlights": "Founded 1842. Sunday Times London Independent School of Year 2024. Strong maths and science. Co-ed.",
         "aLevelPercent": 65,
-        "gcsePercent": 71
+        "gcsePercent": 71,
+        "ageRange": "7-18"
       },
       "geometry": {
         "type": "Point",
@@ -255,7 +266,8 @@
         "founded": 1565,
         "highlights": "Founded 1565. Co-ed since 2004. Victorian Gothic architecture in leafy Highgate Village. Alumni include John Betjeman.",
         "aLevelPercent": 78,
-        "gcsePercent": null
+        "gcsePercent": null,
+        "ageRange": "3-18"
       },
       "geometry": {
         "type": "Point",
@@ -277,7 +289,8 @@
         "founded": 1966,
         "highlights": "Girls prep school in Camden Town. Small classes, exceptional pastoral care. Ages 3-11.",
         "aLevelPercent": null,
-        "gcsePercent": null
+        "gcsePercent": null,
+        "ageRange": "3-11"
       },
       "geometry": {
         "type": "Point",
@@ -299,7 +312,8 @@
         "founded": 1572,
         "highlights": "Founded 1572. Winston Churchill, Lord Byron, Benedict Cumberbatch among alumni. Full boarding school with 800 boys.",
         "aLevelPercent": 67,
-        "gcsePercent": 67
+        "gcsePercent": 67,
+        "ageRange": "13-18"
       },
       "geometry": {
         "type": "Point",
@@ -321,7 +335,8 @@
         "founded": 1996,
         "highlights": "Founded 1996. NOTE: School closed summer 2024. Was known for music and small class sizes.",
         "aLevelPercent": null,
-        "gcsePercent": null
+        "gcsePercent": null,
+        "ageRange": "9-18"
       },
       "geometry": {
         "type": "Point",
@@ -343,7 +358,8 @@
         "founded": 1974,
         "highlights": "Founded 1974 in City of London. Independent sixth form college. Intensive and standard A-Level programmes.",
         "aLevelPercent": null,
-        "gcsePercent": null
+        "gcsePercent": null,
+        "ageRange": "14-19"
       },
       "geometry": {
         "type": "Point",
@@ -365,7 +381,8 @@
         "founded": 1952,
         "highlights": "Founded 1952. Boys prep in Chelsea. Beautiful Norman Shaw designed building at Cadogan Square.",
         "aLevelPercent": null,
-        "gcsePercent": null
+        "gcsePercent": null,
+        "ageRange": "8-13"
       },
       "geometry": {
         "type": "Point",
@@ -387,7 +404,8 @@
         "founded": 1807,
         "highlights": "Founded 1807. Beautiful 120-acre campus. Day and boarding. Good sport facilities including 9-hole golf course.",
         "aLevelPercent": 52,
-        "gcsePercent": 66
+        "gcsePercent": 66,
+        "ageRange": "13-18"
       },
       "geometry": {
         "type": "Point",
@@ -409,7 +427,8 @@
         "founded": 1834,
         "highlights": "Founded 1834 on Thames embankment. Notable alumni include H.H. Asquith (PM), Julian Barnes, Daniel Radcliffe.",
         "aLevelPercent": 81,
-        "gcsePercent": 95
+        "gcsePercent": 95,
+        "ageRange": "10-18"
       },
       "geometry": {
         "type": "Point",
@@ -431,7 +450,8 @@
         "founded": 1966,
         "highlights": "Founded 1966 in West London. Independent school and sixth form. Small group teaching ages 13-19.",
         "aLevelPercent": null,
-        "gcsePercent": null
+        "gcsePercent": null,
+        "ageRange": "15-19"
       },
       "geometry": {
         "type": "Point",
@@ -453,7 +473,8 @@
         "founded": 1883,
         "highlights": "Founded 1883. GDST school. Outstanding reputation for academics, sport and music. Beautiful campus.",
         "aLevelPercent": 70,
-        "gcsePercent": null
+        "gcsePercent": null,
+        "ageRange": "4-18"
       },
       "geometry": {
         "type": "Point",
@@ -475,7 +496,8 @@
         "founded": 1556,
         "highlights": "Founded 1556. Was a grammar school until 1975. Strong rowing tradition - major competitor at Henley. Stephen Fry attended.",
         "aLevelPercent": 77,
-        "gcsePercent": null
+        "gcsePercent": null,
+        "ageRange": "11-18"
       },
       "geometry": {
         "type": "Point",
@@ -497,7 +519,8 @@
         "founded": 1980,
         "highlights": "Small co-ed prep in Chelsea. Only 20 children per year. Nurturing family atmosphere.",
         "aLevelPercent": null,
-        "gcsePercent": null
+        "gcsePercent": null,
+        "ageRange": "4-11"
       },
       "geometry": {
         "type": "Point",
@@ -519,7 +542,8 @@
         "founded": 1996,
         "highlights": "Founded 1996. Co-ed prep in Fulham. 3 campuses. 25 years of academic excellence. Part of Inspired Group.",
         "aLevelPercent": null,
-        "gcsePercent": null
+        "gcsePercent": null,
+        "ageRange": "4-13"
       },
       "geometry": {
         "type": "Point",
@@ -541,7 +565,8 @@
         "founded": 1939,
         "highlights": "Founded 1939. Co-ed across multiple North London campuses. Part of Cognita Group. Now linked with Alleyns.",
         "aLevelPercent": null,
-        "gcsePercent": null
+        "gcsePercent": null,
+        "ageRange": "11-18"
       },
       "geometry": {
         "type": "Point",
@@ -563,7 +588,8 @@
         "founded": 1594,
         "highlights": "Founded 1594 in Wandsworth. Co-ed since 2012. Beautiful riverside campus. Top 50 independent school in UK.",
         "aLevelPercent": 64,
-        "gcsePercent": 89
+        "gcsePercent": 89,
+        "ageRange": "10-18"
       },
       "geometry": {
         "type": "Point",
@@ -585,7 +611,8 @@
         "founded": 1981,
         "highlights": "Founded 1981 in Belgravia. Prep school for ages 2-11. Feeds to top London senior schools.",
         "aLevelPercent": null,
-        "gcsePercent": null
+        "gcsePercent": null,
+        "ageRange": "3-13"
       },
       "geometry": {
         "type": "Point",
@@ -607,7 +634,8 @@
         "founded": 1972,
         "highlights": "Founded 1972. One of first IB Diploma schools in UK. Strong home language literacy programmes.",
         "aLevelPercent": null,
-        "gcsePercent": null
+        "gcsePercent": null,
+        "ageRange": "3-18"
       },
       "geometry": {
         "type": "Point",
@@ -629,7 +657,8 @@
         "founded": 1967,
         "highlights": "Founded 1967. 128-acre Surrey campus. Day and boarding. IB and AP curriculum. World-class facilities.",
         "aLevelPercent": null,
-        "gcsePercent": null
+        "gcsePercent": null,
+        "ageRange": "2-18"
       },
       "geometry": {
         "type": "Point",
@@ -651,7 +680,8 @@
         "founded": 1899,
         "highlights": "Founded 1899 in Northwood. One of UKs leading girls schools. 84% A*-A at A-Level. Strong sport.",
         "aLevelPercent": 84,
-        "gcsePercent": null
+        "gcsePercent": null,
+        "ageRange": "3-18"
       },
       "geometry": {
         "type": "Point",
@@ -673,7 +703,8 @@
         "founded": 1690,
         "highlights": "Founded 1690 by Haberdashers Company. Elstree campus shared with girls school. Strong sport and academics.",
         "aLevelPercent": 80,
-        "gcsePercent": null
+        "gcsePercent": null,
+        "ageRange": "7-18"
       },
       "geometry": {
         "type": "Point",
@@ -695,7 +726,8 @@
         "founded": 1830,
         "highlights": "Founded 1830 in Hampstead. Liberal ethos, no CCF or chapel. Known for progressive values and strong academics.",
         "aLevelPercent": 80,
-        "gcsePercent": null
+        "gcsePercent": null,
+        "ageRange": "7-18"
       },
       "geometry": {
         "type": "Point",
@@ -717,7 +749,8 @@
         "founded": 1874,
         "highlights": "Founded 1874. GDST school in South London. 82% A*-B at A-Level 2024. Strong science and STEM.",
         "aLevelPercent": 52,
-        "gcsePercent": null
+        "gcsePercent": null,
+        "ageRange": "3-18"
       },
       "geometry": {
         "type": "Point",
@@ -739,7 +772,8 @@
         "founded": 1884,
         "highlights": "Founded 1884. Part of United Church Schools Trust. 46% grade 9s at GCSE. Strong sport and music.",
         "aLevelPercent": 62,
-        "gcsePercent": 46
+        "gcsePercent": 46,
+        "ageRange": "4-18"
       },
       "geometry": {
         "type": "Point",
@@ -761,7 +795,8 @@
         "founded": 1834,
         "highlights": "Founded 1834 in Snaresbrook, East London. Large co-ed school. Beautiful Epping Forest location.",
         "aLevelPercent": 68,
-        "gcsePercent": null
+        "gcsePercent": null,
+        "ageRange": "4-18"
       },
       "geometry": {
         "type": "Point",
@@ -783,7 +818,8 @@
         "founded": 1973,
         "highlights": "Founded 1973. Tutorial-style teaching in small groups (under 10). GCSE and A-Level retakes specialist.",
         "aLevelPercent": null,
-        "gcsePercent": null
+        "gcsePercent": null,
+        "ageRange": "14-19"
       },
       "geometry": {
         "type": "Point",
@@ -805,7 +841,8 @@
         "founded": 1878,
         "highlights": "Founded 1878 by Canon Francis Holland. Church of England girls school near Regents Park. Warm, supportive ethos.",
         "aLevelPercent": 57,
-        "gcsePercent": null
+        "gcsePercent": null,
+        "ageRange": "11-18"
       },
       "geometry": {
         "type": "Point",
@@ -827,7 +864,8 @@
         "founded": 1950,
         "highlights": "Founded 1950 in Chelsea. Educated offspring of diplomats and PMs including Churchill. Now co-ed prep.",
         "aLevelPercent": null,
-        "gcsePercent": null
+        "gcsePercent": null,
+        "ageRange": "3-11"
       },
       "geometry": {
         "type": "Point",
@@ -849,7 +887,8 @@
         "founded": 1885,
         "highlights": "Founded 1885 in Highgate. Unique Unitarian foundation. Inclusive, supportive ethos with strong academics.",
         "aLevelPercent": 65,
-        "gcsePercent": null
+        "gcsePercent": null,
+        "ageRange": "4-18"
       },
       "geometry": {
         "type": "Point",
@@ -871,7 +910,8 @@
         "founded": 1619,
         "highlights": "Founded 1619 by actor Edward Alleyn. Alumni include P.G. Wodehouse, Raymond Chandler, Ernest Shackleton.",
         "aLevelPercent": 68,
-        "gcsePercent": 91
+        "gcsePercent": 91,
+        "ageRange": "7-18"
       },
       "geometry": {
         "type": "Point",
@@ -893,7 +933,8 @@
         "founded": 1967,
         "highlights": "Founded 1967. Part of ACS International Schools. Day and boarding. IB and AP curriculum.",
         "aLevelPercent": null,
-        "gcsePercent": null
+        "gcsePercent": null,
+        "ageRange": "4-18"
       },
       "geometry": {
         "type": "Point",
@@ -915,7 +956,8 @@
         "founded": 1997,
         "highlights": "Founded 1997 in City of London. Co-ed prep 4-11. Creative, thematic teaching. Part of Dukes Education.",
         "aLevelPercent": null,
-        "gcsePercent": null
+        "gcsePercent": null,
+        "ageRange": "3-11"
       },
       "geometry": {
         "type": "Point",
@@ -937,7 +979,8 @@
         "founded": 1875,
         "highlights": "Founded 1875 by Haberdashers Company. Shares 100-acre Elstree campus with boys school. Now offers co-ed sixth form.",
         "aLevelPercent": 78,
-        "gcsePercent": null
+        "gcsePercent": null,
+        "ageRange": "4-18"
       },
       "geometry": {
         "type": "Point",
@@ -959,7 +1002,8 @@
         "founded": 1880,
         "highlights": "Founded 1880. GDST school. Exceptional 2024 results - 50% A* grades. Senior School of Year winner.",
         "aLevelPercent": 85,
-        "gcsePercent": null
+        "gcsePercent": null,
+        "ageRange": "4-18"
       },
       "geometry": {
         "type": "Point",
@@ -981,7 +1025,8 @@
         "founded": 1979,
         "highlights": "Founded 1979 in Notting Hill. Girls prep 4-11. Part of Inspired Education Group. Feeds to top London senior schools.",
         "aLevelPercent": null,
-        "gcsePercent": null
+        "gcsePercent": null,
+        "ageRange": "4-11"
       },
       "geometry": {
         "type": "Point",
@@ -1003,7 +1048,8 @@
         "founded": 1829,
         "highlights": "Founded 1829 by King George IV. Originally part of Kings College London. Beautiful Wimbledon campus.",
         "aLevelPercent": 86,
-        "gcsePercent": null
+        "gcsePercent": null,
+        "ageRange": "7-18"
       },
       "geometry": {
         "type": "Point",
@@ -1025,7 +1071,8 @@
         "founded": 1876,
         "highlights": "Founded 1876. GDST school celebrating 150th anniversary. Strong academics in leafy Hampstead.",
         "aLevelPercent": 75,
-        "gcsePercent": null
+        "gcsePercent": null,
+        "ageRange": "4-18"
       },
       "geometry": {
         "type": "Point",
@@ -1047,7 +1094,8 @@
         "founded": 1509,
         "highlights": "Founded 1509 by John Colet. Ranked #1 UK school in 2025 (Sunday Times). First English school to teach Greek.",
         "aLevelPercent": 90,
-        "gcsePercent": null
+        "gcsePercent": null,
+        "ageRange": "7-18"
       },
       "geometry": {
         "type": "Point",
@@ -1069,7 +1117,8 @@
         "founded": 1971,
         "highlights": "Founded 1971. Prince George and Princess Charlotte attended. Prep school feeding into top public schools.",
         "aLevelPercent": null,
-        "gcsePercent": null
+        "gcsePercent": null,
+        "ageRange": "4-13"
       },
       "geometry": {
         "type": "Point",
@@ -1091,7 +1140,8 @@
         "founded": 1975,
         "highlights": "Founded 1975 in West Kensington. Unique philosophical approach with regular mindfulness. Transitioning to co-ed.",
         "aLevelPercent": null,
-        "gcsePercent": null
+        "gcsePercent": null,
+        "ageRange": "11-18"
       },
       "geometry": {
         "type": "Point",
@@ -1113,7 +1163,8 @@
         "founded": 1951,
         "highlights": "Founded 1951. Boys prep in Notting Hill. Prince William and Harry attended. Feeds to Eton, Westminster, St Pauls.",
         "aLevelPercent": null,
-        "gcsePercent": null
+        "gcsePercent": null,
+        "ageRange": "4-8"
       },
       "geometry": {
         "type": "Point",
@@ -1135,7 +1186,8 @@
         "founded": 1893,
         "highlights": "Founded 1893. GDST school. Record-breaking 2024 A-Levels with best ever Oxbridge offers.",
         "aLevelPercent": 78,
-        "gcsePercent": null
+        "gcsePercent": null,
+        "ageRange": "4-18"
       },
       "geometry": {
         "type": "Point",
@@ -1157,7 +1209,8 @@
         "founded": 1619,
         "highlights": "Founded 1619 by Edward Alleyn. Part of the Dulwich schools foundation with Dulwich College and JAGs. Co-ed since 1976.",
         "aLevelPercent": 65,
-        "gcsePercent": null
+        "gcsePercent": null,
+        "ageRange": "4-18"
       },
       "geometry": {
         "type": "Point",
@@ -1179,7 +1232,8 @@
         "founded": 1972,
         "highlights": "Full IB curriculum school. Ranked #1 for IB Diploma scores among all international schools in London. Top 100 IB globally.",
         "aLevelPercent": null,
-        "gcsePercent": null
+        "gcsePercent": null,
+        "ageRange": "3-18"
       },
       "geometry": {
         "type": "Point",
@@ -1201,7 +1255,8 @@
         "founded": 1652,
         "highlights": "Founded 1652 in Lewisham. One of oldest schools in London. Co-ed. Strong sport including rowing.",
         "aLevelPercent": 60,
-        "gcsePercent": 79
+        "gcsePercent": 79,
+        "ageRange": "3-18"
       },
       "geometry": {
         "type": "Point",
@@ -1223,7 +1278,8 @@
         "founded": 1895,
         "highlights": "Founded 1895 in South Kensington. Girls prep 4-11. Excellent 11+ results to top senior schools.",
         "aLevelPercent": null,
-        "gcsePercent": null
+        "gcsePercent": null,
+        "ageRange": "4-11"
       },
       "geometry": {
         "type": "Point",
@@ -1245,7 +1301,8 @@
         "founded": 1915,
         "highlights": "Founded 1915 in South Kensington. French curriculum. 3400+ students, 46 nationalities. Baccalauréat.",
         "aLevelPercent": null,
-        "gcsePercent": null
+        "gcsePercent": null,
+        "ageRange": "3-18"
       },
       "geometry": {
         "type": "Point",
@@ -1267,7 +1324,8 @@
         "founded": 1887,
         "highlights": "Founded 1887. GDST school in South East London. Best ever GCSE results 2025. Strong arts and music.",
         "aLevelPercent": 55,
-        "gcsePercent": null
+        "gcsePercent": null,
+        "ageRange": "4-18"
       },
       "geometry": {
         "type": "Point",
@@ -1289,7 +1347,8 @@
         "founded": 1711,
         "highlights": "Founded 1711 in Cripplegate, moved to Hampton 1937. London Independent School of Year 2025. Known for music and sport.",
         "aLevelPercent": 82,
-        "gcsePercent": null
+        "gcsePercent": null,
+        "ageRange": "7-18"
       },
       "geometry": {
         "type": "Point",
@@ -1311,7 +1370,8 @@
         "founded": 1737,
         "highlights": "Founded 1737 by Francis Bancroft. Woodford Green campus. Top 15 co-ed schools in UK. Strong music tradition.",
         "aLevelPercent": 75,
-        "gcsePercent": null
+        "gcsePercent": null,
+        "ageRange": "7-18"
       },
       "geometry": {
         "type": "Point",
@@ -1333,7 +1393,8 @@
         "founded": 1951,
         "highlights": "Founded 1951 in Switzerland, moved to London. Prince Charles attended. Famous rust-coloured uniform. Swiss chalet trips.",
         "aLevelPercent": null,
-        "gcsePercent": null
+        "gcsePercent": null,
+        "ageRange": "4-13"
       },
       "geometry": {
         "type": "Point",
@@ -1355,7 +1416,8 @@
         "founded": 1904,
         "highlights": "Founded 1904, sister school to St Pauls. Top UK girls school. Gustav Holst was Director of Music 1905-1934.",
         "aLevelPercent": 89,
-        "gcsePercent": null
+        "gcsePercent": null,
+        "ageRange": "11-18"
       },
       "geometry": {
         "type": "Point",
@@ -1377,7 +1439,8 @@
         "founded": 1951,
         "highlights": "Founded 1951 in St Johns Wood. American curriculum K-12. 50+ nationalities. Ivy League feeders.",
         "aLevelPercent": null,
-        "gcsePercent": null
+        "gcsePercent": null,
+        "ageRange": "4-18"
       },
       "geometry": {
         "type": "Point",
@@ -1399,7 +1462,8 @@
         "founded": 1634,
         "highlights": "Founded 1634. Catholic girls school in Ealing. 13-acre campus. Run by lay head since 1996 (originally by nuns).",
         "aLevelPercent": null,
-        "gcsePercent": null
+        "gcsePercent": null,
+        "ageRange": "3-18"
       },
       "geometry": {
         "type": "Point",
@@ -1421,7 +1485,8 @@
         "founded": 1905,
         "highlights": "Hammersmith girls school. Offers both A-Level and IB. Kate Beckinsale, Davina McCall among alumni.",
         "aLevelPercent": 80,
-        "gcsePercent": null
+        "gcsePercent": null,
+        "ageRange": "11-18"
       },
       "geometry": {
         "type": "Point",
@@ -1443,7 +1508,8 @@
         "founded": 1887,
         "highlights": "Founded 1887. GDST school. ISI Excellent rating 2019. 100% A-Level pass rate.",
         "aLevelPercent": 47,
-        "gcsePercent": 60
+        "gcsePercent": 60,
+        "ageRange": "3-18"
       },
       "geometry": {
         "type": "Point",
@@ -1465,7 +1531,8 @@
         "founded": 1848,
         "highlights": "Founded 1848 on Harley Street. First institution to award academic qualifications to women in UK. Historic pioneer.",
         "aLevelPercent": 43,
-        "gcsePercent": null
+        "gcsePercent": null,
+        "ageRange": "11-18"
       },
       "geometry": {
         "type": "Point",
@@ -1487,7 +1554,8 @@
         "founded": 1561,
         "highlights": "Founded 1561 by Merchant Taylors Company. 285-acre Sandy Lodge campus. One of original nine Clarendon Schools.",
         "aLevelPercent": 70,
-        "gcsePercent": null
+        "gcsePercent": null,
+        "ageRange": "11-18"
       },
       "geometry": {
         "type": "Point",
@@ -1509,7 +1577,8 @@
         "founded": 1878,
         "highlights": "Founded 1878. GDST school in Northwood. 100% top scores in Music, Further Maths, French.",
         "aLevelPercent": 53,
-        "gcsePercent": 70
+        "gcsePercent": 70,
+        "ageRange": "3-18"
       },
       "geometry": {
         "type": "Point",
@@ -1531,7 +1600,8 @@
         "founded": 1993,
         "highlights": "Founded 1993 on former Harrods Sports Club site in Barnes. Co-ed 4-18. Creative arts strength. Celebrity alumni.",
         "aLevelPercent": null,
-        "gcsePercent": null
+        "gcsePercent": null,
+        "ageRange": "4-18"
       },
       "geometry": {
         "type": "Point",
@@ -1553,7 +1623,8 @@
         "founded": 1981,
         "highlights": "Founded 1981 in Kensington. Sixth form college. GCSE and A-Level specialist. Small tutorial groups.",
         "aLevelPercent": null,
-        "gcsePercent": null
+        "gcsePercent": null,
+        "ageRange": "14-19"
       },
       "geometry": {
         "type": "Point",
@@ -1575,7 +1646,8 @@
         "founded": 1897,
         "highlights": "Founded 1897. Group of single-sex prep schools in Belgravia. Ages 2-13. Part of Dukes Education.",
         "aLevelPercent": null,
-        "gcsePercent": null
+        "gcsePercent": null,
+        "ageRange": "4-13"
       },
       "geometry": {
         "type": "Point",
@@ -1597,7 +1669,8 @@
         "founded": 1440,
         "highlights": "Founded 1440 by King Henry VI. 20 UK Prime Ministers including Boris Johnson, David Cameron. Most famous public school.",
         "aLevelPercent": 77,
-        "gcsePercent": null
+        "gcsePercent": null,
+        "ageRange": "13-18"
       },
       "geometry": {
         "type": "Point",
@@ -1619,7 +1692,8 @@
         "founded": 1880,
         "highlights": "Founded 1880. GDST school. Best ever A*-B results 2025. Beautiful Blackheath location.",
         "aLevelPercent": 40,
-        "gcsePercent": null
+        "gcsePercent": null,
+        "ageRange": "3-18"
       },
       "geometry": {
         "type": "Point",
@@ -1641,7 +1715,8 @@
         "founded": 1977,
         "highlights": "Founded 1977 in Fulham. First French bilingual school recognised by AEFE in Britain. Ofsted Outstanding.",
         "aLevelPercent": null,
-        "gcsePercent": null
+        "gcsePercent": null,
+        "ageRange": "3-6"
       },
       "geometry": {
         "type": "Point",
@@ -1663,7 +1738,8 @@
         "founded": 2020,
         "highlights": "Formed 2020 from Chelsea Independent College merger. Day and boarding. Ages 11-18 in Bayswater and South Ken.",
         "aLevelPercent": null,
-        "gcsePercent": null
+        "gcsePercent": null,
+        "ageRange": "11-18"
       },
       "geometry": {
         "type": "Point",
@@ -1685,7 +1761,8 @@
         "founded": 1944,
         "highlights": "Founded 1944. Chelsea prep in former Chelsea Library (Grade II listed). Ages 3-13.",
         "aLevelPercent": null,
-        "gcsePercent": null
+        "gcsePercent": null,
+        "ageRange": "3-13"
       },
       "geometry": {
         "type": "Point",
@@ -1707,7 +1784,8 @@
         "founded": 2009,
         "highlights": "Founded 2009. FREE state academy (Church of England). Co-ed secondary and sixth form in Chelsea.",
         "aLevelPercent": null,
-        "gcsePercent": null
+        "gcsePercent": null,
+        "ageRange": "11-18"
       },
       "geometry": {
         "type": "Point",
@@ -1729,7 +1807,8 @@
         "founded": 1888,
         "highlights": "Founded 1888 in Catford. Co-ed. Record-breaking 2024 results. Strong drama and music.",
         "aLevelPercent": 64,
-        "gcsePercent": 77
+        "gcsePercent": 77,
+        "ageRange": "3-18"
       },
       "geometry": {
         "type": "Point",
@@ -1751,7 +1830,8 @@
         "founded": 1596,
         "highlights": "Founded 1596 by Archbishop John Whitgift. South Croydon. Strong sport especially rugby and cricket. Offers IB and A-Level.",
         "aLevelPercent": 64,
-        "gcsePercent": null
+        "gcsePercent": null,
+        "ageRange": "10-18"
       },
       "geometry": {
         "type": "Point",
@@ -1773,7 +1853,8 @@
         "founded": 1894,
         "highlights": "Founded 1894 in the Barbican. Ranked 2nd best independent school UK (Sunday Times 2018). Notable alumni include Dido.",
         "aLevelPercent": 81,
-        "gcsePercent": null
+        "gcsePercent": null,
+        "ageRange": "7-18"
       },
       "geometry": {
         "type": "Point",
@@ -1795,7 +1876,8 @@
         "founded": 1953,
         "highlights": "Founded 1953 by Canonesses of St Augustine. Catholic girls school in Knightsbridge. Ages 9-18.",
         "aLevelPercent": null,
-        "gcsePercent": null
+        "gcsePercent": null,
+        "ageRange": "11-18"
       },
       "geometry": {
         "type": "Point",
@@ -1817,7 +1899,8 @@
         "founded": 1881,
         "highlights": "Founded 1881 by Canon Francis Holland. Church of England girls school near Sloane Square. Best ever A* results in 2024.",
         "aLevelPercent": 62,
-        "gcsePercent": null
+        "gcsePercent": null,
+        "ageRange": "4-18"
       },
       "geometry": {
         "type": "Point",
@@ -1839,7 +1922,8 @@
         "founded": 2015,
         "highlights": "Central London sixth form college near Westminster. Day and boarding. A-Level, BTEC and IB. 98% pass rate.",
         "aLevelPercent": 27,
-        "gcsePercent": null
+        "gcsePercent": null,
+        "ageRange": "14-19"
       },
       "geometry": {
         "type": "Point",
@@ -1861,7 +1945,8 @@
         "founded": 1975,
         "highlights": "Founded 1975 in Ashford, Surrey. Unique philosophical approach. Transitioning to co-ed.",
         "aLevelPercent": null,
-        "gcsePercent": null
+        "gcsePercent": null,
+        "ageRange": "11-18"
       },
       "geometry": {
         "type": "Point",
@@ -1883,7 +1968,8 @@
         "founded": 1848,
         "highlights": "Historic school with educational heritage. Named after George Birkbeck, founder of mechanics institutes.",
         "aLevelPercent": null,
-        "gcsePercent": null
+        "gcsePercent": null,
+        "ageRange": "4-8"
       },
       "geometry": {
         "type": "Point",
@@ -1905,7 +1991,8 @@
         "founded": 1982,
         "highlights": "Founded 1982 as UKs first dyslexia school. Specialist education for specific learning difficulties. GCSE programme.",
         "aLevelPercent": null,
-        "gcsePercent": null
+        "gcsePercent": null,
+        "ageRange": "6-14"
       },
       "geometry": {
         "type": "Point",
@@ -1927,7 +2014,8 @@
         "founded": 1560,
         "highlights": "Founded 1560 in Westminster Abbey precincts. 7 UK Prime Ministers, 3 Nobel laureates. Highest Oxbridge acceptance rate nationally.",
         "aLevelPercent": 87,
-        "gcsePercent": null
+        "gcsePercent": null,
+        "ageRange": "13-18"
       },
       "geometry": {
         "type": "Point",
@@ -1949,7 +2037,8 @@
         "founded": 2006,
         "highlights": "Founded 2006. Modern prep in Chelsea. Prepares for 8+ and 11+ entry to top schools.",
         "aLevelPercent": null,
-        "gcsePercent": null
+        "gcsePercent": null,
+        "ageRange": "3-13"
       },
       "geometry": {
         "type": "Point",
@@ -1971,7 +2060,8 @@
         "founded": 1850,
         "highlights": "Founded 1850 by Frances Mary Buss, pioneer of womens education. Consistently top 3 UK girls schools. Offers A-Level and IB.",
         "aLevelPercent": 85,
-        "gcsePercent": null
+        "gcsePercent": null,
+        "ageRange": "4-18"
       },
       "geometry": {
         "type": "Point",
@@ -1993,7 +2083,8 @@
         "founded": 1979,
         "highlights": "First UK school to offer all 3 IB programmes. 70 nationalities. Average IB score 37.7 (world avg 29.8).",
         "aLevelPercent": null,
-        "gcsePercent": null
+        "gcsePercent": null,
+        "ageRange": "3-18"
       },
       "geometry": {
         "type": "Point",
@@ -2015,7 +2106,8 @@
         "founded": 1954,
         "highlights": "Founded 1954. Family-run girls prep in South Kensington. Now also has boys school on Penywern Road.",
         "aLevelPercent": null,
-        "gcsePercent": null
+        "gcsePercent": null,
+        "ageRange": "4-11"
       },
       "geometry": {
         "type": "Point",
@@ -2037,7 +2129,8 @@
         "founded": 1967,
         "highlights": "Founded 1967 near Heathrow. Part of ACS International Schools. Day school only. IB curriculum.",
         "aLevelPercent": null,
-        "gcsePercent": null
+        "gcsePercent": null,
+        "ageRange": "4-18"
       },
       "geometry": {
         "type": "Point",
@@ -2059,7 +2152,8 @@
         "founded": 1978,
         "highlights": "Founded 1978 in Hampstead. Only independent college in London specialising in arts and humanities. Award-winning.",
         "aLevelPercent": null,
-        "gcsePercent": null
+        "gcsePercent": null,
+        "ageRange": "14-19"
       },
       "geometry": {
         "type": "Point",
@@ -2081,7 +2175,8 @@
         "founded": 2013,
         "highlights": "Founded 2013. Part of Gardener Schools Group. Innovative co-ed senior school in West London.",
         "aLevelPercent": null,
-        "gcsePercent": null
+        "gcsePercent": null,
+        "ageRange": "11-18"
       },
       "geometry": {
         "type": "Point",
@@ -2103,7 +2198,8 @@
         "founded": 1970,
         "highlights": "Established sixth form college in Bayswater. GCSE and A-Level courses. NOTE: May have closed.",
         "aLevelPercent": null,
-        "gcsePercent": null
+        "gcsePercent": null,
+        "ageRange": "14-19"
       },
       "geometry": {
         "type": "Point",
@@ -2117,7 +2213,7 @@
   "_meta": {
     "source": "notion",
     "database": "2fa8cb56-61db-81d3-89bb-dd8a3cbddbe9",
-    "syncedAt": "2026-02-03T09:03:30.780Z",
+    "syncedAt": "2026-02-03T09:12:16.701Z",
     "publicUrl": "https://www.notion.so/2fa8cb5661db81d389bbdd8a3cbddbe9"
   }
 }

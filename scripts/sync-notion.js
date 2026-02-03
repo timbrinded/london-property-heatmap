@@ -114,6 +114,7 @@ async function syncSchools() {
     const highlights = getText(props.Highlights);
     const aLevelPercent = getNumber(props['A Level %A*-A']);
     const gcsePercent = getNumber(props['GCSE %9-7']);
+    const ageRange = getText(props['Age Range']) || null;
     
     if (!name || lat === null || lng === null) return null;
     
@@ -140,7 +141,8 @@ async function syncSchools() {
         founded,
         highlights,
         aLevelPercent,
-        gcsePercent
+        gcsePercent,
+        ageRange
       },
       geometry: {
         type: 'Point',
