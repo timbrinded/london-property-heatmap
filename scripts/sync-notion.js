@@ -49,8 +49,12 @@ function notionRequest(path, options = {}) {
   });
 }
 
-function getRankingNumber(rankingTier) {
-  // Convert tier back to a representative ranking number
+function getRankingNumber(numericRank, rankingTier) {
+  // Prefer the numeric Rank field if available
+  if (numericRank !== null && numericRank > 0) {
+    return numericRank;
+  }
+  // Fallback to tier-based ranking for legacy data
   switch (rankingTier) {
     case 'top-100': return 50;
     case 'top-200': return 150;
@@ -99,7 +103,8 @@ async function syncSchools() {
     
     const name = getText(props.Name);
     const gender = getSelect(props.Gender);
-    const rankingTier = getSelect(props.Ranking);
+    const numericRank = getNumber(props.Rank);  // New numeric rank field
+    const rankingTier = getSelect(props.Ranking);  // Legacy tier field
     const fee = getNumber(props['Annual Fee']);
     const lat = getNumber(props.Lat);
     const lng = getNumber(props.Lng);
@@ -128,7 +133,7 @@ async function syncSchools() {
       properties: {
         name,
         type: schoolType,
-        ranking: getRankingNumber(rankingTier),
+        ranking: getRankingNumber(numericRank, rankingTier),
         feesPerYear: fee,
         website,
         wikiUrl,

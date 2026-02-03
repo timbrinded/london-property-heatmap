@@ -6,7 +6,7 @@
       "properties": {
         "name": "James Allen's Girls'",
         "type": "girls",
-        "ranking": 50,
+        "ranking": 25,
         "feesPerYear": 26000,
         "website": "https://www.jags.org.uk/",
         "wikiUrl": null,
@@ -28,7 +28,7 @@
       "properties": {
         "name": "Ibstock Place School",
         "type": "co-ed",
-        "ranking": 50,
+        "ranking": 90,
         "feesPerYear": 29938,
         "website": "https://www.ibstockplaceschool.co.uk/",
         "wikiUrl": "https://en.wikipedia.org/wiki/Ibstock_Place_School",
@@ -50,7 +50,7 @@
       "properties": {
         "name": "Chelsea Independent College",
         "type": "co-ed",
-        "ranking": 150,
+        "ranking": 315,
         "feesPerYear": 28000,
         "website": "https://www.chelseaindependentcollege.com/",
         "wikiUrl": "https://en.wikipedia.org/wiki/Chelsea_Independent_College",
@@ -72,7 +72,7 @@
       "properties": {
         "name": "Thomas's Kensington",
         "type": "co-ed",
-        "ranking": 150,
+        "ranking": 160,
         "feesPerYear": 34635,
         "website": "https://www.thomas-s.co.uk/thomass-kensington/",
         "wikiUrl": null,
@@ -94,7 +94,7 @@
       "properties": {
         "name": "Notting Hill & Ealing High",
         "type": "girls",
-        "ranking": 50,
+        "ranking": 29,
         "feesPerYear": 23895,
         "website": "https://www.nhehs.gdst.net/",
         "wikiUrl": null,
@@ -116,7 +116,7 @@
       "properties": {
         "name": "Latymer Upper School",
         "type": "co-ed",
-        "ranking": 50,
+        "ranking": 13,
         "feesPerYear": 31095,
         "website": "https://www.latymer-upper.org/",
         "wikiUrl": "https://en.wikipedia.org/wiki/Latymer_Upper_School",
@@ -160,7 +160,7 @@
       "properties": {
         "name": "German School London",
         "type": "co-ed",
-        "ranking": 150,
+        "ranking": 290,
         "feesPerYear": 15000,
         "website": "https://www.dslondon.org.uk/",
         "wikiUrl": "https://en.wikipedia.org/wiki/German_School_London",
@@ -182,7 +182,7 @@
       "properties": {
         "name": "Collingham College",
         "type": "co-ed",
-        "ranking": 150,
+        "ranking": 320,
         "feesPerYear": 33195,
         "website": "https://collingham.co.uk/",
         "wikiUrl": "https://en.wikipedia.org/wiki/Collingham_College",
@@ -204,7 +204,7 @@
       "properties": {
         "name": "Trinity School Croydon",
         "type": "co-ed",
-        "ranking": 50,
+        "ranking": 48,
         "feesPerYear": 29400,
         "website": "https://www.trinity-school.org/",
         "wikiUrl": null,
@@ -226,7 +226,7 @@
       "properties": {
         "name": "Eltham College",
         "type": "co-ed",
-        "ranking": 50,
+        "ranking": 38,
         "feesPerYear": 29997,
         "website": "https://www.eltham-college.org.uk/",
         "wikiUrl": "https://en.wikipedia.org/wiki/Eltham_College",
@@ -248,7 +248,7 @@
       "properties": {
         "name": "Highgate School",
         "type": "co-ed",
-        "ranking": 50,
+        "ranking": 27,
         "feesPerYear": 26490,
         "website": "https://www.highgateschool.org.uk/",
         "wikiUrl": "https://en.wikipedia.org/wiki/Highgate_School",
@@ -270,7 +270,7 @@
       "properties": {
         "name": "The Cavendish School",
         "type": "girls",
-        "ranking": 150,
+        "ranking": 220,
         "feesPerYear": 22000,
         "website": "https://cavendishschool.co.uk/",
         "wikiUrl": "https://en.wikipedia.org/wiki/The_Cavendish_School",
@@ -292,7 +292,7 @@
       "properties": {
         "name": "Harrow School",
         "type": "boys",
-        "ranking": 50,
+        "ranking": 72,
         "feesPerYear": 63735,
         "website": "https://www.harrowschool.org.uk/",
         "wikiUrl": "https://en.wikipedia.org/wiki/Harrow_School",
@@ -314,7 +314,7 @@
       "properties": {
         "name": "Portland Place School",
         "type": "co-ed",
-        "ranking": 150,
+        "ranking": 345,
         "feesPerYear": 27000,
         "website": "https://www.portland-place.co.uk/",
         "wikiUrl": null,
@@ -336,7 +336,7 @@
       "properties": {
         "name": "David Game College",
         "type": "co-ed",
-        "ranking": 150,
+        "ranking": 330,
         "feesPerYear": 25000,
         "website": "https://www.davidgamecollege.com/",
         "wikiUrl": "https://en.wikipedia.org/wiki/David_Game_College",
@@ -358,7 +358,7 @@
       "properties": {
         "name": "Sussex House School",
         "type": "boys",
-        "ranking": 150,
+        "ranking": 205,
         "feesPerYear": 33300,
         "website": "https://www.sussexhouseschool.co.uk/",
         "wikiUrl": "https://en.wikipedia.org/wiki/Sussex_House_School",
@@ -380,7 +380,7 @@
       "properties": {
         "name": "Mill Hill School",
         "type": "co-ed",
-        "ranking": 150,
+        "ranking": 110,
         "feesPerYear": 32025,
         "website": "https://www.millhill.org.uk/",
         "wikiUrl": "https://en.wikipedia.org/wiki/Mill_Hill_School",
@@ -402,7 +402,7 @@
       "properties": {
         "name": "City of London School",
         "type": "boys",
-        "ranking": 50,
+        "ranking": 22,
         "feesPerYear": 28458,
         "website": "https://www.cityoflondonschool.org.uk/",
         "wikiUrl": "https://en.wikipedia.org/wiki/City_of_London_School",
@@ -424,7 +424,7 @@
       "properties": {
         "name": "Bales College",
         "type": "co-ed",
-        "ranking": 150,
+        "ranking": 335,
         "feesPerYear": 18000,
         "website": "https://balescollege.co.uk/",
         "wikiUrl": null,
@@ -446,7 +446,7 @@
       "properties": {
         "name": "Bromley High School",
         "type": "girls",
-        "ranking": 150,
+        "ranking": 115,
         "feesPerYear": 25491,
         "website": "https://www.bromleyhigh.gdst.net/",
         "wikiUrl": "https://en.wikipedia.org/wiki/Bromley_High_School",
@@ -468,7 +468,7 @@
       "properties": {
         "name": "Hampton School",
         "type": "boys",
-        "ranking": 50,
+        "ranking": 9,
         "feesPerYear": 29916,
         "website": "https://hamptonschool.org.uk/",
         "wikiUrl": "https://en.wikipedia.org/wiki/Hampton_School",
@@ -490,7 +490,7 @@
       "properties": {
         "name": "Cameron House School",
         "type": "co-ed",
-        "ranking": 150,
+        "ranking": 215,
         "feesPerYear": 25000,
         "website": "https://www.cameronhouseschool.org/",
         "wikiUrl": null,
@@ -512,7 +512,7 @@
       "properties": {
         "name": "Fulham Prep School",
         "type": "co-ed",
-        "ranking": 150,
+        "ranking": 230,
         "feesPerYear": 25443,
         "website": "https://www.fulham.school/",
         "wikiUrl": null,
@@ -534,7 +534,7 @@
       "properties": {
         "name": "North Bridge House Senior",
         "type": "co-ed",
-        "ranking": 150,
+        "ranking": 355,
         "feesPerYear": 26000,
         "website": "https://www.northbridgehouse.com/",
         "wikiUrl": null,
@@ -556,7 +556,7 @@
       "properties": {
         "name": "Emanuel School",
         "type": "co-ed",
-        "ranking": 50,
+        "ranking": 34,
         "feesPerYear": 29748,
         "website": "https://www.emanuel.org.uk/",
         "wikiUrl": "https://en.wikipedia.org/wiki/Emanuel_School",
@@ -578,7 +578,7 @@
       "properties": {
         "name": "Eaton Square School",
         "type": "co-ed",
-        "ranking": 150,
+        "ranking": 180,
         "feesPerYear": 28000,
         "website": "https://www.eatonsquareschools.com/",
         "wikiUrl": "https://en.wikipedia.org/wiki/Eaton_Square_School",
@@ -600,7 +600,7 @@
       "properties": {
         "name": "International School of London",
         "type": "co-ed",
-        "ranking": 150,
+        "ranking": 265,
         "feesPerYear": 32000,
         "website": "https://www.isllondon.org/",
         "wikiUrl": null,
@@ -622,7 +622,7 @@
       "properties": {
         "name": "ACS Cobham",
         "type": "co-ed",
-        "ranking": 150,
+        "ranking": 270,
         "feesPerYear": 38000,
         "website": "https://www.acs-schools.com/cobham/",
         "wikiUrl": "https://en.wikipedia.org/wiki/ACS_Cobham",
@@ -644,7 +644,7 @@
       "properties": {
         "name": "St Helen's Northwood",
         "type": "girls",
-        "ranking": 50,
+        "ranking": 70,
         "feesPerYear": 26616,
         "website": "https://www.sthelens.london/",
         "wikiUrl": null,
@@ -666,7 +666,7 @@
       "properties": {
         "name": "Haberdashers' Boys",
         "type": "boys",
-        "ranking": 150,
+        "ranking": 26,
         "feesPerYear": 31269,
         "website": "https://www.habsboys.org.uk/",
         "wikiUrl": null,
@@ -688,7 +688,7 @@
       "properties": {
         "name": "University College School",
         "type": "co-ed",
-        "ranking": 50,
+        "ranking": 17,
         "feesPerYear": 32913,
         "website": "https://www.ucs.org.uk/",
         "wikiUrl": "https://en.wikipedia.org/wiki/University_College_School",
@@ -710,7 +710,7 @@
       "properties": {
         "name": "Croydon High School",
         "type": "girls",
-        "ranking": 50,
+        "ranking": 85,
         "feesPerYear": 24564,
         "website": "https://www.croydonhigh.gdst.net/",
         "wikiUrl": "https://en.wikipedia.org/wiki/Croydon_High_School",
@@ -732,7 +732,7 @@
       "properties": {
         "name": "Surbiton High School",
         "type": "girls",
-        "ranking": 50,
+        "ranking": 30,
         "feesPerYear": 25850,
         "website": "https://www.surbitonhigh.com/",
         "wikiUrl": "https://en.wikipedia.org/wiki/Surbiton_High_School",
@@ -754,7 +754,7 @@
       "properties": {
         "name": "Forest School",
         "type": "co-ed",
-        "ranking": 150,
+        "ranking": 81,
         "feesPerYear": 32070,
         "website": "https://www.forest.org.uk/",
         "wikiUrl": "https://en.wikipedia.org/wiki/Forest_School",
@@ -776,7 +776,7 @@
       "properties": {
         "name": "MPW London",
         "type": "co-ed",
-        "ranking": 150,
+        "ranking": 305,
         "feesPerYear": 35898,
         "website": "https://www.mpw.ac.uk/locations/london/",
         "wikiUrl": null,
@@ -798,7 +798,7 @@
       "properties": {
         "name": "Francis Holland Regent's Pk",
         "type": "girls",
-        "ranking": 50,
+        "ranking": 43,
         "feesPerYear": 30834,
         "website": "https://www.fhs-nw1.org.uk/",
         "wikiUrl": null,
@@ -820,7 +820,7 @@
       "properties": {
         "name": "Garden House School",
         "type": "co-ed",
-        "ranking": 150,
+        "ranking": 185,
         "feesPerYear": 33300,
         "website": "https://www.gardenhouseschool.co.uk/",
         "wikiUrl": "https://en.wikipedia.org/wiki/Garden_House_School",
@@ -842,7 +842,7 @@
       "properties": {
         "name": "Channing School",
         "type": "girls",
-        "ranking": 50,
+        "ranking": 61,
         "feesPerYear": 31662,
         "website": "https://www.channing.co.uk/",
         "wikiUrl": "https://en.wikipedia.org/wiki/Channing_School",
@@ -864,7 +864,7 @@
       "properties": {
         "name": "Dulwich College",
         "type": "boys",
-        "ranking": 50,
+        "ranking": 27,
         "feesPerYear": 28000,
         "website": "https://www.dulwich.org.uk/",
         "wikiUrl": "https://en.wikipedia.org/wiki/Dulwich_College",
@@ -886,7 +886,7 @@
       "properties": {
         "name": "ACS Egham",
         "type": "co-ed",
-        "ranking": 150,
+        "ranking": 275,
         "feesPerYear": 35000,
         "website": "https://www.acs-schools.com/egham/",
         "wikiUrl": "https://en.wikipedia.org/wiki/ACS_Egham",
@@ -908,7 +908,7 @@
       "properties": {
         "name": "The Lyceum",
         "type": "co-ed",
-        "ranking": 150,
+        "ranking": 360,
         "feesPerYear": 23676,
         "website": "https://www.lyceumschool.co.uk/",
         "wikiUrl": "https://en.wikipedia.org/wiki/The_Lyceum",
@@ -930,7 +930,7 @@
       "properties": {
         "name": "Haberdashers' Girls",
         "type": "girls",
-        "ranking": 150,
+        "ranking": 36,
         "feesPerYear": 30117,
         "website": "https://www.habsgirls.org.uk/",
         "wikiUrl": null,
@@ -952,7 +952,7 @@
       "properties": {
         "name": "Wimbledon High School",
         "type": "girls",
-        "ranking": 50,
+        "ranking": 12,
         "feesPerYear": 28857,
         "website": "https://www.wimbledonhigh.gdst.net/",
         "wikiUrl": "https://en.wikipedia.org/wiki/Wimbledon_High_School",
@@ -974,7 +974,7 @@
       "properties": {
         "name": "Pembridge Hall",
         "type": "girls",
-        "ranking": 150,
+        "ranking": 195,
         "feesPerYear": 28000,
         "website": "https://www.pembridgehall.co.uk/",
         "wikiUrl": null,
@@ -996,7 +996,7 @@
       "properties": {
         "name": "King's College School",
         "type": "co-ed",
-        "ranking": 50,
+        "ranking": 2,
         "feesPerYear": 29232,
         "website": "https://www.kcs.org.uk/",
         "wikiUrl": "https://en.wikipedia.org/wiki/King's_College_School",
@@ -1018,7 +1018,7 @@
       "properties": {
         "name": "South Hampstead High",
         "type": "girls",
-        "ranking": 50,
+        "ranking": 15,
         "feesPerYear": 28371,
         "website": "https://www.shhs.gdst.net/",
         "wikiUrl": null,
@@ -1040,7 +1040,7 @@
       "properties": {
         "name": "St Paul's School",
         "type": "boys",
-        "ranking": 50,
+        "ranking": 3,
         "feesPerYear": 35847,
         "website": "https://www.stpaulsschool.org.uk/",
         "wikiUrl": "https://en.wikipedia.org/wiki/St_Paul's_School",
@@ -1062,7 +1062,7 @@
       "properties": {
         "name": "Thomas's Battersea",
         "type": "co-ed",
-        "ranking": 150,
+        "ranking": 155,
         "feesPerYear": 32886,
         "website": "https://www.thomas-s.co.uk/thomass-battersea/",
         "wikiUrl": "https://en.wikipedia.org/wiki/Thomas's_Battersea",
@@ -1084,7 +1084,7 @@
       "properties": {
         "name": "St James Senior Girls",
         "type": "girls",
-        "ranking": 150,
+        "ranking": 430,
         "feesPerYear": 22500,
         "website": "https://www.stjamesschools.co.uk/seniorgirls/",
         "wikiUrl": null,
@@ -1106,7 +1106,7 @@
       "properties": {
         "name": "Wetherby School",
         "type": "boys",
-        "ranking": 150,
+        "ranking": 165,
         "feesPerYear": 32970,
         "website": "https://www.wetherbyschool.co.uk/",
         "wikiUrl": "https://en.wikipedia.org/wiki/Wetherby_School",
@@ -1128,7 +1128,7 @@
       "properties": {
         "name": "Putney High School",
         "type": "girls",
-        "ranking": 50,
+        "ranking": 18,
         "feesPerYear": 24000,
         "website": "https://www.putneyhigh.gdst.net/",
         "wikiUrl": "https://en.wikipedia.org/wiki/Putney_High_School",
@@ -1150,7 +1150,7 @@
       "properties": {
         "name": "Alleyn's School",
         "type": "co-ed",
-        "ranking": 50,
+        "ranking": 34,
         "feesPerYear": 26500,
         "website": "https://www.alleyns.org.uk/",
         "wikiUrl": "https://en.wikipedia.org/wiki/Alleyn's_School",
@@ -1172,7 +1172,7 @@
       "properties": {
         "name": "Dwight School London",
         "type": "co-ed",
-        "ranking": 150,
+        "ranking": 255,
         "feesPerYear": 28000,
         "website": "https://www.dwightlondon.org/",
         "wikiUrl": "https://en.wikipedia.org/wiki/Dwight_School_London",
@@ -1194,7 +1194,7 @@
       "properties": {
         "name": "Colfe's School",
         "type": "co-ed",
-        "ranking": 50,
+        "ranking": 78,
         "feesPerYear": 26199,
         "website": "https://www.colfes.com/",
         "wikiUrl": "https://en.wikipedia.org/wiki/Colfe's_School",
@@ -1216,7 +1216,7 @@
       "properties": {
         "name": "Glendower Prep",
         "type": "girls",
-        "ranking": 150,
+        "ranking": 200,
         "feesPerYear": 26000,
         "website": "https://www.glendowerprep.org/",
         "wikiUrl": null,
@@ -1238,7 +1238,7 @@
       "properties": {
         "name": "Lycée Français Charles de Gaulle",
         "type": "co-ed",
-        "ranking": 150,
+        "ranking": 285,
         "feesPerYear": 11295,
         "website": "https://www.lyceefrancais.org.uk/",
         "wikiUrl": "https://en.wikipedia.org/wiki/Lycée_Français_Charles_de_Gaulle",
@@ -1260,7 +1260,7 @@
       "properties": {
         "name": "Sydenham High School",
         "type": "girls",
-        "ranking": 150,
+        "ranking": 125,
         "feesPerYear": 23910,
         "website": "https://www.sydenhamhighschool.gdst.net/",
         "wikiUrl": "https://en.wikipedia.org/wiki/Sydenham_High_School",
@@ -1282,7 +1282,7 @@
       "properties": {
         "name": "Lady Eleanor Holles",
         "type": "girls",
-        "ranking": 50,
+        "ranking": 8,
         "feesPerYear": 30756,
         "website": "https://lehs.org.uk/",
         "wikiUrl": null,
@@ -1304,7 +1304,7 @@
       "properties": {
         "name": "Bancroft's School",
         "type": "co-ed",
-        "ranking": 50,
+        "ranking": 24,
         "feesPerYear": 30144,
         "website": "https://www.bancrofts.org/",
         "wikiUrl": "https://en.wikipedia.org/wiki/Bancroft's_School",
@@ -1326,7 +1326,7 @@
       "properties": {
         "name": "Hill House School",
         "type": "co-ed",
-        "ranking": 150,
+        "ranking": 210,
         "feesPerYear": 28980,
         "website": "https://hillhouseschool.co.uk/",
         "wikiUrl": "https://en.wikipedia.org/wiki/Hill_House_School",
@@ -1348,7 +1348,7 @@
       "properties": {
         "name": "St Paul's Girls' School",
         "type": "girls",
-        "ranking": 50,
+        "ranking": 4,
         "feesPerYear": 37242,
         "website": "https://spgs.org/",
         "wikiUrl": "https://en.wikipedia.org/wiki/St_Paul's_Girls'_School",
@@ -1370,7 +1370,7 @@
       "properties": {
         "name": "The American School London",
         "type": "co-ed",
-        "ranking": 150,
+        "ranking": 250,
         "feesPerYear": 42588,
         "website": "https://www.asl.org/",
         "wikiUrl": null,
@@ -1392,7 +1392,7 @@
       "properties": {
         "name": "St Augustine's Priory",
         "type": "girls",
-        "ranking": 50,
+        "ranking": 420,
         "feesPerYear": 24500,
         "website": "https://www.sapriory.com/",
         "wikiUrl": "https://en.wikipedia.org/wiki/St_Augustine's_Priory",
@@ -1414,7 +1414,7 @@
       "properties": {
         "name": "Godolphin & Latymer",
         "type": "girls",
-        "ranking": 50,
+        "ranking": 17,
         "feesPerYear": 34622,
         "website": "https://www.godolphinandlatymer.com/",
         "wikiUrl": null,
@@ -1436,7 +1436,7 @@
       "properties": {
         "name": "Streatham & Clapham High",
         "type": "girls",
-        "ranking": 150,
+        "ranking": 120,
         "feesPerYear": 26040,
         "website": "https://schs.gdst.net/",
         "wikiUrl": null,
@@ -1458,7 +1458,7 @@
       "properties": {
         "name": "Queen's College London",
         "type": "girls",
-        "ranking": 50,
+        "ranking": 92,
         "feesPerYear": 31806,
         "website": "https://www.qcl.org.uk/",
         "wikiUrl": null,
@@ -1480,7 +1480,7 @@
       "properties": {
         "name": "Merchant Taylors' School",
         "type": "boys",
-        "ranking": 50,
+        "ranking": 39,
         "feesPerYear": 31947,
         "website": "https://www.mtsn.org.uk/",
         "wikiUrl": "https://en.wikipedia.org/wiki/Merchant_Taylors'_School",
@@ -1502,7 +1502,7 @@
       "properties": {
         "name": "Northwood College",
         "type": "girls",
-        "ranking": 150,
+        "ranking": 58,
         "feesPerYear": 24825,
         "website": "https://www.northwoodcollege.gdst.net/",
         "wikiUrl": "https://en.wikipedia.org/wiki/Northwood_College",
@@ -1524,7 +1524,7 @@
       "properties": {
         "name": "Harrodian School",
         "type": "co-ed",
-        "ranking": 50,
+        "ranking": 94,
         "feesPerYear": 31956,
         "website": "https://www.harrodian.com/",
         "wikiUrl": "https://en.wikipedia.org/wiki/Harrodian_School",
@@ -1546,7 +1546,7 @@
       "properties": {
         "name": "Ashbourne College",
         "type": "co-ed",
-        "ranking": 150,
+        "ranking": 310,
         "feesPerYear": 37950,
         "website": "https://www.ashbournecollege.co.uk/",
         "wikiUrl": "https://en.wikipedia.org/wiki/Ashbourne_College",
@@ -1568,7 +1568,7 @@
       "properties": {
         "name": "Eaton House Schools",
         "type": "boys",
-        "ranking": 150,
+        "ranking": 175,
         "feesPerYear": 28000,
         "website": "https://www.eatonhouseschools.com/",
         "wikiUrl": null,
@@ -1590,7 +1590,7 @@
       "properties": {
         "name": "Eton College",
         "type": "boys",
-        "ranking": 50,
+        "ranking": 19,
         "feesPerYear": 63299,
         "website": "https://www.etoncollege.com/",
         "wikiUrl": "https://en.wikipedia.org/wiki/Eton_College",
@@ -1612,7 +1612,7 @@
       "properties": {
         "name": "Blackheath High School",
         "type": "girls",
-        "ranking": 150,
+        "ranking": 84,
         "feesPerYear": 24468,
         "website": "https://www.blackheathhighschool.gdst.net/",
         "wikiUrl": "https://en.wikipedia.org/wiki/Blackheath_High_School",
@@ -1634,7 +1634,7 @@
       "properties": {
         "name": "L'Ecole des Petits",
         "type": "co-ed",
-        "ranking": 150,
+        "ranking": 295,
         "feesPerYear": 18000,
         "website": "https://lecoledespetits.co.uk/",
         "wikiUrl": null,
@@ -1656,7 +1656,7 @@
       "properties": {
         "name": "Kensington Park School",
         "type": "co-ed",
-        "ranking": 150,
+        "ranking": 350,
         "feesPerYear": 27350,
         "website": "https://www.kps.co.uk/",
         "wikiUrl": "https://en.wikipedia.org/wiki/Kensington_Park_School",
@@ -1678,7 +1678,7 @@
       "properties": {
         "name": "The Hampshire School",
         "type": "co-ed",
-        "ranking": 150,
+        "ranking": 225,
         "feesPerYear": 25000,
         "website": "https://www.thehampshireschoolchelsea.co.uk/",
         "wikiUrl": null,
@@ -1700,7 +1700,7 @@
       "properties": {
         "name": "Chelsea Academy",
         "type": "co-ed",
-        "ranking": 150,
+        "ranking": 435,
         "feesPerYear": 0,
         "website": "https://www.chelsea-academy.org/",
         "wikiUrl": "https://en.wikipedia.org/wiki/Chelsea_Academy",
@@ -1722,7 +1722,7 @@
       "properties": {
         "name": "St Dunstan's College",
         "type": "co-ed",
-        "ranking": 50,
+        "ranking": 82,
         "feesPerYear": 27261,
         "website": "https://www.stdunstans.org.uk/",
         "wikiUrl": "https://en.wikipedia.org/wiki/St_Dunstan's_College",
@@ -1744,7 +1744,7 @@
       "properties": {
         "name": "Whitgift School",
         "type": "boys",
-        "ranking": 50,
+        "ranking": 42,
         "feesPerYear": 30240,
         "website": "https://www.whitgift.co.uk/",
         "wikiUrl": "https://en.wikipedia.org/wiki/Whitgift_School",
@@ -1766,7 +1766,7 @@
       "properties": {
         "name": "City of London School for Girls",
         "type": "girls",
-        "ranking": 50,
+        "ranking": 10,
         "feesPerYear": 30247,
         "website": "https://clsg.org.uk/",
         "wikiUrl": "https://en.wikipedia.org/wiki/City_of_London_School_for_Girls",
@@ -1788,7 +1788,7 @@
       "properties": {
         "name": "More House School",
         "type": "girls",
-        "ranking": 150,
+        "ranking": 405,
         "feesPerYear": 24825,
         "website": "https://www.morehouse.org.uk/",
         "wikiUrl": "https://en.wikipedia.org/wiki/More_House_School",
@@ -1810,7 +1810,7 @@
       "properties": {
         "name": "Francis Holland Sloane Sq",
         "type": "girls",
-        "ranking": 50,
+        "ranking": 37,
         "feesPerYear": 30834,
         "website": "https://www.fhs-sw1.org.uk/",
         "wikiUrl": null,
@@ -1832,7 +1832,7 @@
       "properties": {
         "name": "DLD College London",
         "type": "co-ed",
-        "ranking": 150,
+        "ranking": 300,
         "feesPerYear": 34440,
         "website": "https://www.dldcollege.co.uk/",
         "wikiUrl": null,
@@ -1854,7 +1854,7 @@
       "properties": {
         "name": "St James Senior Boys",
         "type": "boys",
-        "ranking": 150,
+        "ranking": 425,
         "feesPerYear": 22500,
         "website": "https://www.stjamesschools.co.uk/seniorboys/",
         "wikiUrl": null,
@@ -1876,7 +1876,7 @@
       "properties": {
         "name": "Birkbeck School",
         "type": "co-ed",
-        "ranking": 150,
+        "ranking": 410,
         "feesPerYear": 20000,
         "website": "https://www.thebirkbeckschool.org.uk/",
         "wikiUrl": null,
@@ -1898,7 +1898,7 @@
       "properties": {
         "name": "Fairley House School",
         "type": "co-ed",
-        "ranking": 150,
+        "ranking": 400,
         "feesPerYear": 35000,
         "website": "https://fairleyhouse.org.uk/",
         "wikiUrl": "https://en.wikipedia.org/wiki/Fairley_House_School",
@@ -1920,7 +1920,7 @@
       "properties": {
         "name": "Westminster School",
         "type": "co-ed",
-        "ranking": 50,
+        "ranking": 1,
         "feesPerYear": 46353,
         "website": "https://www.westminster.org.uk/",
         "wikiUrl": "https://en.wikipedia.org/wiki/Westminster_School",
@@ -1942,7 +1942,7 @@
       "properties": {
         "name": "Knightsbridge School",
         "type": "co-ed",
-        "ranking": 150,
+        "ranking": 170,
         "feesPerYear": 29000,
         "website": "https://www.knightsbridgeschool.com/",
         "wikiUrl": "https://en.wikipedia.org/wiki/Knightsbridge_School",
@@ -1964,7 +1964,7 @@
       "properties": {
         "name": "North London Collegiate",
         "type": "girls",
-        "ranking": 50,
+        "ranking": 7,
         "feesPerYear": 29751,
         "website": "https://www.nlcs.org.uk/",
         "wikiUrl": "https://en.wikipedia.org/wiki/North_London_Collegiate",
@@ -1986,7 +1986,7 @@
       "properties": {
         "name": "Southbank International",
         "type": "co-ed",
-        "ranking": 150,
+        "ranking": 260,
         "feesPerYear": 44508,
         "website": "https://www.southbank.org/",
         "wikiUrl": null,
@@ -2008,7 +2008,7 @@
       "properties": {
         "name": "Falkner House",
         "type": "girls",
-        "ranking": 150,
+        "ranking": 190,
         "feesPerYear": 27000,
         "website": "https://www.falknerhouse.co.uk/",
         "wikiUrl": null,
@@ -2030,7 +2030,7 @@
       "properties": {
         "name": "ACS Hillingdon",
         "type": "co-ed",
-        "ranking": 150,
+        "ranking": 280,
         "feesPerYear": 32000,
         "website": "https://www.acs-schools.com/hillingdon/",
         "wikiUrl": null,
@@ -2052,7 +2052,7 @@
       "properties": {
         "name": "Fine Arts College",
         "type": "co-ed",
-        "ranking": 150,
+        "ranking": 340,
         "feesPerYear": 21690,
         "website": "https://www.hampsteadfinearts.com/",
         "wikiUrl": null,
@@ -2074,7 +2074,7 @@
       "properties": {
         "name": "Kew House School",
         "type": "co-ed",
-        "ranking": 150,
+        "ranking": 235,
         "feesPerYear": 31525,
         "website": "https://kewhouseschool.com/",
         "wikiUrl": null,
@@ -2096,7 +2096,7 @@
       "properties": {
         "name": "Lansdowne College",
         "type": "co-ed",
-        "ranking": 150,
+        "ranking": 325,
         "feesPerYear": 28000,
         "website": "https://www.lansdownecollege.com/",
         "wikiUrl": null,
@@ -2117,7 +2117,7 @@
   "_meta": {
     "source": "notion",
     "database": "2fa8cb56-61db-81d3-89bb-dd8a3cbddbe9",
-    "syncedAt": "2026-02-03T08:27:55.180Z",
+    "syncedAt": "2026-02-03T09:03:30.780Z",
     "publicUrl": "https://www.notion.so/2fa8cb5661db81d389bbdd8a3cbddbe9"
   }
 }
