@@ -79,16 +79,20 @@ self.addEventListener('fetch', event => {
 async function networkFirst(request) {
   try {
     // Cache-bust: append version param to avoid browser HTTP cache serving stale responses
-    const bustUrl = new URL(request.url);
-    bustUrl.searchParams.set('_v', CACHE_VERSION);
-    const bustRequest = new Request(bustUrl, {
-      method: request.method,
-      headers: request.headers,
-      mode: request.mode,
-      credentials: request.credentials,
-      redirect: request.redirect,
-    });
-    const response = await fetch(bustRequest);
+    // For navigate requests, fetch the original (Request constructor rejects mode:'navigate')
+    let fetchRequest = request;
+    if (request.mode !== 'navigate') {
+      const bustUrl = new URL(request.url);
+      bustUrl.searchParams.set('_v', CACHE_VERSION);
+      fetchRequest = new Request(bustUrl, {
+        method: request.method,
+        headers: request.headers,
+        mode: request.mode,
+        credentials: request.credentials,
+        redirect: request.redirect,
+      });
+    }
+    const response = await fetch(fetchRequest);
     if (response.ok) {
       const cache = await caches.open(CACHE_NAME);
       // Store against original URL (without cache-bust param)
