@@ -106,6 +106,17 @@ async function loadData(): Promise<PostcodeData[]> {
   return response.json();
 }
 
+async function loadSqftData(): Promise<PostcodeData[] | null> {
+  try {
+    const response = await fetch('./data/prices-sqft.json');
+    if (!response.ok) return null;
+    const data = await response.json();
+    return data.length > 0 ? data : null;
+  } catch {
+    return null;
+  }
+}
+
 async function loadGeoJSON(): Promise<GeoJSON.FeatureCollection> {
   const response = await fetch('./data/postcode-districts.geojson');
   return response.json();
@@ -151,60 +162,89 @@ async function init() {
   map.addControl(new mapboxgl.NavigationControl(), 'top-right');
 
   // Load all data
-  const [priceData, geoData, transportData, schoolsData] = await Promise.all([
+  const [medianData, geoData, transportData, schoolsData, sqftData] = await Promise.all([
     loadData(),
     loadGeoJSON(),
     loadTransport(),
-    loadSchools()
+    loadSchools(),
+    loadSqftData()
   ]);
 
-  // Create price lookup
-  const priceLookup = new Map<string, PostcodeData>();
-  priceData.forEach(d => priceLookup.set(d.district, d));
+  // Store original GeoJSON features for rebuilding
+  const originalFeatures = geoData.features.map(f => ({ ...f }));
 
-  // Detect schema: check if first item has medianPricePerSqft
-  useSqft = priceData.length > 0 && priceData[0].medianPricePerSqft != null && priceData[0].medianPricePerSqft > 0;
-
-  // Get baseline prices for all property types
-  const baseline = priceLookup.get(BASELINE_DISTRICT);
-  if (baseline) {
-    baselinePricePerSqft = getMainPrice(baseline);
-    baselineHousesPricePerSqft = getHousesPrice(baseline) || baselinePricePerSqft;
-    baselineFlatsPricePerSqft = getFlatsPrice(baseline) || baselinePricePerSqft;
-    document.getElementById('baseline-price')!.textContent = 
-      `Median: ${formatPriceAuto(baselinePricePerSqft)}`;
+  // Enable sqft toggle if data exists
+  const hasSqftData = sqftData != null && sqftData.length > 0;
+  if (hasSqftData) {
+    const sqftOption = document.getElementById('sqft-option');
+    const sqftUnavail = document.getElementById('sqft-unavailable');
+    if (sqftOption) sqftOption.style.display = '';
+    if (sqftUnavail) sqftUnavail.style.display = 'none';
   }
 
-  // For legacy data without percentDiffFlats, calculate it
-  function calcFlatsPercentDiff(d: PostcodeData): number {
-    const flatsPrice = getFlatsPrice(d);
-    if (!flatsPrice || !baselineFlatsPricePerSqft) return 0;
-    return ((flatsPrice - baselineFlatsPricePerSqft) / baselineFlatsPricePerSqft) * 100;
+  // Build lookup + merge for a given dataset
+  function applyDataSource(priceData: PostcodeData[], isSqft: boolean) {
+    useSqft = isSqft;
+
+    const priceLookup = new Map<string, PostcodeData>();
+    priceData.forEach(d => priceLookup.set(d.district, d));
+
+    const baseline = priceLookup.get(BASELINE_DISTRICT);
+    if (baseline) {
+      baselinePricePerSqft = getMainPrice(baseline);
+      baselineHousesPricePerSqft = getHousesPrice(baseline) || baselinePricePerSqft;
+      baselineFlatsPricePerSqft = getFlatsPrice(baseline) || baselinePricePerSqft;
+    }
+
+    function calcFlatsPercentDiff(d: PostcodeData): number {
+      const flatsPrice = getFlatsPrice(d);
+      if (!flatsPrice || !baselineFlatsPricePerSqft) return 0;
+      return ((flatsPrice - baselineFlatsPricePerSqft) / baselineFlatsPricePerSqft) * 100;
+    }
+
+    geoData.features = originalFeatures.map(feature => {
+      const district = feature.properties?.name || feature.properties?.POSTCODE;
+      const data = priceLookup.get(district);
+      
+      return {
+        ...feature,
+        properties: {
+          ...feature.properties,
+          mainPrice: data ? getMainPrice(data) : 0,
+          housesPrice: data ? getHousesPrice(data) : 0,
+          flatsPrice: data ? getFlatsPrice(data) : 0,
+          percentDiff: data?.percentDiff || 0,
+          percentDiffHouses: data?.percentDiffHouses || 0,
+          percentDiffFlats: data?.percentDiffFlats ?? (data ? calcFlatsPercentDiff(data) : 0),
+          sampleSize: data?.sampleSize || 0,
+          housesSampleSize: data?.housesSampleSize || 0,
+          flatsSampleSize: data?.flatsSampleSize || 0,
+          medianFloorArea: data?.medianFloorArea || 0,
+          color: data ? getColor(data.percentDiff) : '#333'
+        }
+      };
+    }).filter(f => f.properties.mainPrice > 0);
+
+    // Update UI text
+    const title = document.getElementById('panel-title');
+    const desc = document.getElementById('panel-description');
+    if (title) title.textContent = isSqft ? '🏠 London £/sqft' : '🏠 London Property Prices';
+    if (desc) desc.textContent = isSqft 
+      ? 'Price per square foot by postcode district (Land Registry + EPC data), relative to your baseline.'
+      : 'Median property prices by postcode district, shown relative to your baseline location.';
   }
 
-  // Merge price data into GeoJSON
-  geoData.features = geoData.features.map(feature => {
-    const district = feature.properties?.name || feature.properties?.POSTCODE;
-    const data = priceLookup.get(district);
-    
-    return {
-      ...feature,
-      properties: {
-        ...feature.properties,
-        mainPrice: data ? getMainPrice(data) : 0,
-        housesPrice: data ? getHousesPrice(data) : 0,
-        flatsPrice: data ? getFlatsPrice(data) : 0,
-        percentDiff: data?.percentDiff || 0,
-        percentDiffHouses: data?.percentDiffHouses || 0,
-        percentDiffFlats: data?.percentDiffFlats ?? (data ? calcFlatsPercentDiff(data) : 0),
-        sampleSize: data?.sampleSize || 0,
-        housesSampleSize: data?.housesSampleSize || 0,
-        flatsSampleSize: data?.flatsSampleSize || 0,
-        medianFloorArea: data?.medianFloorArea || 0,
-        color: data ? getColor(data.percentDiff) : '#333'
-      }
-    };
-  }).filter(f => f.properties.mainPrice > 0);
+  // Initial load with median data
+  applyDataSource(medianData, false);
+
+  // Function to refresh the map after data source switch
+  function refreshMapData() {
+    const source = map.getSource('postcodes') as mapboxgl.GeoJSONSource;
+    if (source) {
+      source.setData(geoData as any);
+    }
+    updatePostcodeColors();
+  }
 
   // Filter state
   const transportFilters: TransportFilters = {
@@ -800,6 +840,20 @@ async function init() {
         const target = e.target as HTMLInputElement;
         propertyType = target.value as PropertyType;
         updatePostcodeColors();
+      });
+    });
+
+    // Data source toggle
+    const dataSourceRadios = document.querySelectorAll('input[name="data-source"]');
+    dataSourceRadios.forEach(radio => {
+      radio.addEventListener('change', (e) => {
+        const target = e.target as HTMLInputElement;
+        if (target.value === 'sqft' && sqftData) {
+          applyDataSource(sqftData, true);
+        } else {
+          applyDataSource(medianData, false);
+        }
+        refreshMapData();
       });
     });
 

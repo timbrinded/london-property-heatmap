@@ -674,14 +674,37 @@
     
     <div class="info-panel" id="info-panel">
       <div class="info-header" onclick="document.getElementById('info-panel').classList.toggle('collapsed')">
-        <h1>🏠 London £/sqft</h1>
+        <h1 id="panel-title">🏠 London Property Prices</h1>
         <span class="info-toggle">▲</span>
       </div>
       <div class="info-content">
-        <p>Median £/sqft by postcode district (Land Registry + EPC data), relative to your baseline.</p>
+        <p id="panel-description">Median property prices by postcode district, shown relative to your baseline location.</p>
         <div class="baseline">
           <strong>Baseline: E14 (Millwall)</strong><br>
           <span id="baseline-price">Loading...</span>
+        </div>
+        
+        <!-- DATA SOURCE TOGGLE -->
+        <div class="filter-group" id="datasource-group">
+          <div class="filter-group-header" onclick="document.getElementById('datasource-group').classList.toggle('collapsed')">
+            <h4><span class="icon">📊</span> Data Source</h4>
+            <span class="filter-group-toggle">▲</span>
+          </div>
+          <div class="filter-group-content">
+            <div class="radio-group">
+              <label class="radio-item">
+                <input type="radio" name="data-source" value="median" checked>
+                <span class="radio-dot"></span>
+                <span class="radio-label">Median Price</span>
+              </label>
+              <label class="radio-item" id="sqft-option" style="display: none;">
+                <input type="radio" name="data-source" value="sqft">
+                <span class="radio-dot"></span>
+                <span class="radio-label">£ per sqft</span>
+              </label>
+            </div>
+            <p id="sqft-unavailable" style="font-size: 10px; opacity: 0.4; margin: 4px 0 0;">£/sqft data not yet available</p>
+          </div>
         </div>
         
         <!-- PROPERTY TYPE FILTER GROUP -->
