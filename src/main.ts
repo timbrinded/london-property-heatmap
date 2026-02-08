@@ -37,6 +37,70 @@ interface SchoolProperties {
   ageRange?: string;
 }
 
+// Postcode district → area name mapping
+const AREA_NAMES: Record<string, string> = {
+  E1: 'Whitechapel', E2: 'Bethnal Green', E3: 'Bow', E4: 'Chingford', E5: 'Clapton',
+  E6: 'East Ham', E7: 'Forest Gate', E8: 'Hackney', E9: 'Homerton', E10: 'Leyton',
+  E11: 'Leytonstone', E14: 'Canary Wharf', E15: 'Stratford', E16: 'Silvertown',
+  E17: 'Walthamstow', E18: 'South Woodford',
+  EC1: 'Clerkenwell', EC2: 'Moorgate', EC3: 'Fenchurch', EC4: 'Fleet Street',
+  N1: 'Islington', N2: 'East Finchley', N3: 'Finchley', N4: 'Finsbury Park',
+  N5: 'Highbury', N6: 'Highgate', N7: 'Holloway', N8: 'Hornsey', N9: 'Edmonton',
+  N10: 'Muswell Hill', N11: 'New Southgate', N12: 'North Finchley', N13: 'Palmers Green',
+  N14: 'Southgate', N15: 'Seven Sisters', N16: 'Stoke Newington', N17: 'Tottenham',
+  N18: 'Upper Edmonton', N19: 'Archway', N20: 'Whetstone', N21: 'Winchmore Hill',
+  N22: 'Wood Green',
+  NW1: 'Camden', NW2: 'Cricklewood', NW3: 'Hampstead', NW4: 'Hendon',
+  NW5: 'Kentish Town', NW6: 'Kilburn', NW7: 'Mill Hill', NW8: "St John's Wood",
+  NW9: 'The Hyde', NW10: 'Willesden', NW11: 'Golders Green',
+  SE1: 'Waterloo', SE2: 'Abbey Wood', SE3: 'Blackheath', SE4: 'Brockley',
+  SE5: 'Camberwell', SE6: 'Catford', SE7: 'Charlton', SE8: 'Deptford',
+  SE9: 'Eltham', SE10: 'Greenwich', SE11: 'Kennington', SE12: 'Lee',
+  SE13: 'Lewisham', SE14: 'New Cross', SE15: 'Peckham', SE16: 'Rotherhithe',
+  SE17: 'Walworth', SE18: 'Woolwich', SE19: 'Crystal Palace', SE20: 'Anerley',
+  SE21: 'Dulwich', SE22: 'East Dulwich', SE23: 'Forest Hill', SE24: 'Herne Hill',
+  SE25: 'South Norwood', SE26: 'Sydenham', SE27: 'West Norwood', SE28: 'Thamesmead',
+  SW1: 'Westminster', SW2: 'Brixton', SW3: 'Chelsea', SW4: 'Clapham',
+  SW5: "Earl's Court", SW6: 'Fulham', SW7: 'South Kensington', SW8: 'South Lambeth',
+  SW9: 'Stockwell', SW10: 'West Brompton', SW11: 'Battersea', SW12: 'Balham',
+  SW13: 'Barnes', SW14: 'Mortlake', SW15: 'Putney', SW16: 'Streatham',
+  SW17: 'Tooting', SW18: 'Wandsworth', SW19: 'Wimbledon', SW20: 'West Wimbledon',
+  W1: 'Mayfair', W2: 'Paddington', W3: 'Acton', W4: 'Chiswick', W5: 'Ealing',
+  W6: 'Hammersmith', W7: 'Hanwell', W8: 'Kensington', W9: 'Maida Vale',
+  W10: 'North Kensington', W11: 'Notting Hill', W12: "Shepherd's Bush",
+  W13: 'West Ealing', W14: 'West Kensington',
+  WC1: 'Bloomsbury', WC2: 'Covent Garden',
+  BR1: 'Bromley', BR2: 'Hayes', BR3: 'Beckenham', BR4: 'West Wickham',
+  BR5: "St Paul's Cray", BR6: 'Orpington', BR7: 'Chislehurst', BR8: 'Swanley',
+  CR0: 'Croydon', CR2: 'South Croydon', CR4: 'Mitcham', CR5: 'Coulsdon',
+  CR7: 'Thornton Heath', CR8: 'Purley',
+  DA1: 'Dartford', DA5: 'Bexley', DA6: 'Bexleyheath', DA7: 'Barnes Cray',
+  DA8: 'Erith', DA14: 'Sidcup', DA15: 'Blackfen', DA16: 'Welling',
+  DA17: 'Belvedere', DA18: 'Erith Marshes',
+  EN1: 'Enfield', EN2: 'Enfield Chase', EN3: 'Enfield Highway', EN4: 'Barnet', EN5: 'Barnet',
+  HA0: 'Wembley', HA1: 'Harrow', HA2: 'Harrow Weald', HA3: 'Kenton',
+  HA4: 'Ruislip', HA5: 'Pinner', HA6: 'Northwood', HA7: 'Stanmore',
+  HA8: 'Edgware', HA9: 'Wembley',
+  IG1: 'Ilford', IG2: 'Gants Hill', IG3: 'Seven Kings', IG4: 'Redbridge',
+  IG5: 'Clayhall', IG6: 'Barkingside', IG7: 'Chigwell', IG8: 'Woodford Green',
+  IG11: 'Barking',
+  KT1: 'Kingston', KT2: 'Kingston Hill', KT3: 'New Malden', KT4: 'Worcester Park',
+  KT5: 'Surbiton', KT6: 'Surbiton',
+  RM1: 'Romford', RM2: 'Gidea Park', RM3: 'Harold Hill', RM5: 'Collier Row',
+  RM6: 'Chadwell Heath', RM7: 'Rush Green', RM8: 'Dagenham', RM9: 'Becontree',
+  RM10: 'Dagenham', RM11: 'Hornchurch', RM12: 'Hornchurch', RM13: 'Rainham',
+  RM14: 'Upminster',
+  SM1: 'Sutton', SM2: 'Belmont', SM3: 'Cheam', SM4: 'Morden',
+  SM5: 'Carshalton', SM6: 'Wallington',
+  TW1: 'Twickenham', TW2: 'Whitton', TW3: 'Hounslow', TW4: 'Hounslow West',
+  TW5: 'Heston', TW7: 'Isleworth', TW8: 'Brentford', TW9: 'Richmond',
+  TW10: 'Ham', TW11: 'Teddington', TW12: 'Hampton', TW13: 'Feltham', TW14: 'Feltham',
+  UB1: 'Southall', UB2: 'Norwood Green', UB3: 'Hayes', UB4: 'Yeading',
+  UB5: 'Northolt', UB6: 'Greenford', UB7: 'West Drayton', UB8: 'Uxbridge',
+  UB9: 'Denham', UB10: 'Hillingdon',
+  WD6: 'Borehamwood', WD23: 'Bushey', WD25: 'Watford'
+};
+
 // E14 (Millwall/Isle of Dogs) baseline - will be calculated from data
 const BASELINE_DISTRICT = 'E14';
 let baselinePricePerSqft = 0;
@@ -127,6 +191,11 @@ async function loadTransport(): Promise<GeoJSON.FeatureCollection> {
   return response.json();
 }
 
+async function loadThames(): Promise<GeoJSON.FeatureCollection> {
+  const response = await fetch('./data/thames.json');
+  return response.json();
+}
+
 async function loadSchools(): Promise<GeoJSON.FeatureCollection> {
   // Load from Notion-synced schools.json (has rich metadata: images, highlights, website, stats)
   const response = await fetch('./data/schools.json');
@@ -162,12 +231,13 @@ async function init() {
   map.addControl(new mapboxgl.NavigationControl(), 'top-right');
 
   // Load all data
-  const [medianData, geoData, transportData, schoolsData, sqftData] = await Promise.all([
+  const [medianData, geoData, transportData, schoolsData, sqftData, thamesData] = await Promise.all([
     loadData(),
     loadGeoJSON(),
     loadTransport(),
     loadSchools(),
-    loadSqftData()
+    loadSqftData(),
+    loadThames()
   ]);
 
   // Store original GeoJSON features for rebuilding
@@ -210,6 +280,7 @@ async function init() {
         ...feature,
         properties: {
           ...feature.properties,
+          areaName: AREA_NAMES[district] || '',
           mainPrice: data ? getMainPrice(data) : 0,
           housesPrice: data ? getHousesPrice(data) : 0,
           flatsPrice: data ? getFlatsPrice(data) : 0,
@@ -440,7 +511,11 @@ async function init() {
       type: 'symbol',
       source: 'postcodes',
       layout: {
-        'text-field': ['get', 'name'],
+        'text-field': ['format',
+          ['get', 'name'], { 'font-scale': 1.0 },
+          '\n', {},
+          ['get', 'areaName'], { 'font-scale': 0.75 }
+        ],
         'text-font': ['DIN Pro Bold', 'Arial Unicode MS Bold'],
         'text-size': 13,
         'text-allow-overlap': false,
@@ -464,6 +539,27 @@ async function init() {
         'line-color': '#64b5f6',
         'line-width': 3,
         'line-opacity': 1
+      }
+    });
+
+    // === THAMES LAYER ===
+    map.addSource('thames', {
+      type: 'geojson',
+      data: thamesData
+    });
+
+    map.addLayer({
+      id: 'thames-line',
+      type: 'line',
+      source: 'thames',
+      layout: {
+        'line-join': 'round',
+        'line-cap': 'round'
+      },
+      paint: {
+        'line-color': '#1a3a5c',
+        'line-width': 4,
+        'line-opacity': 0.8
       }
     });
 
@@ -599,7 +695,9 @@ async function init() {
                      propertyType === 'flats' ? props.percentDiffFlats : props.percentDiff;
         const floorArea = props.medianFloorArea;
         
-        popupDistrict.textContent = props.name || props.POSTCODE || 'Unknown';
+        const districtName = props.name || props.POSTCODE || 'Unknown';
+        const areaName = props.areaName || AREA_NAMES[districtName] || '';
+        popupDistrict.textContent = areaName ? `${districtName} — ${areaName}` : districtName;
         popupPrice.textContent = formatPriceAuto(price || 0);
         popupPrice.style.color = getColor(diff || 0);
         
@@ -806,6 +904,14 @@ async function init() {
       }
     });
     
+    // Thames toggle
+    const thamesToggle = document.getElementById('toggle-thames') as HTMLInputElement;
+    if (thamesToggle) {
+      thamesToggle.addEventListener('change', () => {
+        map.setLayoutProperty('thames-line', 'visibility', thamesToggle.checked ? 'visible' : 'none');
+      });
+    }
+
     // School ranking toggles (checkboxes)
     const rankingToggleIds: Array<{id: string; key: 'top25' | 'top100' | 'top250'}> = [
       { id: 'toggle-schools-top25', key: 'top25' },

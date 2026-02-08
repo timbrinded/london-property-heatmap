@@ -860,6 +860,25 @@
             </div>
           </div>
         </div>
+        <!-- MAP OVERLAYS -->
+        <div class="filter-group" id="overlays-group">
+          <div class="filter-group-header" onclick="document.getElementById('overlays-group').classList.toggle('collapsed')">
+            <h4><span class="icon">🗺️</span> Map Overlays</h4>
+            <span class="filter-group-toggle">▲</span>
+          </div>
+          <div class="filter-group-content">
+            <div class="toggle-group">
+              <div class="toggle-item">
+                <label class="toggle-switch">
+                  <input type="checkbox" id="toggle-thames" checked>
+                  <span class="toggle-slider"></span>
+                </label>
+                <label for="toggle-thames">🌊 River Thames</label>
+              </div>
+            </div>
+          </div>
+        </div>
+        
         <div style="margin-top: 12px; padding-top: 10px; border-top: 1px solid rgba(255,255,255,0.08); display: flex; justify-content: space-between; align-items: center;">
           <a href="#" onclick="forceRefresh(); return false;" style="font-size: 10px; color: rgba(255,255,255,0.4); text-decoration: none;">🔄 Force refresh</a>
           <span id="app-version" style="font-size: 9px; color: rgba(255,255,255,0.25);"></span>
