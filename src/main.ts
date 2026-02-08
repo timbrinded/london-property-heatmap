@@ -5,16 +5,21 @@ mapboxgl.accessToken = 'pk.eyJ1IjoidGltLXNiIiwiYSI6ImNta3lnbTI1czA3ZXAzZ3Iwa3IzZ
 
 interface PostcodeData {
   district: string;
-  medianPricePerSqft: number;
-  medianHousesPricePerSqft: number | null;
-  medianFlatsPricePerSqft: number | null;
+  // New £/sqft fields
+  medianPricePerSqft?: number;
+  medianHousesPricePerSqft?: number | null;
+  medianFlatsPricePerSqft?: number | null;
+  // Legacy median price fields
+  medianPrice?: number;
+  medianHousesPrice?: number;
+  medianFlatsPrice?: number;
   percentDiff: number;
   percentDiffHouses: number | null;
   percentDiffFlats?: number | null;
   sampleSize: number;
   housesSampleSize: number;
   flatsSampleSize: number;
-  medianFloorArea: number;
+  medianFloorArea?: number;
 }
 
 interface SchoolProperties {
@@ -37,6 +42,19 @@ const BASELINE_DISTRICT = 'E14';
 let baselinePricePerSqft = 0;
 let baselineHousesPricePerSqft = 0;
 let baselineFlatsPricePerSqft = 0;
+
+// Detect data schema and use £/sqft if available, fallback to median price
+let useSqft = false;
+
+function getMainPrice(d: PostcodeData): number {
+  return useSqft ? (d.medianPricePerSqft || 0) : (d.medianPrice || 0);
+}
+function getHousesPrice(d: PostcodeData): number {
+  return useSqft ? (d.medianHousesPricePerSqft || 0) : (d.medianHousesPrice || 0);
+}
+function getFlatsPrice(d: PostcodeData): number {
+  return useSqft ? (d.medianFlatsPricePerSqft || 0) : (d.medianFlatsPrice || 0);
+}
 
 // Property type filter
 type PropertyType = 'all' | 'houses' | 'flats';
@@ -61,6 +79,17 @@ const SCHOOL_COLORS: Record<string, string> = {
 
 function formatPricePerSqft(price: number): string {
   return `£${Math.round(price)}/sqft`;
+}
+
+function formatPrice(price: number): string {
+  if (price >= 1000000) {
+    return `£${(price / 1000000).toFixed(2)}M`;
+  }
+  return `£${(price / 1000).toFixed(0)}K`;
+}
+
+function formatPriceAuto(price: number): string {
+  return useSqft ? formatPricePerSqft(price) : formatPrice(price);
 }
 
 function formatDiff(diff: number): string {
@@ -133,14 +162,24 @@ async function init() {
   const priceLookup = new Map<string, PostcodeData>();
   priceData.forEach(d => priceLookup.set(d.district, d));
 
+  // Detect schema: check if first item has medianPricePerSqft
+  useSqft = priceData.length > 0 && priceData[0].medianPricePerSqft != null && priceData[0].medianPricePerSqft > 0;
+
   // Get baseline prices for all property types
   const baseline = priceLookup.get(BASELINE_DISTRICT);
   if (baseline) {
-    baselinePricePerSqft = baseline.medianPricePerSqft;
-    baselineHousesPricePerSqft = baseline.medianHousesPricePerSqft || baselinePricePerSqft;
-    baselineFlatsPricePerSqft = baseline.medianFlatsPricePerSqft || baselinePricePerSqft;
+    baselinePricePerSqft = getMainPrice(baseline);
+    baselineHousesPricePerSqft = getHousesPrice(baseline) || baselinePricePerSqft;
+    baselineFlatsPricePerSqft = getFlatsPrice(baseline) || baselinePricePerSqft;
     document.getElementById('baseline-price')!.textContent = 
-      `Median: ${formatPricePerSqft(baselinePricePerSqft)}`;
+      `Median: ${formatPriceAuto(baselinePricePerSqft)}`;
+  }
+
+  // For legacy data without percentDiffFlats, calculate it
+  function calcFlatsPercentDiff(d: PostcodeData): number {
+    const flatsPrice = getFlatsPrice(d);
+    if (!flatsPrice || !baselineFlatsPricePerSqft) return 0;
+    return ((flatsPrice - baselineFlatsPricePerSqft) / baselineFlatsPricePerSqft) * 100;
   }
 
   // Merge price data into GeoJSON
@@ -152,12 +191,12 @@ async function init() {
       ...feature,
       properties: {
         ...feature.properties,
-        medianPricePerSqft: data?.medianPricePerSqft || 0,
-        medianHousesPricePerSqft: data?.medianHousesPricePerSqft || 0,
-        medianFlatsPricePerSqft: data?.medianFlatsPricePerSqft || 0,
+        mainPrice: data ? getMainPrice(data) : 0,
+        housesPrice: data ? getHousesPrice(data) : 0,
+        flatsPrice: data ? getFlatsPrice(data) : 0,
         percentDiff: data?.percentDiff || 0,
         percentDiffHouses: data?.percentDiffHouses || 0,
-        percentDiffFlats: data?.percentDiffFlats || 0,
+        percentDiffFlats: data?.percentDiffFlats ?? (data ? calcFlatsPercentDiff(data) : 0),
         sampleSize: data?.sampleSize || 0,
         housesSampleSize: data?.housesSampleSize || 0,
         flatsSampleSize: data?.flatsSampleSize || 0,
@@ -165,7 +204,7 @@ async function init() {
         color: data ? getColor(data.percentDiff) : '#333'
       }
     };
-  }).filter(f => f.properties.medianPricePerSqft > 0);
+  }).filter(f => f.properties.mainPrice > 0);
 
   // Filter state
   const transportFilters: TransportFilters = {
@@ -199,7 +238,7 @@ async function init() {
     const typeLabel = propertyType === 'houses' ? ' (Houses)' : 
                       propertyType === 'flats' ? ' (Flats)' : '';
     document.getElementById('baseline-price')!.textContent = 
-      `Median${typeLabel}: ${formatPricePerSqft(basePrice)}`;
+      `Median${typeLabel}: ${formatPriceAuto(basePrice)}`;
     
     // Dynamically compute color based on selected property type's percent diff
     map.setPaintProperty('postcodes-fill', 'fill-color', [
@@ -514,17 +553,17 @@ async function init() {
         map.getCanvas().style.cursor = 'pointer';
         
         // Get price and diff based on current property type filter
-        const price = propertyType === 'houses' ? props.medianHousesPricePerSqft : 
-                      propertyType === 'flats' ? props.medianFlatsPricePerSqft : props.medianPricePerSqft;
+        const price = propertyType === 'houses' ? props.housesPrice : 
+                      propertyType === 'flats' ? props.flatsPrice : props.mainPrice;
         const diff = propertyType === 'houses' ? props.percentDiffHouses : 
                      propertyType === 'flats' ? props.percentDiffFlats : props.percentDiff;
         const floorArea = props.medianFloorArea;
         
         popupDistrict.textContent = props.name || props.POSTCODE || 'Unknown';
-        popupPrice.textContent = formatPricePerSqft(price || 0);
+        popupPrice.textContent = formatPriceAuto(price || 0);
         popupPrice.style.color = getColor(diff || 0);
         
-        const floorAreaText = floorArea ? ` · ${floorArea}m² avg` : '';
+        const floorAreaText = (useSqft && floorArea) ? ` · ${floorArea}m² avg` : '';
         popupDiff.textContent = formatDiff(diff || 0) + floorAreaText;
         popupDiff.className = 'diff ' + (
           Math.abs(diff) < 5 ? 'baseline' : 
