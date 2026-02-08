@@ -744,6 +744,10 @@
             </div>
           </div>
         </div>
+        <div style="margin-top: 12px; padding-top: 10px; border-top: 1px solid rgba(255,255,255,0.08); display: flex; justify-content: space-between; align-items: center;">
+          <a href="#" onclick="forceRefresh(); return false;" style="font-size: 10px; color: rgba(255,255,255,0.4); text-decoration: none;">🔄 Force refresh</a>
+          <span id="app-version" style="font-size: 9px; color: rgba(255,255,255,0.25);"></span>
+        </div>
       </div>
     </div>
     
@@ -787,13 +791,20 @@
               // Check for updates every 60 seconds
               setInterval(() => reg.update(), 60000);
               
-              // Handle updates
+              // Check for updates when tab becomes visible (returning to app)
+              document.addEventListener('visibilitychange', () => {
+                if (document.visibilityState === 'visible') {
+                  reg.update();
+                }
+              });
+              
+              // Handle updates - auto-apply immediately
               reg.addEventListener('updatefound', () => {
                 const newWorker = reg.installing;
                 newWorker.addEventListener('statechange', () => {
                   if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
-                    // New version available
-                    showUpdateBanner();
+                    // Auto-apply: skip waiting immediately
+                    newWorker.postMessage('skipWaiting');
                   }
                 });
               });
@@ -811,51 +822,26 @@
         });
       }
       
-      function showUpdateBanner() {
-        const banner = document.createElement('div');
-        banner.id = 'update-banner';
-        banner.innerHTML = `
-          <span>🔄 New version available</span>
-          <button onclick="applyUpdate()">Refresh</button>
-          <button onclick="this.parentElement.remove()" style="background: transparent; border: 1px solid rgba(255,255,255,0.3);">Later</button>
-        `;
-        banner.style.cssText = `
-          position: fixed;
-          bottom: 20px;
-          right: 20px;
-          background: rgba(26, 26, 46, 0.98);
-          padding: 12px 16px;
-          border-radius: 10px;
-          display: flex;
-          align-items: center;
-          gap: 12px;
-          z-index: 9999;
-          box-shadow: 0 4px 20px rgba(0,0,0,0.4);
-          border: 1px solid rgba(100, 181, 246, 0.3);
-          font-size: 13px;
-          color: #fff;
-        `;
-        banner.querySelectorAll('button').forEach(btn => {
-          btn.style.cssText = `
-            background: #64b5f6;
-            color: #1a1a2e;
-            border: none;
-            padding: 6px 12px;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 12px;
-            font-weight: 600;
-          `;
-        });
-        document.body.appendChild(banner);
+      // Display build version
+      const versionEl = document.getElementById('app-version');
+      if (versionEl && versionEl.dataset.version) {
+        versionEl.textContent = 'v' + versionEl.dataset.version;
       }
-      
-      function applyUpdate() {
-        navigator.serviceWorker.getRegistration().then(reg => {
-          if (reg && reg.waiting) {
-            reg.waiting.postMessage('skipWaiting');
-          }
-        });
+
+      // Force refresh: unregister SW, clear all caches, reload
+      function forceRefresh() {
+        if ('serviceWorker' in navigator) {
+          navigator.serviceWorker.getRegistration().then(reg => {
+            if (reg) reg.unregister();
+          });
+          caches.keys().then(names => {
+            names.forEach(name => caches.delete(name));
+          }).then(() => {
+            window.location.reload();
+          });
+        } else {
+          window.location.reload();
+        }
       }
     </script>
   </body>

@@ -17,6 +17,17 @@ if (!existsSync(swPath)) {
 const timestamp = Date.now().toString(36); // Compact timestamp
 const swContent = readFileSync(swPath, 'utf-8');
 const updated = swContent.replace('__BUILD_TIMESTAMP__', timestamp);
-
 writeFileSync(swPath, updated);
-console.log(`✓ Service worker versioned: ${timestamp}`);
+
+// Also inject version into index.html
+const indexPath = join(distDir, 'index.html');
+if (existsSync(indexPath)) {
+  const html = readFileSync(indexPath, 'utf-8');
+  const versionedHtml = html.replace(
+    'id="app-version"',
+    `id="app-version" data-version="${timestamp}"`
+  );
+  writeFileSync(indexPath, versionedHtml);
+}
+
+console.log(`✓ Service worker + HTML versioned: ${timestamp}`);

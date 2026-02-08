@@ -78,9 +78,20 @@ self.addEventListener('fetch', event => {
 
 async function networkFirst(request) {
   try {
-    const response = await fetch(request);
+    // Cache-bust: append version param to avoid browser HTTP cache serving stale responses
+    const bustUrl = new URL(request.url);
+    bustUrl.searchParams.set('_v', CACHE_VERSION);
+    const bustRequest = new Request(bustUrl, {
+      method: request.method,
+      headers: request.headers,
+      mode: request.mode,
+      credentials: request.credentials,
+      redirect: request.redirect,
+    });
+    const response = await fetch(bustRequest);
     if (response.ok) {
       const cache = await caches.open(CACHE_NAME);
+      // Store against original URL (without cache-bust param)
       cache.put(request, response.clone());
     }
     return response;
