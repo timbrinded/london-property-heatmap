@@ -10,7 +10,7 @@
     <link rel="icon" type="image/png" href="/icon-192.png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/manifest.json" />
-    <title>London Property Heatmap - Prices Relative to Millwall</title>
+    <title>London Property Heatmap - £/sqft Relative to Millwall</title>
     <link href="https://api.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.css" rel="stylesheet" />
     <style>
       * {
@@ -461,6 +461,99 @@
       .school-dot.girls { background: #F48FB1; }
       .school-dot.coed { background: #AED581; }
       
+      /* Search box */
+      #search-container {
+        position: absolute;
+        top: 20px;
+        left: 350px;
+        z-index: 1000;
+        width: 280px;
+      }
+      
+      @media (max-width: 600px) {
+        #search-container {
+          left: 10px;
+          top: auto;
+          bottom: 90px;
+          width: calc(100% - 20px);
+        }
+      }
+      
+      #search-container .search-wrapper {
+        position: relative;
+        display: flex;
+        align-items: center;
+      }
+      
+      #search-input {
+        width: 100%;
+        padding: 10px 36px 10px 14px;
+        background: rgba(26, 26, 46, 0.95);
+        border: 1px solid rgba(100, 181, 246, 0.3);
+        border-radius: 10px;
+        color: #fff;
+        font-size: 14px;
+        outline: none;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+      }
+      
+      #search-input::placeholder {
+        color: rgba(255,255,255,0.4);
+      }
+      
+      #search-input:focus {
+        border-color: #64b5f6;
+      }
+      
+      #search-clear {
+        position: absolute;
+        right: 10px;
+        background: none;
+        border: none;
+        color: rgba(255,255,255,0.5);
+        font-size: 18px;
+        cursor: pointer;
+        display: none;
+        padding: 0 4px;
+        line-height: 1;
+      }
+      
+      #search-clear:hover {
+        color: #fff;
+      }
+      
+      #search-results {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        margin-top: 4px;
+        background: rgba(26, 26, 46, 0.98);
+        border: 1px solid rgba(100, 181, 246, 0.3);
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+      }
+      
+      .search-result-item {
+        padding: 10px 14px;
+        font-size: 13px;
+        color: #ccc;
+        cursor: pointer;
+        border-bottom: 1px solid rgba(255,255,255,0.05);
+      }
+      
+      .search-result-item:last-child {
+        border-bottom: none;
+      }
+      
+      .search-result-item:hover {
+        background: rgba(100, 181, 246, 0.15);
+        color: #fff;
+      }
+      
       .hover-popup {
         position: absolute;
         display: none;
@@ -581,11 +674,11 @@
     
     <div class="info-panel" id="info-panel">
       <div class="info-header" onclick="document.getElementById('info-panel').classList.toggle('collapsed')">
-        <h1>🏠 London Property Prices</h1>
+        <h1>🏠 London £/sqft</h1>
         <span class="info-toggle">▲</span>
       </div>
       <div class="info-content">
-        <p>Median property prices by postcode district, shown relative to your baseline location.</p>
+        <p>Median £/sqft by postcode district (Land Registry + EPC data), relative to your baseline.</p>
         <div class="baseline">
           <strong>Baseline: E14 (Millwall)</strong><br>
           <span id="baseline-price">Loading...</span>
@@ -751,9 +844,17 @@
       </div>
     </div>
     
+    <div id="search-container">
+      <div class="search-wrapper">
+        <input type="text" id="search-input" placeholder="🔍 Search location..." autocomplete="off" />
+        <button id="search-clear">✕</button>
+      </div>
+      <div id="search-results"></div>
+    </div>
+    
     <div class="legend" id="legend">
       <div class="legend-header" onclick="document.getElementById('legend').classList.toggle('collapsed')">
-        <h3>Price vs E14</h3>
+        <h3>£/sqft vs E14</h3>
         <span class="legend-toggle">▲</span>
       </div>
       <div class="legend-content">

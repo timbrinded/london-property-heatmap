@@ -5,15 +5,16 @@ mapboxgl.accessToken = 'pk.eyJ1IjoidGltLXNiIiwiYSI6ImNta3lnbTI1czA3ZXAzZ3Iwa3IzZ
 
 interface PostcodeData {
   district: string;
-  medianPrice: number;
-  medianHousesPrice: number;
-  medianFlatsPrice: number;
+  medianPricePerSqft: number;
+  medianHousesPricePerSqft: number | null;
+  medianFlatsPricePerSqft: number | null;
   percentDiff: number;
-  percentDiffHouses: number;
-  percentDiffFlats?: number;
+  percentDiffHouses: number | null;
+  percentDiffFlats?: number | null;
   sampleSize: number;
   housesSampleSize: number;
   flatsSampleSize: number;
+  medianFloorArea: number;
 }
 
 interface SchoolProperties {
@@ -33,9 +34,9 @@ interface SchoolProperties {
 
 // E14 (Millwall/Isle of Dogs) baseline - will be calculated from data
 const BASELINE_DISTRICT = 'E14';
-let baselinePrice = 0;
-let baselineHousesPrice = 0;
-let baselineFlatsPrice = 0;
+let baselinePricePerSqft = 0;
+let baselineHousesPricePerSqft = 0;
+let baselineFlatsPricePerSqft = 0;
 
 // Property type filter
 type PropertyType = 'all' | 'houses' | 'flats';
@@ -58,11 +59,8 @@ const SCHOOL_COLORS: Record<string, string> = {
   'co-ed': '#AED581'
 };
 
-function formatPrice(price: number): string {
-  if (price >= 1000000) {
-    return `£${(price / 1000000).toFixed(2)}M`;
-  }
-  return `£${(price / 1000).toFixed(0)}K`;
+function formatPricePerSqft(price: number): string {
+  return `£${Math.round(price)}/sqft`;
 }
 
 function formatDiff(diff: number): string {
@@ -138,17 +136,11 @@ async function init() {
   // Get baseline prices for all property types
   const baseline = priceLookup.get(BASELINE_DISTRICT);
   if (baseline) {
-    baselinePrice = baseline.medianPrice;
-    baselineHousesPrice = baseline.medianHousesPrice;
-    baselineFlatsPrice = baseline.medianFlatsPrice;
+    baselinePricePerSqft = baseline.medianPricePerSqft;
+    baselineHousesPricePerSqft = baseline.medianHousesPricePerSqft || baselinePricePerSqft;
+    baselineFlatsPricePerSqft = baseline.medianFlatsPricePerSqft || baselinePricePerSqft;
     document.getElementById('baseline-price')!.textContent = 
-      `Median: ${formatPrice(baselinePrice)}`;
-  }
-
-  // Helper to calculate percent diff for flats (not in source data)
-  function calcFlatsPercentDiff(flatsPrice: number): number {
-    if (!flatsPrice || !baselineFlatsPrice) return 0;
-    return ((flatsPrice - baselineFlatsPrice) / baselineFlatsPrice) * 100;
+      `Median: ${formatPricePerSqft(baselinePricePerSqft)}`;
   }
 
   // Merge price data into GeoJSON
@@ -160,19 +152,20 @@ async function init() {
       ...feature,
       properties: {
         ...feature.properties,
-        medianPrice: data?.medianPrice || 0,
-        medianHousesPrice: data?.medianHousesPrice || 0,
-        medianFlatsPrice: data?.medianFlatsPrice || 0,
+        medianPricePerSqft: data?.medianPricePerSqft || 0,
+        medianHousesPricePerSqft: data?.medianHousesPricePerSqft || 0,
+        medianFlatsPricePerSqft: data?.medianFlatsPricePerSqft || 0,
         percentDiff: data?.percentDiff || 0,
         percentDiffHouses: data?.percentDiffHouses || 0,
-        percentDiffFlats: data ? calcFlatsPercentDiff(data.medianFlatsPrice) : 0,
+        percentDiffFlats: data?.percentDiffFlats || 0,
         sampleSize: data?.sampleSize || 0,
         housesSampleSize: data?.housesSampleSize || 0,
         flatsSampleSize: data?.flatsSampleSize || 0,
+        medianFloorArea: data?.medianFloorArea || 0,
         color: data ? getColor(data.percentDiff) : '#333'
       }
     };
-  }).filter(f => f.properties.medianPrice > 0);
+  }).filter(f => f.properties.medianPricePerSqft > 0);
 
   // Filter state
   const transportFilters: TransportFilters = {
@@ -201,12 +194,12 @@ async function init() {
                       propertyType === 'flats' ? 'percentDiffFlats' : 'percentDiff';
     
     // Update baseline display
-    const basePrice = propertyType === 'houses' ? baselineHousesPrice : 
-                      propertyType === 'flats' ? baselineFlatsPrice : baselinePrice;
+    const basePrice = propertyType === 'houses' ? baselineHousesPricePerSqft : 
+                      propertyType === 'flats' ? baselineFlatsPricePerSqft : baselinePricePerSqft;
     const typeLabel = propertyType === 'houses' ? ' (Houses)' : 
                       propertyType === 'flats' ? ' (Flats)' : '';
     document.getElementById('baseline-price')!.textContent = 
-      `Median${typeLabel}: ${formatPrice(basePrice)}`;
+      `Median${typeLabel}: ${formatPricePerSqft(basePrice)}`;
     
     // Dynamically compute color based on selected property type's percent diff
     map.setPaintProperty('postcodes-fill', 'fill-color', [
@@ -362,6 +355,26 @@ async function init() {
       }
     });
 
+    // Postcode district labels
+    map.addLayer({
+      id: 'postcodes-labels',
+      type: 'symbol',
+      source: 'postcodes',
+      layout: {
+        'text-field': ['get', 'name'],
+        'text-font': ['DIN Pro Bold', 'Arial Unicode MS Bold'],
+        'text-size': 13,
+        'text-allow-overlap': false,
+        'text-ignore-placement': false,
+        'text-padding': 2
+      },
+      paint: {
+        'text-color': '#ffffff',
+        'text-halo-color': 'rgba(0, 0, 0, 0.8)',
+        'text-halo-width': 2
+      }
+    });
+
     // Highlight E14 (baseline)
     map.addLayer({
       id: 'baseline-highlight',
@@ -501,16 +514,18 @@ async function init() {
         map.getCanvas().style.cursor = 'pointer';
         
         // Get price and diff based on current property type filter
-        const price = propertyType === 'houses' ? props.medianHousesPrice : 
-                      propertyType === 'flats' ? props.medianFlatsPrice : props.medianPrice;
+        const price = propertyType === 'houses' ? props.medianHousesPricePerSqft : 
+                      propertyType === 'flats' ? props.medianFlatsPricePerSqft : props.medianPricePerSqft;
         const diff = propertyType === 'houses' ? props.percentDiffHouses : 
                      propertyType === 'flats' ? props.percentDiffFlats : props.percentDiff;
+        const floorArea = props.medianFloorArea;
         
         popupDistrict.textContent = props.name || props.POSTCODE || 'Unknown';
-        popupPrice.textContent = formatPrice(price || 0);
+        popupPrice.textContent = formatPricePerSqft(price || 0);
         popupPrice.style.color = getColor(diff || 0);
         
-        popupDiff.textContent = formatDiff(diff || 0);
+        const floorAreaText = floorArea ? ` · ${floorArea}m² avg` : '';
+        popupDiff.textContent = formatDiff(diff || 0) + floorAreaText;
         popupDiff.className = 'diff ' + (
           Math.abs(diff) < 5 ? 'baseline' : 
           diff < 0 ? 'cheaper' : 'expensive'
@@ -747,6 +762,78 @@ async function init() {
         propertyType = target.value as PropertyType;
         updatePostcodeColors();
       });
+    });
+
+    // === LOCATION SEARCH ===
+    const searchInput = document.getElementById('search-input') as HTMLInputElement;
+    const searchResults = document.getElementById('search-results')!;
+    const searchClear = document.getElementById('search-clear')!;
+    const MAPBOX_TOKEN = mapboxgl.accessToken;
+    let searchTimeout: ReturnType<typeof setTimeout> | null = null;
+    let currentResults: Array<{ center: [number, number]; place_name: string }> = [];
+
+    function clearSearch() {
+      searchInput.value = '';
+      searchResults.style.display = 'none';
+      searchClear.style.display = 'none';
+      currentResults = [];
+    }
+
+    function selectResult(result: { center: [number, number]; place_name: string }) {
+      map.flyTo({ center: result.center, zoom: 12 });
+      searchInput.value = result.place_name;
+      searchResults.style.display = 'none';
+      searchClear.style.display = 'block';
+    }
+
+    function renderResults(features: any[]) {
+      currentResults = features;
+      if (features.length === 0) {
+        searchResults.style.display = 'none';
+        return;
+      }
+      searchResults.innerHTML = features.map((f, i) =>
+        `<div class="search-result-item" data-index="${i}">${f.place_name}</div>`
+      ).join('');
+      searchResults.style.display = 'block';
+    }
+
+    searchInput.addEventListener('input', () => {
+      const query = searchInput.value.trim();
+      searchClear.style.display = query ? 'block' : 'none';
+      if (searchTimeout) clearTimeout(searchTimeout);
+      if (query.length < 2) { searchResults.style.display = 'none'; return; }
+      searchTimeout = setTimeout(async () => {
+        try {
+          const url = `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(query)}.json?access_token=${MAPBOX_TOKEN}&bbox=-0.51,51.28,0.33,51.69&types=place,locality,neighborhood,postcode&limit=5`;
+          const resp = await fetch(url);
+          const data = await resp.json();
+          renderResults(data.features || []);
+        } catch { searchResults.style.display = 'none'; }
+      }, 300);
+    });
+
+    searchInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' && currentResults.length > 0) {
+        selectResult(currentResults[0]);
+      }
+    });
+
+    searchResults.addEventListener('click', (e) => {
+      const item = (e.target as HTMLElement).closest('.search-result-item') as HTMLElement;
+      if (item) {
+        const idx = parseInt(item.dataset.index || '0');
+        selectResult(currentResults[idx]);
+      }
+    });
+
+    searchClear.addEventListener('click', clearSearch);
+
+    // Close results when clicking elsewhere
+    document.addEventListener('click', (e) => {
+      if (!(e.target as HTMLElement).closest('#search-container')) {
+        searchResults.style.display = 'none';
+      }
     });
   });
 }
