@@ -548,6 +548,36 @@ async function init() {
       data: thamesData
     });
 
+    // Thames glow (wide, soft edge)
+    map.addLayer({
+      id: 'thames-glow',
+      type: 'line',
+      source: 'thames',
+      layout: {
+        'line-join': 'round',
+        'line-cap': 'round'
+      },
+      paint: {
+        'line-color': '#0d2847',
+        'line-width': [
+          'interpolate', ['linear'], ['zoom'],
+          9, 20,
+          11, 50,
+          13, 120,
+          14, 200
+        ],
+        'line-opacity': 0.4,
+        'line-blur': [
+          'interpolate', ['linear'], ['zoom'],
+          9, 8,
+          11, 15,
+          13, 30,
+          14, 50
+        ]
+      }
+    });
+
+    // Thames main body (wide, represents actual river width)
     map.addLayer({
       id: 'thames-line',
       type: 'line',
@@ -557,9 +587,15 @@ async function init() {
         'line-cap': 'round'
       },
       paint: {
-        'line-color': '#1a3a5c',
-        'line-width': 4,
-        'line-opacity': 0.8
+        'line-color': '#0a1e3d',
+        'line-width': [
+          'interpolate', ['linear'], ['zoom'],
+          9, 8,
+          11, 22,
+          13, 55,
+          14, 90
+        ],
+        'line-opacity': 0.7
       }
     });
 
@@ -908,7 +944,9 @@ async function init() {
     const thamesToggle = document.getElementById('toggle-thames') as HTMLInputElement;
     if (thamesToggle) {
       thamesToggle.addEventListener('change', () => {
-        map.setLayoutProperty('thames-line', 'visibility', thamesToggle.checked ? 'visible' : 'none');
+        const vis = thamesToggle.checked ? 'visible' : 'none';
+        map.setLayoutProperty('thames-line', 'visibility', vis);
+        map.setLayoutProperty('thames-glow', 'visibility', vis);
       });
     }
 
